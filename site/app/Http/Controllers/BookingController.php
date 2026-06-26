@@ -60,8 +60,13 @@ class BookingController extends Controller
 
         $quote = $this->calculator->quote($bookable->price, $checkIn, $checkOut, $percent);
 
-        // Generate unique ref: HB-##### (5 digits, zero-padded)
+        // Generate unique ref: HB-##### (5 digits, zero-padded), cap at 50 attempts
+        $maxAttempts = 50;
+        $attempts    = 0;
         do {
+            if (++$attempts > $maxAttempts) {
+                throw new \RuntimeException('Unable to generate a unique booking reference');
+            }
             $ref = 'HB-' . str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
         } while (Booking::where('ref', $ref)->exists());
 

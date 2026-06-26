@@ -8,7 +8,27 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Booking extends Model
 {
-    protected $guarded = [];
+    // All booking mutations pass explicit, server-computed arrays — never request()->all().
+    protected $fillable = [
+        'ref',
+        'bookable_type',
+        'bookable_id',
+        'guest_name',
+        'guest_email',
+        'guest_phone',
+        'check_in',
+        'check_out',
+        'nights',
+        'guests',
+        'total',
+        'commitment_percent',
+        'commitment_fee',
+        'balance_due',
+        'status',
+        'payment_method_id',
+        'proof_path',
+        'notes',
+    ];
 
     protected $casts = [
         'check_in'       => 'date',

@@ -46,6 +46,7 @@ class CheckoutController extends Controller
                 },
             ],
             'proof' => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp,pdf', 'max:4096'],
+            'notes' => ['nullable', 'string', 'max:1000'],
         ], [
             'payment_method_id.required' => 'Please select a payment method.',
         ]);
@@ -56,6 +57,10 @@ class CheckoutController extends Controller
 
         if ($request->hasFile('proof') && $request->file('proof')->isValid()) {
             $data['proof_path'] = $request->file('proof')->store('proofs', 'public');
+        }
+
+        if ($request->filled('notes')) {
+            $data['notes'] = $request->input('notes');
         }
 
         $booking->update($data);

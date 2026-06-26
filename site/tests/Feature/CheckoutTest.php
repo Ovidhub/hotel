@@ -155,7 +155,46 @@ it('updates booking payment method and proof on checkout confirm', function () {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 5. booking.success page shows ref, total, and commitment fee
+// 5. checkout.confirm rejects inactive payment methods
+// ─────────────────────────────────────────────────────────────────────────────
+it('rejects checkout confirm when payment method is inactive', function () {
+    $room    = Room::first();
+    $booking = Booking::create([
+        'ref'                => 'HB-77777',
+        'bookable_type'      => Room::class,
+        'bookable_id'        => $room->id,
+        'guest_name'         => 'Test Guest',
+        'guest_email'        => 'test@example.com',
+        'guest_phone'        => '+234 800 000 0003',
+        'check_in'           => now()->addDay(),
+        'check_out'          => now()->addDays(3),
+        'nights'             => 2,
+        'guests'             => 2,
+        'total'              => 60000,
+        'commitment_percent' => 40,
+        'commitment_fee'     => 24000,
+        'balance_due'        => 36000,
+        'status'             => 'Pending Payment',
+    ]);
+
+    // Front Desk POS is seeded as inactive (active=false)
+    $inactiveMethod = PaymentMethod::where('active', false)->first();
+    expect($inactiveMethod)->not->toBeNull('Expected at least one inactive payment method from seeder');
+
+    $response = $this->post(route('checkout.confirm', ['booking' => $booking->ref]), [
+        'payment_method_id' => $inactiveMethod->id,
+    ]);
+
+    // Should redirect back with validation errors
+    $response->assertSessionHasErrors('payment_method_id');
+
+    // Booking's payment_method_id must NOT have been set to the inactive method
+    $booking->refresh();
+    expect($booking->payment_method_id)->not->toBe($inactiveMethod->id);
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6. booking.success page shows ref, total, and commitment fee
 // ─────────────────────────────────────────────────────────────────────────────
 it('renders booking success page with ref and totals', function () {
     $room          = Room::first();
