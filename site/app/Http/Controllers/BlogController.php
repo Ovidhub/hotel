@@ -8,7 +8,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = BlogPost::orderByDesc('published_at')->get();
+        $posts = BlogPost::where('published_at', '<=', now())->orderByDesc('published_at')->get();
 
         return view('blog.index', compact('posts'));
     }

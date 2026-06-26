@@ -9,6 +9,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContactController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -36,5 +37,5 @@ Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 
 // Static pages
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');

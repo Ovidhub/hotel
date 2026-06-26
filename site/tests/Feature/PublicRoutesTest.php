@@ -5,6 +5,7 @@ use App\Models\Apartment;
 use App\Models\BlogPost;
 use App\Models\Faq;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Str;
 
 uses(RefreshDatabase::class);
 
@@ -122,5 +123,5 @@ test('blog show displays post body', function () {
     $post = BlogPost::first();
     $this->get(route('blog.show', $post))
          ->assertOk()
-         ->assertSee($post->title);
+         ->assertSee(Str::limit($post->body, 40, ''));
 });

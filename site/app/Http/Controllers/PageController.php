@@ -11,11 +11,6 @@ class PageController extends Controller
         return view('about');
     }
 
-    public function contact()
-    {
-        return view('contact');
-    }
-
     public function faq()
     {
         $faqs = Faq::orderBy('sort')->get();
