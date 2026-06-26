@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faq;
+use App\Models\Testimonial;
 
 class PageController extends Controller
 {
     public function about()
     {
-        return view('about');
+        $testimonials = Testimonial::orderBy('id')->take(6)->get();
+
+        return view('about', compact('testimonials'));
     }
 
     public function faq()

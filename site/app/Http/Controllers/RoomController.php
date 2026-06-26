@@ -15,6 +15,12 @@ class RoomController extends Controller
 
     public function show(Room $room)
     {
-        return view('rooms.show', compact('room'));
+        $similar = Room::where('is_active', true)
+            ->where('id', '!=', $room->id)
+            ->orderBy('sort')
+            ->take(3)
+            ->get();
+
+        return view('rooms.show', compact('room', 'similar'));
     }
 }

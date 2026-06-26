@@ -1,5 +1,5 @@
 <x-layouts.app
-    title="HB Apartments — Serviced Apartments in Asaba, Delta State"
+    title="HB Serviced Apartments in Asaba"
     description="HB Apartments by Hotel Benizia offers serviced short-let apartments in Asaba, Delta State. Ideal for extended stays, families, and business travelers.">
 
     <x-page-hero

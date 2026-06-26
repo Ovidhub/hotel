@@ -1,5 +1,5 @@
 <x-layouts.app
-    title="Photo Gallery — Hotel Benizia Asaba"
+    title="Photo Gallery"
     description="Browse the Hotel Benizia photo gallery. See our rooms, suites, restaurant, swimming pool, event halls, and grounds in Asaba, Delta State.">
 
     <x-page-hero

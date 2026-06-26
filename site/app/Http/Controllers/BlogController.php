@@ -15,6 +15,12 @@ class BlogController extends Controller
 
     public function show(BlogPost $post)
     {
-        return view('blog.show', compact('post'));
+        $related = BlogPost::where('published_at', '<=', now())
+            ->where('id', '!=', $post->id)
+            ->orderByDesc('published_at')
+            ->take(3)
+            ->get();
+
+        return view('blog.show', compact('post', 'related'));
     }
 }
