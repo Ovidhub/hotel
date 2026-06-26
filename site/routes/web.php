@@ -11,6 +11,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CheckoutController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -38,8 +39,12 @@ Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 
 // Booking
 Route::get('/book/{type}/{slug}', [BookingController::class, 'create'])->name('booking.create');
-// booking.store is a stub — Task 11 will expand it into a full checkout flow
 Route::post('/book', [BookingController::class, 'store'])->name('booking.store');
+
+// Checkout flow
+Route::get('/checkout/{booking:ref}', [CheckoutController::class, 'show'])->name('checkout.show');
+Route::post('/checkout/{booking:ref}', [CheckoutController::class, 'confirm'])->name('checkout.confirm');
+Route::get('/booking/success/{booking:ref}', [BookingController::class, 'success'])->name('booking.success');
 
 // Static pages
 Route::get('/about', [PageController::class, 'about'])->name('about');

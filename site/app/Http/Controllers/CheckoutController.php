@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Booking;
+use App\Models\PaymentMethod;
+use Illuminate\Http\Request;
+
+class CheckoutController extends Controller
+{
+    /**
+     * Show the checkout page for a booking.
+     * Displays the booking summary and active payment methods that accept the commitment fee.
+     */
+    public function show(Booking $booking)
+    {
+        $paymentMethods = PaymentMethod::where('active', true)
+            ->where('accepts_commitment_fee', true)
+            ->orderBy('sort')
+            ->get();
+
+        $booking->load('bookable');
+        $balanceNote = config('hotel.booking.balance_note');
+
+        return view('checkout.index', compact('booking', 'paymentMethods', 'balanceNote'));
+    }
+
+    /**
+     * Handle payment method selection and optional proof upload.
+     */
+    public function confirm(Request $request, Booking $booking)
+    {
+        $request->validate([
+            'payment_method_id' => [
+                'required',
+                'integer',
+                function (string $attribute, mixed $value, \Closure $fail) {
+                    $method = PaymentMethod::find($value);
+                    if (! $method) {
+                        $fail('The selected payment method does not exist.');
+                        return;
+                    }
+                    if (! $method->active) {
+                        $fail('The selected payment method is not currently available.');
+                    }
+                },
+            ],
+            'proof' => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp,pdf', 'max:4096'],
+        ], [
+            'payment_method_id.required' => 'Please select a payment method.',
+        ]);
+
+        $data = [
+            'payment_method_id' => $request->integer('payment_method_id'),
+        ];
+
+        if ($request->hasFile('proof') && $request->file('proof')->isValid()) {
+            $data['proof_path'] = $request->file('proof')->store('proofs', 'public');
+        }
+
+        $booking->update($data);
+
+        return redirect()->route('booking.success', ['booking' => $booking->ref]);
+    }
+}

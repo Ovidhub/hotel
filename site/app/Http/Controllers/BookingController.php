@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
+use App\Http\Requests\StoreBookingRequest;
 use App\Models\Apartment;
+use App\Models\Booking;
+use App\Models\Room;
 use App\Services\BookingCalculator;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -36,27 +39,64 @@ class BookingController extends Controller
     }
 
     /**
-     * STUB — Task 11 will replace this with the full checkout / booking persistence.
-     * For now: validate the minimum required fields and redirect back with input
-     * so the form does not produce a blank 405 error during development.
+     * Validate booking details, persist the booking with 'Pending Payment' status,
+     * and redirect to the checkout page where the guest selects a payment method.
      */
-    public function store(Request $request)
+    public function store(StoreBookingRequest $request)
     {
-        $request->validate([
-            'type'         => ['required', 'in:room,apartment'],
-            'slug'         => ['required', 'string'],
-            'check_in'     => ['required', 'date', 'after_or_equal:today'],
-            'check_out'    => ['required', 'date', 'after:check_in'],
-            'guests'       => ['required', 'integer', 'min:1'],
-            'guest_name'   => ['required', 'string', 'max:255'],
-            'guest_email'  => ['required', 'email', 'max:255'],
-            'guest_phone'  => ['required', 'string', 'max:50'],
+        $type = $request->input('type');
+        $slug = $request->input('slug');
+
+        // Resolve the bookable
+        $bookable = match ($type) {
+            'room'      => Room::where('slug', $slug)->firstOrFail(),
+            'apartment' => Apartment::where('slug', $slug)->firstOrFail(),
+        };
+
+        // Compute quote
+        $checkIn  = Carbon::parse($request->input('check_in'));
+        $checkOut = Carbon::parse($request->input('check_out'));
+        $percent  = config('hotel.booking.commitment_percent', 40);
+
+        $quote = $this->calculator->quote($bookable->price, $checkIn, $checkOut, $percent);
+
+        // Generate unique ref: HB-##### (5 digits, zero-padded)
+        do {
+            $ref = 'HB-' . str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
+        } while (Booking::where('ref', $ref)->exists());
+
+        // Persist booking
+        $booking = Booking::create([
+            'ref'                => $ref,
+            'bookable_type'      => get_class($bookable),
+            'bookable_id'        => $bookable->id,
+            'guest_name'         => $request->input('guest_name'),
+            'guest_email'        => $request->input('guest_email'),
+            'guest_phone'        => $request->input('guest_phone'),
+            'check_in'           => $checkIn->toDateString(),
+            'check_out'          => $checkOut->toDateString(),
+            'nights'             => $quote['nights'],
+            'guests'             => $request->integer('guests'),
+            'total'              => $quote['total'],
+            'commitment_percent' => $percent,
+            'commitment_fee'     => $quote['commitment_fee'],
+            'balance_due'        => $quote['balance_due'],
+            'status'             => 'Pending Payment',
+            'notes'              => $request->input('notes'),
         ]);
 
-        // Task 11: create Booking record, charge commitment fee, redirect to checkout.
-        return redirect()
-            ->route('booking.create', ['type' => $request->type, 'slug' => $request->slug])
-            ->withInput()
-            ->with('info', 'Booking submission received — checkout coming soon.');
+        return redirect()->route('checkout.show', ['booking' => $booking->ref]);
+    }
+
+    /**
+     * Show the booking confirmation / success page.
+     */
+    public function success(Booking $booking)
+    {
+        $booking->load(['bookable', 'paymentMethod']);
+
+        $balanceNote = config('hotel.booking.balance_note');
+
+        return view('checkout.success', compact('booking', 'balanceNote'));
     }
 }
