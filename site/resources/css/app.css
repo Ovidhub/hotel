@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Amenity Ticker Marquee ─────────────────────────────────────────────────── */
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-33.3333%); }
+}
+
+.marquee-track {
+    animation: marquee 28s linear infinite;
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+        /* Show all items statically — overflow-hidden parent hides extras */
+        flex-wrap: wrap;
+    }
+}
+
+/* ── Reveal fade-up animation ───────────────────────────────────────────────── */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-enter {
+    animation: fadeUp 0.65s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-enter {
+        animation: none;
+    }
+}
