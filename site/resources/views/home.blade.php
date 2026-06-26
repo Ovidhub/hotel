@@ -43,7 +43,7 @@
             {{-- Hero CTA buttons --}}
             <div class="mt-10 flex flex-wrap justify-center gap-4">
                 <a
-                    href="{{ \Illuminate\Support\Facades\Route::has('booking.create') ? route('booking.create') : route('rooms.index') }}"
+                    href="{{ route('rooms.index') }}"
                     class="inline-flex items-center gap-2 rounded-full bg-benizia-gold px-8 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-white hover:text-benizia-green hover:shadow-xl"
                 >
                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">

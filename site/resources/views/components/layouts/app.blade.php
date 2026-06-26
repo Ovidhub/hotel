@@ -4,6 +4,7 @@
     'canonical'   => null,
     'image'       => null,
     'ogType'      => 'website',
+    'robots'      => 'index, follow',
 ])
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -27,6 +28,7 @@
         :canonical="$canonical"
         :image="$image"
         :type="$ogType"
+        :robots="$robots"
     />
 
     {{-- Site-wide Hotel structured data --}}

@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BookingController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -34,6 +35,11 @@ Route::get('/events', [EventController::class, 'index'])->name('events');
 // Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
+
+// Booking
+Route::get('/book/{type}/{slug}', [BookingController::class, 'create'])->name('booking.create');
+// booking.store is a stub — Task 11 will expand it into a full checkout flow
+Route::post('/book', [BookingController::class, 'store'])->name('booking.store');
 
 // Static pages
 Route::get('/about', [PageController::class, 'about'])->name('about');
