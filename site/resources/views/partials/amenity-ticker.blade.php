@@ -4,7 +4,7 @@
     $repeated = array_merge($items, $items, $items);
 @endphp
 
-<div class="overflow-hidden bg-benizia-green py-3 text-white" aria-label="Hotel amenities">
+<div class="marquee-wrapper overflow-hidden bg-benizia-green py-3 text-white" aria-label="Hotel amenities">
     <div class="marquee-track flex w-max items-center gap-8 whitespace-nowrap">
         @foreach($repeated as $item)
             <div class="flex items-center gap-6">

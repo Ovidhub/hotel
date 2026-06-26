@@ -14,11 +14,8 @@
 
 /* Respect user's motion preference */
 @media (prefers-reduced-motion: reduce) {
-    .marquee-track {
-        animation: none;
-        /* Show all items statically — overflow-hidden parent hides extras */
-        flex-wrap: wrap;
-    }
+    .marquee-wrapper { overflow: visible; }
+    .marquee-track { animation: none; flex-wrap: wrap; width: auto; white-space: normal; }
 }
 
 /* ── Reveal fade-up animation ───────────────────────────────────────────────── */

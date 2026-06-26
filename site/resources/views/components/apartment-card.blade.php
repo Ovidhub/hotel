@@ -49,7 +49,7 @@
         <div>
             <p class="text-xs font-semibold uppercase tracking-[0.22em] text-benizia-gold">from</p>
             <p class="font-serif mt-0.5 text-2xl text-benizia-charcoal">
-                {{ $price ?? '₦ 55,000' }} <span class="text-base font-normal text-gray-400">/ night</span>
+                {{ $price ?? 'Contact us' }} <span class="text-base font-normal text-gray-400">/ night</span>
             </p>
         </div>
 

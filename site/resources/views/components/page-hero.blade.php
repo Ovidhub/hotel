@@ -3,6 +3,7 @@
     'subtitle'    => null,
     'image'       => null,
     'breadcrumbs' => [],
+    'rawTitle'    => false,
 ])
 
 @php
@@ -39,7 +40,7 @@
 
         {{-- Title --}}
         <h1 class="font-serif text-5xl leading-tight text-white md:text-7xl">
-            {!! $title !!}
+            {!! $rawTitle ? $title : e($title) !!}
         </h1>
 
         {{-- Subtitle --}}

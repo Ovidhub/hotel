@@ -3,6 +3,7 @@
     'text'        => null,
     'buttonLabel' => 'Book Now',
     'buttonUrl'   => '#',
+    'rawTitle'    => false,
 ])
 
 <section class="relative overflow-hidden bg-benizia-green py-20 px-4 text-white" aria-label="Call to action">
@@ -19,7 +20,7 @@
         </div>
 
         <h2 class="font-serif text-3xl leading-tight text-white md:text-5xl">
-            {!! $title !!}
+            {!! $rawTitle ? $title : e($title) !!}
         </h2>
 
         @if($text)

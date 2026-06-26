@@ -1,8 +1,9 @@
 @props([
-    'eyebrow' => null,
+    'eyebrow'  => null,
     'title',
-    'text'    => null,
-    'align'   => 'center',
+    'text'     => null,
+    'align'    => 'center',
+    'rawTitle' => false,
 ])
 
 @php
@@ -15,14 +16,14 @@
 <div class="{{ $wrapClass }}">
     {{-- Gold eyebrow label --}}
     @if($eyebrow)
-        <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold {{ $isLeft ? '' : '' }}">
+        <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold">
             {{ $eyebrow }}
         </p>
     @endif
 
     {{-- Section heading --}}
     <h2 class="font-serif mt-3 text-3xl leading-tight text-benizia-charcoal md:text-5xl">
-        {!! $title !!}
+        {!! $rawTitle ? $title : e($title) !!}
     </h2>
 
     {{-- Supporting text --}}

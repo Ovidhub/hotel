@@ -17,23 +17,17 @@
 <div
     x-data="{ shown: false }"
     x-init="
-        const el = $el;
-        const delay = {{ (int)($delay * 1000) }};
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !shown) {
-                        setTimeout(() => {
-                            el.classList.add('reveal-enter');
-                            shown = true;
-                            observer.disconnect();
-                        }, delay);
-                    }
-                });
-            },
-            { threshold: 0.18 }
-        );
-        observer.observe(el);
+        let data = $data;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting && !data.shown) {
+                    data.shown = true;
+                    $el.classList.add('reveal-enter');
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.12 });
+        observer.observe($el);
     "
     {{ $attributes }}
 >
