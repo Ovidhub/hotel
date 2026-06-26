@@ -6,8 +6,8 @@
     $detailUrl  = \Illuminate\Support\Facades\Route::has('rooms.show')
         ? route('rooms.show', $room)
         : '#';
-    $bookingUrl = \Illuminate\Support\Facades\Route::has('booking')
-        ? route('booking') . '?room=' . ($room->slug ?? '')
+    $bookingUrl = \Illuminate\Support\Facades\Route::has('booking.create')
+        ? route('booking.create', ['type' => 'room', 'slug' => $room->slug])
         : '#';
     $image      = $room->image ?? 'https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=800';
     $name       = $room->name ?? 'Room';

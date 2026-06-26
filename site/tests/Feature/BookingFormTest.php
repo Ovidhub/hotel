@@ -43,7 +43,10 @@ test('booking form contains required input fields', function () {
     $response->assertOk()
              ->assertSee('check_in', false)
              ->assertSee('check_out', false)
-             ->assertSee('guest_name', false);
+             ->assertSee('guest_name', false)
+             ->assertSee('guests', false)
+             ->assertSee('guest_email', false)
+             ->assertSee('guest_phone', false);
 });
 
 test('booking form for an apartment returns 200 and shows apartment details', function () {

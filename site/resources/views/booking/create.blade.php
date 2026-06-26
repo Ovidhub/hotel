@@ -178,6 +178,7 @@
                                         x-model="checkOut"
                                         value="{{ old('check_out', $defaultCheckOut) }}"
                                         min="{{ now()->addDays(2)->format('Y-m-d') }}"
+                                        :min="checkIn ? new Date(new Date(checkIn).getTime() + 86400000).toISOString().split('T')[0] : '{{ now()->addDay()->format('Y-m-d') }}'"
                                         required
                                         class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-benizia-charcoal focus:border-benizia-green focus:outline-none focus:ring-2 focus:ring-benizia-green/20 transition"
                                     >
