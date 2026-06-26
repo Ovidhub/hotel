@@ -80,7 +80,7 @@ test('home page contains JSON-LD Hotel schema from layout', function () {
 test('home page contains a blog post title', function () {
     $response = $this->get(route('home'));
     $response->assertOk();
-    $post = BlogPost::orderByDesc('published_at')->first();
+    $post = \App\Models\BlogPost::where('published_at', '<=', now())->orderByDesc('published_at')->first();
     $response->assertSee($post->title);
 });
 

@@ -1,5 +1,5 @@
 <x-layouts.app
-    title="Hotel Benizia — Luxury Hotel in Asaba, Delta State"
+    title="Luxury Hotel in Asaba, Delta State"
     description="Experience luxury rooms, fine dining, swimming pool, spa, and event halls at Hotel Benizia — Asaba's premier hotel in Delta State, Nigeria."
     image="https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg">
 
@@ -43,7 +43,7 @@
             {{-- Hero CTA buttons --}}
             <div class="mt-10 flex flex-wrap justify-center gap-4">
                 <a
-                    href="{{ route('rooms.index') }}"
+                    href="{{ \Illuminate\Support\Facades\Route::has('booking.create') ? route('booking.create') : route('rooms.index') }}"
                     class="inline-flex items-center gap-2 rounded-full bg-benizia-gold px-8 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-white hover:text-benizia-green hover:shadow-xl"
                 >
                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
