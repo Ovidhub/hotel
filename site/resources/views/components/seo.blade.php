@@ -33,6 +33,7 @@
 <meta property="og:type" content="{{ $type }}">
 <meta property="og:url" content="{{ $pageUrl }}">
 <meta property="og:image" content="{{ $pageImage }}">
+<meta property="og:locale" content="en_NG" />
 
 {{-- Twitter Card --}}
 <meta name="twitter:card" content="summary_large_image">

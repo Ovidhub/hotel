@@ -5,6 +5,7 @@
     'author',
     'datePublished',
     'url',
+    'authorType' => 'Organization',
 ])
 
 @php
@@ -17,7 +18,7 @@
         'datePublished' => $datePublished,
         'url'           => $url,
         'author'        => [
-            '@type' => 'Organization',
+            '@type' => $authorType,
             'name'  => $author,
         ],
         'publisher' => [

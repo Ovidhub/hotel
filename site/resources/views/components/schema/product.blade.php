@@ -16,11 +16,12 @@
         'image'       => $image,
         'url'         => $url,
         'offers'      => [
-            '@type'           => 'Offer',
-            'priceCurrency'   => 'NGN',
-            'price'           => (int) $price,
-            'availability'    => 'https://schema.org/InStock',
-            'url'             => $url,
+            '@type'            => 'Offer',
+            'priceCurrency'    => 'NGN',
+            'price'            => (int) $price,
+            'availability'     => 'https://schema.org/InStock',
+            'url'              => $url,
+            'priceValidUntil'  => now()->addYear()->format('Y-m-d'),
         ],
     ];
 

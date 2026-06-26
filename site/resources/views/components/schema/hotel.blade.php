@@ -17,6 +17,7 @@
             'addressLocality' => 'Asaba',
             'addressRegion'  => 'Delta State',
             'addressCountry' => 'NG',
+            'postalCode'     => '320242',
         ],
         'priceRange' => 'NGN 30,000 - NGN 180,000',
         'amenityFeature' => [
