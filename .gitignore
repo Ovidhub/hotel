@@ -1,0 +1,8 @@
+node_modules/
+/vendor/
+/.env
+*.sqlite
+/storage/*.key
+/public/build/
+.DS_Store
+Thumbs.db
