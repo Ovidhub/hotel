@@ -1,5 +1,5 @@
 <x-layouts.app
-    title="Hotel &amp; Travel Blog"
+    title="Hotel & Travel Blog"
     description="Read the Hotel Benizia blog for tips on booking a hotel in Asaba, room guides, dining, events, and travel advice for Delta State visitors.">
 
     <x-page-hero

@@ -1,5 +1,5 @@
 <x-layouts.app
-    title="Restaurant &amp; Bar in Asaba"
+    title="Restaurant & Bar in Asaba"
     description="Hotel Benizia's 24-hour restaurant and bar in Asaba serves Nigerian and continental cuisine. VIP bar, pool bar, and live band Wed, Fri &amp; Sat nights.">
 
     <x-page-hero
@@ -77,7 +77,7 @@
                 title="Dine in Style"
                 text="From our pool bar to the VIP lounge, every dining space at Hotel Benizia is designed for comfort and atmosphere."
             />
-            <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3" loading="lazy">
+            <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
                 @foreach([
                     ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg', 'alt' => 'Hotel Benizia Bar — Asaba, Delta State'],
                     ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg', 'alt' => 'Hotel Benizia Swimming Pool & Bar — Asaba'],

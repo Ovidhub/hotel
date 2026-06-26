@@ -1,5 +1,5 @@
 <x-layouts.app
-    title="Events &amp; Conference Venue in Asaba"
+    title="Events & Conference Venue in Asaba"
     description="Hotel Benizia's event halls and boardroom in Asaba, Delta State host weddings, conferences, corporate meetings, product launches, and private functions.">
 
     <x-page-hero
