@@ -14,6 +14,22 @@
 
     <section class="py-20 px-4 bg-white">
         <div class="mx-auto max-w-7xl">
+
+            {{-- ── Flash messages ───────────────────────────────────────────── --}}
+            @if(session('status'))
+                <div class="mb-8 rounded-2xl border border-benizia-green/30 bg-benizia-green/10 px-5 py-4 text-sm text-benizia-charcoal">
+                    <p class="font-semibold text-benizia-green mb-1">Notice</p>
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="mb-8 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+                    <p class="font-semibold mb-1">Payment Error</p>
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="grid gap-12 lg:grid-cols-[1fr_0.44fr]">
 
                 {{-- ── LEFT: Payment method selection + proof upload ────────── --}}
@@ -97,6 +113,21 @@
                                         @endif
 
                                         <p class="mt-3 text-xs leading-5 text-gray-500">{{ $method->instructions }}</p>
+
+                                        {{-- Paystack pay-by-card button for Card Gateway methods --}}
+                                        @if($method->provider === 'Paystack' || $method->type === 'Card Gateway')
+                                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                                <form method="POST" action="{{ route('paystack.init', ['booking' => $booking->ref]) }}">
+                                                    @csrf
+                                                    <button
+                                                        type="submit"
+                                                        class="w-full rounded-full bg-benizia-gold py-2.5 px-5 text-xs font-bold text-white transition hover:bg-benizia-charcoal"
+                                                    >
+                                                        Pay ₦{{ number_format($booking->commitment_fee) }} Online via Paystack
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
                                     </label>
                                 @endforeach
                             </div>

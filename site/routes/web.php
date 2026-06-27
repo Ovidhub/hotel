@@ -12,6 +12,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\PaystackController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -45,6 +46,10 @@ Route::post('/book', [BookingController::class, 'store'])->name('booking.store')
 Route::get('/checkout/{booking:ref}', [CheckoutController::class, 'show'])->name('checkout.show');
 Route::post('/checkout/{booking:ref}', [CheckoutController::class, 'confirm'])->name('checkout.confirm');
 Route::get('/booking/success/{booking:ref}', [BookingController::class, 'success'])->name('booking.success');
+
+// Paystack payment gateway
+Route::post('/paystack/init/{booking:ref}', [PaystackController::class, 'init'])->name('paystack.init');
+Route::get('/paystack/callback', [PaystackController::class, 'callback'])->name('paystack.callback');
 
 // Static pages
 Route::get('/about', [PageController::class, 'about'])->name('about');
