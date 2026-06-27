@@ -8,6 +8,11 @@
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Contact Us']]"
     />
 
+    <x-schema.breadcrumb :items="[
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'Contact Us', 'url' => route('contact')],
+    ]" />
+
     <section class="py-20 px-4 bg-white">
         <div class="mx-auto max-w-7xl">
             <div class="grid gap-16 lg:grid-cols-2">

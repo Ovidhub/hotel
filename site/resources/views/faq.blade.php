@@ -8,6 +8,11 @@
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'FAQ']]"
     />
 
+    <x-schema.breadcrumb :items="[
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'FAQ', 'url' => route('faq')],
+    ]" />
+
     {{-- FAQ Schema --}}
     <x-schema.faq :faqs="$faqs->map(fn($f) => ['question' => $f->question, 'answer' => $f->answer])->toArray()" />
 

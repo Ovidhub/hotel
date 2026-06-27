@@ -21,6 +21,9 @@
     {{-- Favicon --}}
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
+    {{-- Author meta --}}
+    <meta name="author" content="Hotel Benizia">
+
     {{-- SEO meta tags --}}
     <x-seo
         :title="$title"

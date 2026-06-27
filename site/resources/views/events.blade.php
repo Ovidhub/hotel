@@ -9,6 +9,11 @@
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Events']]"
     />
 
+    <x-schema.breadcrumb :items="[
+        ['name' => 'Home', 'url' => route('home')],
+        ['name' => 'Events &amp; Conferences', 'url' => route('events')],
+    ]" />
+
     <section class="py-20 px-4">
         <div class="mx-auto max-w-5xl">
             <x-section-intro
