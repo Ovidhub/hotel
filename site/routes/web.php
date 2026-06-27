@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PaystackController;
+use App\Http\Controllers\ProfileController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -56,3 +57,26 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+
+// ── Breeze: dashboard redirect (admins → /admin, others → home) ──────────────
+Route::get('/dashboard', function () {
+    if (auth()->check() && auth()->user()->isAdmin()) {
+        return redirect()->route('admin.dashboard');
+    }
+    return redirect()->route('home');
+})->middleware('auth')->name('dashboard');
+
+// ── Breeze: profile routes (auth users) ──────────────────────────────────────
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// ── Admin area (auth + admin middleware) ──────────────────────────────────────
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+});
+
+// ── Breeze auth routes (login, register, logout, password reset, etc.) ────────
+require __DIR__.'/auth.php';
