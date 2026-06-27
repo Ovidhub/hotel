@@ -6,13 +6,23 @@ export default {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
     ],
 
     theme: {
         extend: {
+            colors: {
+                benizia: {
+                    green: '#1D5C52',
+                    gold: '#C9A96E',
+                    cream: '#FAF7F1',
+                    charcoal: '#1F2421',
+                },
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                serif: ['"Playfair Display"', 'serif'],
+                sans: ['Inter', 'sans-serif'],
             },
         },
     },
