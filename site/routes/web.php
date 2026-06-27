@@ -54,4 +54,5 @@ Route::get('/paystack/callback', [PaystackController::class, 'callback'])->name(
 // Static pages
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');

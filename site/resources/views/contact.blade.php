@@ -101,6 +101,12 @@
                         <h2 class="font-serif text-2xl text-benizia-charcoal mb-2">Send Us a Message</h2>
                         <p class="text-sm text-gray-500 mb-8">Fill in the form below and our team will get back to you as soon as possible.</p>
 
+                        @if (session('status'))
+                            <div class="mb-6 rounded-xl bg-green-50 border border-green-200 px-5 py-4 text-sm text-green-800" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
                         <form
                             method="POST"
                             action="{{ Route::has('contact.store') ? route('contact.store') : '#' }}"
