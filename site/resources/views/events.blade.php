@@ -11,7 +11,7 @@
 
     <x-schema.breadcrumb :items="[
         ['name' => 'Home', 'url' => route('home')],
-        ['name' => 'Events &amp; Conferences', 'url' => route('events')],
+        ['name' => 'Events & Conferences', 'url' => route('events')],
     ]" />
 
     <section class="py-20 px-4">

@@ -28,7 +28,7 @@ function assertSeoMeta(TestResponse $response): void
 {
     $html = $response->getContent();
     // non-empty description
-    expect($html)->toContain('name="description"');
+    expect($html)->toMatch('/name="description" content="[^"]+"/');
     // canonical link
     expect($html)->toContain('rel="canonical"');
     // og:image
@@ -116,6 +116,13 @@ test('apartments.show: exactly one h1, description, canonical, og:image', functi
     $response->assertOk();
     assertExactlyOneH1($response);
     assertSeoMeta($response);
+});
+
+test('apartments.show: has breadcrumb JSON-LD', function () {
+    $apartment = Apartment::first();
+    $response = $this->get(route('apartments.show', $apartment));
+    $response->assertOk();
+    $response->assertSee('BreadcrumbList', false);
 });
 
 // ══════════════════════════════════════════════════════════

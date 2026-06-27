@@ -11,7 +11,7 @@
 
     <x-schema.breadcrumb :items="[
         ['name' => 'Home', 'url' => route('home')],
-        ['name' => 'Restaurant &amp; Bar', 'url' => route('restaurant')],
+        ['name' => 'Restaurant & Bar', 'url' => route('restaurant')],
     ]" />
 
     {{-- Intro --}}
