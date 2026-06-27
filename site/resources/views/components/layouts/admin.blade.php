@@ -297,6 +297,11 @@
 
         {{-- Page content --}}
         <main class="flex-1 overflow-y-auto p-4 lg:p-6">
+            @if(session('status'))
+                <div class="mb-4 rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-700 ring-1 ring-emerald-200">
+                    {{ session('status') }}
+                </div>
+            @endif
             {{ $slot }}
         </main>
 

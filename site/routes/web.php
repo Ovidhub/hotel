@@ -76,6 +76,11 @@ Route::middleware('auth')->group(function () {
 // ── Admin area (auth + admin middleware) ──────────────────────────────────────
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('rooms', \App\Http\Controllers\Admin\RoomController::class);
+    Route::resource('apartments', \App\Http\Controllers\Admin\ApartmentController::class);
+    Route::resource('payment-methods', \App\Http\Controllers\Admin\PaymentMethodController::class)
+         ->parameters(['payment-methods' => 'paymentMethod']);
 });
 
 // ── Breeze auth routes (login, register, logout, password reset, etc.) ────────
