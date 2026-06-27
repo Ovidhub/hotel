@@ -81,6 +81,25 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('apartments', \App\Http\Controllers\Admin\ApartmentController::class);
     Route::resource('payment-methods', \App\Http\Controllers\Admin\PaymentMethodController::class)
          ->parameters(['payment-methods' => 'paymentMethod']);
+
+    // Bookings (no create/store — bookings come from guests)
+    Route::get('bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index'])->name('bookings.index');
+    Route::get('bookings/{booking:ref}', [\App\Http\Controllers\Admin\BookingController::class, 'show'])->name('bookings.show');
+    Route::put('bookings/{booking:ref}', [\App\Http\Controllers\Admin\BookingController::class, 'update'])->name('bookings.update');
+
+    // Blog
+    Route::resource('blog', \App\Http\Controllers\Admin\BlogController::class);
+
+    // Testimonials
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+
+    // FAQs
+    Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class);
+
+    // Messages (index, show, destroy — no create/edit)
+    Route::get('messages', [\App\Http\Controllers\Admin\MessageController::class, 'index'])->name('messages.index');
+    Route::get('messages/{message}', [\App\Http\Controllers\Admin\MessageController::class, 'show'])->name('messages.show');
+    Route::delete('messages/{message}', [\App\Http\Controllers\Admin\MessageController::class, 'destroy'])->name('messages.destroy');
 });
 
 // ── Breeze auth routes (login, register, logout, password reset, etc.) ────────
