@@ -1,0 +1,116 @@
+{{-- Shared form partial for apartment create & edit --}}
+@php $isEdit = isset($apartment); @endphp
+
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+
+    {{-- Name --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Name <span class="text-red-500">*</span></label>
+        <input type="text" name="name" value="{{ old('name', $apartment->name ?? '') }}"
+               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('name') border-red-400 @enderror">
+        @error('name') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+    </div>
+
+    {{-- Slug --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Slug <span class="text-gray-400">(auto-generated if blank)</span></label>
+        <input type="text" name="slug" value="{{ old('slug', $apartment->slug ?? '') }}"
+               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('slug') border-red-400 @enderror">
+        @error('slug') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+    </div>
+
+    {{-- Type --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Type <span class="text-red-500">*</span></label>
+        <input type="text" name="type" value="{{ old('type', $apartment->type ?? '') }}"
+               placeholder="e.g. Studio, 1-Bedroom, Penthouse"
+               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('type') border-red-400 @enderror">
+        @error('type') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+    </div>
+
+    {{-- Status --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Status <span class="text-red-500">*</span></label>
+        <select name="status"
+                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('status') border-red-400 @enderror">
+            @foreach(['Available', 'Occupied', 'Maintenance'] as $opt)
+                <option value="{{ $opt }}" {{ old('status', $apartment->status ?? 'Available') === $opt ? 'selected' : '' }}>{{ $opt }}</option>
+            @endforeach
+        </select>
+        @error('status') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+    </div>
+
+    {{-- Price --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Price (NGN) <span class="text-red-500">*</span></label>
+        <input type="number" name="price" value="{{ old('price', $apartment->price ?? '') }}" min="0"
+               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('price') border-red-400 @enderror">
+        @error('price') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+    </div>
+
+    {{-- Bedrooms / Bathrooms / Occupancy --}}
+    <div class="grid grid-cols-3 gap-3">
+        <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Bedrooms <span class="text-red-500">*</span></label>
+            <input type="number" name="bedrooms" value="{{ old('bedrooms', $apartment->bedrooms ?? 1) }}" min="0"
+                   class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+        </div>
+        <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Bathrooms <span class="text-red-500">*</span></label>
+            <input type="number" name="bathrooms" value="{{ old('bathrooms', $apartment->bathrooms ?? 1) }}" min="0"
+                   class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+        </div>
+        <div>
+            <label class="block text-xs font-semibold text-gray-600 mb-1">Occupancy <span class="text-red-500">*</span></label>
+            <input type="number" name="occupancy" value="{{ old('occupancy', $apartment->occupancy ?? 2) }}" min="1"
+                   class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+        </div>
+    </div>
+
+    {{-- Sort --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Sort order</label>
+        <input type="number" name="sort" value="{{ old('sort', $apartment->sort ?? 0) }}" min="0"
+               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+    </div>
+
+</div>
+
+{{-- Image URL --}}
+<div class="mt-5">
+    <label class="block text-xs font-semibold text-gray-600 mb-1">Image URL <span class="text-red-500">*</span></label>
+    <input type="text" name="image" value="{{ old('image', $apartment->image ?? '') }}"
+           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('image') border-red-400 @enderror">
+    @error('image') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+</div>
+
+{{-- Description --}}
+<div class="mt-5">
+    <label class="block text-xs font-semibold text-gray-600 mb-1">Description <span class="text-red-500">*</span></label>
+    <textarea name="description" rows="5"
+              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('description') border-red-400 @enderror">{{ old('description', $apartment->description ?? '') }}</textarea>
+    @error('description') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+</div>
+
+{{-- List fields --}}
+<div class="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Amenities <span class="text-gray-400">(one per line)</span></label>
+        <textarea name="amenities" rows="4"
+                  class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">{{ old('amenities', implode("\n", $apartment->amenities ?? [])) }}</textarea>
+    </div>
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Gallery URLs <span class="text-gray-400">(one per line)</span></label>
+        <textarea name="gallery" rows="4"
+                  class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">{{ old('gallery', implode("\n", $apartment->gallery ?? [])) }}</textarea>
+    </div>
+</div>
+
+{{-- is_active --}}
+<div class="mt-5 flex items-center gap-3">
+    <input type="hidden" name="is_active" value="0">
+    <input type="checkbox" id="is_active" name="is_active" value="1"
+           {{ old('is_active', $apartment->is_active ?? true) ? 'checked' : '' }}
+           class="h-4 w-4 rounded border-gray-300 text-[#1D5C52] focus:ring-[#1D5C52]">
+    <label for="is_active" class="text-sm font-medium text-gray-700">Active (visible on public site)</label>
+</div>
