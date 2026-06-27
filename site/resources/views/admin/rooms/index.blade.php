@@ -1,12 +1,5 @@
 <x-layouts.admin title="Rooms">
 
-    {{-- Flash --}}
-    @if(session('status'))
-        <div class="mb-4 rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-700 ring-1 ring-emerald-200">
-            {{ session('status') }}
-        </div>
-    @endif
-
     <div class="flex items-center justify-between mb-5">
         <h2 class="text-lg font-semibold text-gray-800">All Rooms</h2>
         <a href="{{ route('admin.rooms.create') }}"
@@ -49,7 +42,7 @@
                                 Edit
                             </a>
                             <form method="POST" action="{{ route('admin.rooms.destroy', $room) }}"
-                                  onsubmit="return confirm('Delete {{ addslashes($room->name) }}? This cannot be undone.')">
+                                  onsubmit='return confirm("Delete " + @json($room->name) + "? This cannot be undone.")'>
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
