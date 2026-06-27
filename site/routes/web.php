@@ -14,6 +14,11 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PaystackController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SitemapController;
+
+// SEO
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+Route::get('/robots.txt', [SitemapController::class, 'robots'])->name('robots');
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
