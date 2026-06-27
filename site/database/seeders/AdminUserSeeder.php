@@ -10,11 +10,14 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
+        $user = User::create([
             'name'     => 'Hotel Benizia Admin',
             'email'    => 'admin@hotelbenizia.ng',
             'password' => Hash::make('password'),
-            'is_admin' => true,
         ]);
+
+        // is_admin is not in $fillable (to prevent mass-assignment); set explicitly
+        $user->is_admin = true;
+        $user->save();
     }
 }

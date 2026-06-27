@@ -5,7 +5,7 @@
     $address   = config('hotel.address', '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State');
     $socials   = config('hotel.socials', []);
     $nav       = config('hotel.nav', []);
-    $bookingUrl = \Illuminate\Support\Facades\Route::has('booking') ? route('booking') : '#';
+    $bookingUrl = route('rooms.index');
 @endphp
 
 <header

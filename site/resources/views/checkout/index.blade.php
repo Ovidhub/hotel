@@ -114,20 +114,7 @@
 
                                         <p class="mt-3 text-xs leading-5 text-gray-500">{{ $method->instructions }}</p>
 
-                                        {{-- Paystack pay-by-card button for Card Gateway methods --}}
-                                        @if($method->provider === 'Paystack' || $method->type === 'Card Gateway')
-                                            <div class="mt-4 pt-4 border-t border-gray-200">
-                                                <form method="POST" action="{{ route('paystack.init', ['booking' => $booking->ref]) }}">
-                                                    @csrf
-                                                    <button
-                                                        type="submit"
-                                                        class="w-full rounded-full bg-benizia-gold py-2.5 px-5 text-xs font-bold text-white transition hover:bg-benizia-charcoal"
-                                                    >
-                                                        Pay ₦{{ number_format($booking->commitment_fee) }} Online via Paystack
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        @endif
+                                        {{-- Paystack: the actual pay-by-card form is rendered BELOW the outer form to avoid nesting --}}
                                     </label>
                                 @endforeach
                             </div>
@@ -197,6 +184,30 @@
                             Confirm Booking Request
                         </button>
                     </form>
+
+                    {{-- ── Pay by card (Paystack) — kept OUTSIDE the outer form to avoid nesting ── --}}
+                    @php
+                        $hasPaystackMethod = $paymentMethods->contains(fn($m) => $m->provider === 'Paystack' || $m->type === 'Card Gateway');
+                    @endphp
+                    @if($hasPaystackMethod)
+                        <div class="mt-6 rounded-2xl border border-benizia-gold/40 bg-benizia-gold/5 p-6">
+                            <p class="text-xs font-bold uppercase tracking-[0.2em] text-benizia-gold mb-3">Pay Online via Card</p>
+                            <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                                Prefer to pay by card? Click below to pay your commitment fee of
+                                <strong>₦{{ number_format($booking->commitment_fee) }}</strong> securely via Paystack.
+                            </p>
+                            <form method="POST" action="{{ route('paystack.init', ['booking' => $booking->ref]) }}">
+                                @csrf
+                                <button
+                                    type="submit"
+                                    class="w-full rounded-full bg-benizia-gold py-3 px-6 text-sm font-bold text-white transition hover:bg-benizia-charcoal"
+                                >
+                                    Pay ₦{{ number_format($booking->commitment_fee) }} Online via Paystack
+                                </button>
+                            </form>
+                        </div>
+                    @endif
+
                 </div>
 
                 {{-- ── RIGHT: Booking summary sidebar ──────────────────────────── --}}

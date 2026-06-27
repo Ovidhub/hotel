@@ -25,13 +25,6 @@
     <section class="py-20 px-4 bg-white">
         <div class="mx-auto max-w-7xl">
 
-            {{-- Status message (stub redirect feedback) --}}
-            @if(session('info'))
-                <div class="mb-8 rounded-2xl bg-benizia-gold/10 border border-benizia-gold/40 px-6 py-4 text-sm text-benizia-charcoal">
-                    {{ session('info') }}
-                </div>
-            @endif
-
             <div class="grid gap-12 lg:grid-cols-5">
 
                 {{-- ── LEFT: Property summary card ───────────────────────────────── --}}

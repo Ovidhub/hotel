@@ -7,7 +7,7 @@
     $nav       = config('hotel.nav', []);
     $tagline   = config('hotel.tagline', 'Luxury in the heart of Asaba');
     $year      = date('Y');
-    $bookingUrl = \Illuminate\Support\Facades\Route::has('booking') ? route('booking') : '#';
+    $bookingUrl = route('rooms.index');
 @endphp
 
 <footer class="bg-benizia-green text-white" aria-label="Site footer">
