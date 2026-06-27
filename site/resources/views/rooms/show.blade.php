@@ -5,7 +5,7 @@
     <x-page-hero
         :title="$room->name"
         :subtitle="$room->category . ' · ' . $room->price_formatted . '/night'"
-        :image="$room->image"
+        :image="$room->imageUrl()"
         :breadcrumbs="[
             ['label' => 'Home', 'url' => route('home')],
             ['label' => 'Rooms & Suites', 'url' => route('rooms.index')],
@@ -22,7 +22,7 @@
     <x-schema.product
         :name="$room->name"
         :description="$room->excerpt ?? $room->description"
-        :image="$room->image"
+        :image="$room->imageUrl()"
         :price="$room->price"
         :url="route('rooms.show', $room)"
         :rating="$room->rating ? ['ratingValue' => $room->rating, 'reviewCount' => $room->reviews ?? 10] : null"
@@ -32,25 +32,36 @@
         <div class="mx-auto max-w-5xl">
 
             {{-- Gallery --}}
-            @if($room->gallery && count($room->gallery) > 0)
-                <div class="mb-12" x-data="{ active: '{{ $room->gallery[0] }}' }">
-                    {{-- Main image --}}
-                    <div class="overflow-hidden rounded-3xl h-96 mb-3">
+            @php $galleryImages = $room->galleryUrls(); @endphp
+            @if(count($galleryImages) > 1)
+                <div class="mb-12" x-data="{ index: 0, images: {{ \Illuminate\Support\Js::from($galleryImages) }} }">
+                    {{-- Main image with prev/next controls --}}
+                    <div class="relative overflow-hidden rounded-3xl h-96 mb-3 group">
                         <img
-                            :src="active"
+                            :src="images[index]"
                             alt="{{ $room->name }} at Hotel Benizia — Asaba"
-                            class="h-full w-full object-cover"
+                            class="h-full w-full object-cover transition duration-500"
                         >
+                        <button type="button" aria-label="Previous image"
+                            x-on:click="index = (index - 1 + images.length) % images.length"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/80 text-benizia-charcoal shadow hover:bg-white">
+                            &#8249;
+                        </button>
+                        <button type="button" aria-label="Next image"
+                            x-on:click="index = (index + 1) % images.length"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/80 text-benizia-charcoal shadow hover:bg-white">
+                            &#8250;
+                        </button>
                     </div>
-                    {{-- Thumbnails --}}
+                    {{-- Thumbnails (scrollable) --}}
                     <div class="flex gap-3 overflow-x-auto pb-2">
-                        @foreach($room->gallery as $img)
+                        @foreach($galleryImages as $i => $img)
                             <button
                                 type="button"
-                                @click="active = '{{ $img }}'"
+                                x-on:click="index = {{ $i }}"
                                 class="flex-shrink-0 h-20 w-28 overflow-hidden rounded-xl border-2 transition"
-                                :class="active === '{{ $img }}' ? 'border-benizia-gold' : 'border-transparent hover:border-benizia-gold/50'"
-                                aria-label="View gallery image"
+                                :class="index === {{ $i }} ? 'border-benizia-gold' : 'border-transparent hover:border-benizia-gold/50'"
+                                aria-label="View gallery image {{ $i + 1 }}"
                             >
                                 <img
                                     src="{{ $img }}"
@@ -65,7 +76,7 @@
             @else
                 <div class="mb-12 overflow-hidden rounded-3xl h-96">
                     <img
-                        src="{{ $room->image }}"
+                        src="{{ $galleryImages[0] ?? $room->imageUrl() }}"
                         alt="{{ $room->name }} at Hotel Benizia — Asaba"
                         class="h-full w-full object-cover"
                         loading="lazy"

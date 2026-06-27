@@ -5,7 +5,7 @@
     <x-page-hero
         :title="$apartment->name"
         :subtitle="($apartment->type ?? 'Serviced Apartment') . ' · ' . $apartment->price_formatted . '/night'"
-        :image="$apartment->image"
+        :image="$apartment->imageUrl()"
         :breadcrumbs="[
             ['label' => 'Home', 'url' => route('home')],
             ['label' => 'HB Apartments', 'url' => route('apartments.index')],
@@ -22,7 +22,7 @@
     <x-schema.product
         :name="$apartment->name"
         :description="$apartment->description ?? $apartment->name"
-        :image="$apartment->image"
+        :image="$apartment->imageUrl()"
         :price="$apartment->price"
         :url="route('apartments.show', $apartment)"
     />
@@ -31,33 +31,55 @@
         <div class="mx-auto max-w-5xl">
 
             {{-- Gallery --}}
-            @php
-                $galleryImages = $apartment->gallery ?? [$apartment->image];
-            @endphp
-            <div class="mb-12">
-                <div class="overflow-hidden rounded-3xl h-80 mb-3">
-                    <img
-                        src="{{ $galleryImages[0] ?? $apartment->image }}"
-                        alt="{{ $apartment->name }} — HB Apartments, Asaba"
-                        class="h-full w-full object-cover"
-                        loading="lazy"
-                    >
-                </div>
-                @if(count($galleryImages) > 1)
-                    <div class="flex gap-3">
-                        @foreach(array_slice($galleryImages, 1) as $img)
-                            <div class="flex-1 overflow-hidden rounded-xl h-24">
+            @php $galleryImages = $apartment->galleryUrls(); @endphp
+            @if(count($galleryImages) > 1)
+                <div class="mb-12" x-data="{ index: 0, images: {{ \Illuminate\Support\Js::from($galleryImages) }} }">
+                    <div class="relative overflow-hidden rounded-3xl h-80 mb-3 group">
+                        <img
+                            :src="images[index]"
+                            alt="{{ $apartment->name }} — HB Apartments, Asaba"
+                            class="h-full w-full object-cover transition duration-500"
+                        >
+                        <button type="button" aria-label="Previous image"
+                            x-on:click="index = (index - 1 + images.length) % images.length"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/80 text-benizia-charcoal shadow hover:bg-white">
+                            &#8249;
+                        </button>
+                        <button type="button" aria-label="Next image"
+                            x-on:click="index = (index + 1) % images.length"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/80 text-benizia-charcoal shadow hover:bg-white">
+                            &#8250;
+                        </button>
+                    </div>
+                    <div class="flex gap-3 overflow-x-auto pb-2">
+                        @foreach($galleryImages as $i => $img)
+                            <button
+                                type="button"
+                                x-on:click="index = {{ $i }}"
+                                class="flex-shrink-0 h-20 w-28 overflow-hidden rounded-xl border-2 transition"
+                                :class="index === {{ $i }} ? 'border-benizia-gold' : 'border-transparent hover:border-benizia-gold/50'"
+                                aria-label="View gallery image {{ $i + 1 }}"
+                            >
                                 <img
                                     src="{{ $img }}"
                                     alt="{{ $apartment->name }} gallery — HB Apartments"
                                     class="h-full w-full object-cover"
                                     loading="lazy"
                                 >
-                            </div>
+                            </button>
                         @endforeach
                     </div>
-                @endif
-            </div>
+                </div>
+            @else
+                <div class="mb-12 overflow-hidden rounded-3xl h-80">
+                    <img
+                        src="{{ $galleryImages[0] ?? $apartment->imageUrl() }}"
+                        alt="{{ $apartment->name }} — HB Apartments, Asaba"
+                        class="h-full w-full object-cover"
+                        loading="lazy"
+                    >
+                </div>
+            @endif
 
             {{-- Price & status --}}
             <div class="flex flex-wrap items-center gap-6 mb-8">

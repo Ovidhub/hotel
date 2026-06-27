@@ -9,7 +9,7 @@
     $bookingUrl = \Illuminate\Support\Facades\Route::has('booking.create')
         ? route('booking.create', ['type' => 'room', 'slug' => $room->slug])
         : '#';
-    $image      = $room->image ?? 'https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=800';
+    $image      = (method_exists($room, 'imageUrl') ? $room->imageUrl() : $room->image) ?? 'https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=800';
     $name       = $room->name ?? 'Room';
     $category   = $room->category ?? 'Standard';
     $rating     = $room->rating ?? 5;

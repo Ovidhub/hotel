@@ -9,7 +9,7 @@
     $bookingUrl = \Illuminate\Support\Facades\Route::has('booking.create')
         ? route('booking.create', ['type' => 'apartment', 'slug' => $apartment->slug])
         : '#';
-    $image   = $apartment->image ?? 'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=800';
+    $image   = (method_exists($apartment, 'imageUrl') ? $apartment->imageUrl() : $apartment->image) ?? 'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?auto=compress&cs=tinysrgb&w=800';
     $name    = $apartment->name ?? 'Apartment';
     $status  = $apartment->status ?? 'available';
 

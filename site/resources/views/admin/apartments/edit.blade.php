@@ -9,7 +9,7 @@
     <div class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200">
         <h2 class="mb-6 text-base font-semibold text-gray-800">Edit Apartment</h2>
 
-        <form method="POST" action="{{ route('admin.apartments.update', $apartment) }}">
+        <form method="POST" action="{{ route('admin.apartments.update', $apartment) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 

@@ -5,11 +5,14 @@ use App\Models\Room;
 use App\Models\Apartment;
 use App\Models\PaymentMethod;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
     $this->seed();
+    Storage::fake('public');
 });
 
 // ─── Middleware protection tests ──────────────────────────────────────────────
@@ -43,7 +46,7 @@ test('admin can create a room via POST and is redirected with DB row', function 
         'reviews'     => 10,
         'excerpt'     => 'A lovely suite.',
         'description' => 'Full description of the deluxe king suite.',
-        'image'       => 'https://example.com/room.jpg',
+        'image_file'  => UploadedFile::fake()->image('room.jpg'),
         'amenities'   => "WiFi\nAC\nTV",
         'gallery'     => '',
         'includes'    => '',
@@ -60,6 +63,66 @@ test('admin can create a room via POST and is redirected with DB row', function 
     expect($room->amenities)->toContain('WiFi');
     expect($room->amenities)->toContain('AC');
     expect($room->price_label)->toBe('NGN 45,000');
+
+    // The uploaded image was stored on the public disk and the path saved.
+    expect($room->image)->toStartWith('rooms/');
+    Storage::disk('public')->assertExists($room->image);
+    expect($room->imageUrl())->toContain('/storage/rooms/');
+});
+
+test('admin can upload gallery photos which appear in the room gallery', function () {
+    $admin = User::where('is_admin', true)->first();
+
+    $this->actingAs($admin)->post(route('admin.rooms.store'), [
+        'name'          => 'Gallery Room',
+        'category'      => 'Suite',
+        'price'         => 50000,
+        'size'          => 'Large',
+        'guests'        => 2,
+        'beds'          => 1,
+        'rating'        => 4.8,
+        'excerpt'       => 'Room with photos.',
+        'description'   => 'A room with several uploaded photos.',
+        'image_file'    => UploadedFile::fake()->image('main.jpg'),
+        'gallery_files' => [
+            UploadedFile::fake()->image('g1.jpg'),
+            UploadedFile::fake()->image('g2.jpg'),
+        ],
+        'is_active'     => 1,
+    ])->assertRedirect(route('admin.rooms.index'));
+
+    $room = Room::where('name', 'Gallery Room')->first();
+    expect($room->gallery)->toHaveCount(2);
+    foreach ($room->gallery as $path) {
+        Storage::disk('public')->assertExists($path);
+    }
+    // galleryUrls() includes the main image first, then the two gallery photos.
+    expect($room->galleryUrls())->toHaveCount(3);
+});
+
+test('updating a room without a new file keeps the existing image', function () {
+    $admin = User::where('is_admin', true)->first();
+    $room = Room::first();
+    $originalImage = $room->image;
+
+    $this->actingAs($admin)->put(route('admin.rooms.update', $room), [
+        'name'        => $room->name,
+        'category'    => $room->category,
+        'price'       => 99000,
+        'size'        => $room->size,
+        'rating'      => $room->rating,
+        'guests'      => $room->guests,
+        'beds'        => $room->beds,
+        'excerpt'     => $room->excerpt,
+        'description' => $room->description,
+        'amenities'   => implode("\n", $room->amenities ?? []),
+        'gallery'     => implode("\n", $room->gallery ?? []),
+        'is_active'   => 1,
+    ])->assertRedirect(route('admin.rooms.index'));
+
+    $room->refresh();
+    expect($room->price)->toBe(99000);
+    expect($room->image)->toBe($originalImage); // unchanged
 });
 
 test('admin rooms index returns 200 and lists rooms', function () {
@@ -219,7 +282,7 @@ test('admin can create an apartment via POST', function () {
         'type'        => 'Studio',
         'price'       => 60000,
         'status'      => 'Available',
-        'image'       => 'https://example.com/apt.jpg',
+        'image_file'  => UploadedFile::fake()->image('apt.jpg'),
         'bedrooms'    => 1,
         'bathrooms'   => 1,
         'occupancy'   => 2,
@@ -236,6 +299,8 @@ test('admin can create an apartment via POST', function () {
     $apt = Apartment::where('name', 'Garden Apartment')->first();
     expect($apt->amenities)->toContain('WiFi');
     expect($apt->price_label)->toBe('NGN 60,000');
+    expect($apt->image)->toStartWith('apartments/');
+    Storage::disk('public')->assertExists($apt->image);
 });
 
 test('admin can update an apartment status', function () {

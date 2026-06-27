@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Concerns\HandlesMediaUploads;
 use App\Http\Controllers\Concerns\ParsesListInput;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ApartmentRequest;
@@ -11,6 +12,7 @@ use Illuminate\Support\Str;
 class ApartmentController extends Controller
 {
     use ParsesListInput;
+    use HandlesMediaUploads;
 
     public function index()
     {
@@ -26,6 +28,15 @@ class ApartmentController extends Controller
     public function store(ApartmentRequest $request)
     {
         $data = $this->buildData($request->validated(), null);
+
+        if ($path = $this->storeUpload($request, 'image_file', 'apartments')) {
+            $data['image'] = $path;
+        }
+        $data['gallery'] = array_values(array_merge(
+            $data['gallery'],
+            $this->storeGalleryUploads($request, 'apartments')
+        ));
+
         Apartment::create($data);
 
         return redirect()->route('admin.apartments.index')
@@ -40,6 +51,17 @@ class ApartmentController extends Controller
     public function update(ApartmentRequest $request, Apartment $apartment)
     {
         $data = $this->buildData($request->validated(), $apartment);
+
+        if ($path = $this->storeUpload($request, 'image_file', 'apartments')) {
+            $data['image'] = $path;
+        } else {
+            unset($data['image']); // keep the existing image when none uploaded
+        }
+        $data['gallery'] = array_values(array_merge(
+            $data['gallery'],
+            $this->storeGalleryUploads($request, 'apartments')
+        ));
+
         $apartment->update($data);
 
         return redirect()->route('admin.apartments.index')
@@ -78,7 +100,7 @@ class ApartmentController extends Controller
             'price'       => $price,
             'price_label' => 'NGN ' . number_format($price),
             'status'      => $validated['status'],
-            'image'       => $validated['image'],
+            'image'       => $validated['image'] ?? null,
             'gallery'     => $this->parseList($validated['gallery'] ?? ''),
             'bedrooms'    => (int) $validated['bedrooms'],
             'bathrooms'   => (int) $validated['bathrooms'],

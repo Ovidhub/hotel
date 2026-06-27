@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasMediaUrls;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Apartment extends Model
 {
+    use HasMediaUrls;
+
     protected $guarded = [];
 
     protected $casts = [

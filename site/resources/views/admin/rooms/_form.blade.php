@@ -87,12 +87,21 @@
 
 </div>
 
-{{-- Image URL --}}
+{{-- Main image (upload) --}}
 <div class="mt-5">
-    <label class="block text-xs font-semibold text-gray-600 mb-1">Image URL <span class="text-red-500">*</span></label>
-    <input type="text" name="image" value="{{ old('image', $room->image ?? '') }}"
-           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('image') border-red-400 @enderror">
-    @error('image') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+    <label class="block text-xs font-semibold text-gray-600 mb-1">
+        Main Image @if(!isset($room) || !$room->image)<span class="text-red-500">*</span>@endif
+    </label>
+    @if(isset($room) && $room->imageUrl())
+        <div class="mb-2 flex items-center gap-3">
+            <img src="{{ $room->imageUrl() }}" alt="Current image" class="h-16 w-24 rounded-lg object-cover ring-1 ring-gray-200">
+            <span class="text-xs text-gray-500">Current image — upload a new file to replace it.</span>
+        </div>
+    @endif
+    <input type="file" name="image_file" accept="image/*"
+           class="block w-full text-sm text-gray-600 file:mr-3 file:rounded-lg file:border-0 file:bg-[#1D5C52] file:px-4 file:py-2 file:text-white hover:file:bg-[#16463f] @error('image_file') border-red-400 @enderror">
+    <p class="mt-1 text-xs text-gray-400">JPG, PNG or WebP, up to 4 MB.</p>
+    @error('image_file') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
 </div>
 
 {{-- Excerpt --}}
@@ -121,9 +130,24 @@
     </div>
 
     <div>
-        <label class="block text-xs font-semibold text-gray-600 mb-1">Gallery URLs <span class="text-gray-400">(one per line)</span></label>
-        <textarea name="gallery" rows="4"
-                  class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">{{ old('gallery', implode("\n", $room->gallery ?? [])) }}</textarea>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Gallery Photos <span class="text-gray-400">(upload one or more)</span></label>
+        @if(isset($room) && count($room->gallery ?? []))
+            <div class="mb-2 flex flex-wrap gap-2">
+                @foreach($room->galleryUrls() as $g)
+                    <img src="{{ $g }}" alt="Gallery image" class="h-12 w-16 rounded-md object-cover ring-1 ring-gray-200">
+                @endforeach
+            </div>
+            <p class="mb-2 text-xs text-gray-400">Current gallery (incl. main image). New uploads are added to it.</p>
+        @endif
+        <input type="file" name="gallery_files[]" accept="image/*" multiple
+               class="block w-full text-sm text-gray-600 file:mr-3 file:rounded-lg file:border-0 file:bg-[#1D5C52] file:px-4 file:py-2 file:text-white hover:file:bg-[#16463f]">
+        @error('gallery_files.*') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
+
+        <details class="mt-3">
+            <summary class="cursor-pointer text-xs font-semibold text-gray-500">Advanced: gallery image URLs (one per line)</summary>
+            <textarea name="gallery" rows="3"
+                      class="mt-2 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-mono focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">{{ old('gallery', implode("\n", $room->gallery ?? [])) }}</textarea>
+        </details>
     </div>
 
     <div>

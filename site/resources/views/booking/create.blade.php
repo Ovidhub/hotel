@@ -33,7 +33,7 @@
                     {{-- Image --}}
                     <div class="overflow-hidden rounded-3xl aspect-[4/3]">
                         <img
-                            src="{{ $bookable->image }}"
+                            src="{{ method_exists($bookable, 'imageUrl') ? $bookable->imageUrl() : $bookable->image }}"
                             alt="{{ $bookable->name }} — Hotel Benizia"
                             class="h-full w-full object-cover"
                             loading="eager"

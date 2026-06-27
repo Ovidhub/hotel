@@ -217,7 +217,7 @@
                     @if($booking->bookable && $booking->bookable->image)
                         <div class="overflow-hidden rounded-3xl aspect-[4/3]">
                             <img
-                                src="{{ $booking->bookable->image }}"
+                                src="{{ method_exists($booking->bookable, 'imageUrl') ? $booking->bookable->imageUrl() : $booking->bookable->image }}"
                                 alt="{{ $booking->bookable->name }}"
                                 class="h-full w-full object-cover"
                                 loading="lazy"
