@@ -148,7 +148,7 @@ No application code changes are required — Laravel's database abstraction laye
 
 ## File Uploads (Storage)
 
-Proof-of-payment images uploaded by guests are stored in `storage/app/private/proofs/`. Run the storage symlink command once after setup so the files are publicly accessible:
+Proof-of-payment files uploaded by guests are stored on the `public` disk at `storage/app/public/proofs/` and served via `public/storage/proofs/`. Run the storage symlink command once after setup so the files are accessible:
 
 ```bash
 php artisan storage:link
