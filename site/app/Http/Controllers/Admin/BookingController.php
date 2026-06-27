@@ -18,7 +18,9 @@ class BookingController extends Controller
 
     public function index(Request $request)
     {
-        $status = $request->query('status');
+        $status = in_array($request->query('status'), self::ALLOWED_STATUSES, true)
+            ? $request->query('status')
+            : null;
 
         $bookings = Booking::with(['bookable', 'paymentMethod'])
             ->when($status, fn ($q) => $q->where('status', $status))

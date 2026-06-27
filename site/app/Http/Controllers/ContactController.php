@@ -29,13 +29,16 @@ class ContactController extends Controller
 
         // Notify the hotel — wrapped in try/catch so mail failure never blocks submission
         try {
+            $name  = $data['name'];
+            $email = $data['email'];
             Mail::raw(
-                "New contact message from {$data['name']} <{$data['email']}>\n"
+                "New contact message from {$name} <{$email}>\n"
                 . "Phone: " . ($data['phone'] ?? 'N/A') . "\n"
                 . "Subject: " . ($data['subject'] ?? 'N/A') . "\n\n"
                 . $data['message'],
-                function ($m) {
+                function ($m) use ($name, $email) {
                     $m->to(config('hotel.email'))
+                      ->replyTo($email, $name)
                       ->subject('New Contact Message — Hotel Benizia');
                 }
             );

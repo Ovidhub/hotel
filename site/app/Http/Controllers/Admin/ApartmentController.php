@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Concerns\ParsesListInput;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ApartmentRequest;
 use App\Models\Apartment;
@@ -9,6 +10,8 @@ use Illuminate\Support\Str;
 
 class ApartmentController extends Controller
 {
+    use ParsesListInput;
+
     public function index()
     {
         $apartments = Apartment::orderBy('sort')->orderBy('name')->get();
@@ -87,23 +90,4 @@ class ApartmentController extends Controller
         ];
     }
 
-    private function parseList(?string $value): array
-    {
-        if (empty($value)) {
-            return [];
-        }
-
-        $lines = preg_split('/[\r\n]+/', $value);
-        $items = [];
-        foreach ($lines as $line) {
-            foreach (explode(',', $line) as $part) {
-                $trimmed = trim($part);
-                if ($trimmed !== '') {
-                    $items[] = $trimmed;
-                }
-            }
-        }
-
-        return $items;
-    }
 }

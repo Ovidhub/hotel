@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Concerns\ParsesListInput;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RoomRequest;
 use App\Models\Room;
@@ -9,6 +10,8 @@ use Illuminate\Support\Str;
 
 class RoomController extends Controller
 {
+    use ParsesListInput;
+
     public function index()
     {
         $rooms = Room::orderBy('sort')->orderBy('name')->get();
@@ -94,27 +97,4 @@ class RoomController extends Controller
         ];
     }
 
-    /**
-     * Convert newline- or comma-separated textarea string into a clean array.
-     */
-    private function parseList(?string $value): array
-    {
-        if (empty($value)) {
-            return [];
-        }
-
-        // Split on newlines first, then commas within each line
-        $lines = preg_split('/[\r\n]+/', $value);
-        $items = [];
-        foreach ($lines as $line) {
-            foreach (explode(',', $line) as $part) {
-                $trimmed = trim($part);
-                if ($trimmed !== '') {
-                    $items[] = $trimmed;
-                }
-            }
-        }
-
-        return $items;
-    }
 }

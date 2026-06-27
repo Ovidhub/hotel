@@ -114,7 +114,7 @@
 
                         <form
                             method="POST"
-                            action="{{ Route::has('contact.store') ? route('contact.store') : '#' }}"
+                            action="{{ route('contact.store') }}"
                             class="space-y-6"
                         >
                             @csrf

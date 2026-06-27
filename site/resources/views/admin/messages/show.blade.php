@@ -12,9 +12,15 @@
                     <h2 class="text-base font-semibold text-gray-900">{{ $message->subject }}</h2>
                     <p class="text-xs text-gray-500 mt-0.5">{{ $message->created_at->format('d M Y \a\t H:i') }}</p>
                 </div>
-                <span class="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
-                    Read
-                </span>
+                @if ($message->read_at)
+                    <span class="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+                        Read {{ $message->read_at->format('d M Y') }}
+                    </span>
+                @else
+                    <span class="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
+                        Unread
+                    </span>
+                @endif
             </div>
 
             <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5 text-sm border-b border-gray-100 pb-5">
