@@ -93,6 +93,40 @@ Hotel Benizia uses a **commitment-fee model**:
 
 ---
 
+## Availability & Booking.com (iCal) Sync
+
+Each room and apartment has a date-level availability calendar. A date is
+unavailable when active bookings reach the room's **Units available** count,
+or when an admin/OTA **block** covers it. The booking flow rejects unavailable
+date ranges.
+
+Manage it under **Admin → Availability**:
+
+- **Block / unblock dates** per room or apartment (e.g. maintenance).
+- **Export to Booking.com** — copy the room's public `.ics` link and paste it
+  into Booking.com's *Calendar → Sync calendars → Connect a calendar*. It
+  publishes that room's booked & blocked dates.
+- **Import from Booking.com** — paste Booking.com's exported `.ics` link into
+  the import box. Booking.com reservations then auto-block those dates here.
+
+Imports refresh hourly via the scheduler (or use **Sync now**). For the hourly
+import to run, the Laravel scheduler must be active:
+
+```bash
+# Add to crontab (Linux) — runs the scheduler every minute:
+* * * * * cd /path/to/site && php artisan schedule:run >> /dev/null 2>&1
+
+# Or run a one-off import manually:
+php artisan calendar:sync
+```
+
+> Notes: iCal sync is **date-level** (no rates) and refreshes periodically,
+> not instantly. Booking.com offers iCal calendar sync primarily for
+> **apartments/homes** (HB Apartments); standard hotel rooms typically require
+> a channel manager. See the original options discussion for details.
+
+---
+
 ## Paystack Integration
 
 The site ships with a **Paystack stub** that falls back gracefully to the bank-transfer path when no live keys are configured. To enable live card payments:

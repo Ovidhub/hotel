@@ -79,6 +79,11 @@ Route::middleware('auth')->group(function () {
 });
 
 // ── Admin area (auth + admin middleware) ──────────────────────────────────────
+// Public availability calendar feed (.ics) consumed by Booking.com / OTAs.
+Route::get('calendar/{token}.ics', [\App\Http\Controllers\CalendarController::class, 'show'])
+    ->where('token', '[A-Za-z0-9]+')
+    ->name('calendar.ical');
+
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
@@ -92,6 +97,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('availability/{type}/{id}', [\App\Http\Controllers\Admin\AvailabilityController::class, 'show'])->name('availability.show');
     Route::post('availability/{type}/{id}/blocks', [\App\Http\Controllers\Admin\AvailabilityController::class, 'storeBlock'])->name('availability.blocks.store');
     Route::delete('availability/blocks/{block}', [\App\Http\Controllers\Admin\AvailabilityController::class, 'destroyBlock'])->name('availability.blocks.destroy');
+    // Booking.com / OTA iCal import feeds
+    Route::post('availability/{type}/{id}/feeds', [\App\Http\Controllers\Admin\AvailabilityController::class, 'storeFeed'])->name('availability.feeds.store');
+    Route::post('availability/feeds/{feed}/sync', [\App\Http\Controllers\Admin\AvailabilityController::class, 'syncFeed'])->name('availability.feeds.sync');
+    Route::delete('availability/feeds/{feed}', [\App\Http\Controllers\Admin\AvailabilityController::class, 'destroyFeed'])->name('availability.feeds.destroy');
 
     // Bookings (no create/store — bookings come from guests)
     Route::get('bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index'])->name('bookings.index');

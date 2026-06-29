@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasIcalToken;
 use App\Models\Concerns\HasMediaUrls;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 class Room extends Model
 {
     use HasMediaUrls;
+    use HasIcalToken;
 
     protected $guarded = [];
 
