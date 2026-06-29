@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Concerns;
 
+use App\Services\ImageEnhancer;
 use Illuminate\Http\Request;
 
 /**
  * Stores admin-uploaded images on the public disk and returns their
- * relative paths (e.g. "rooms/abc.jpg"), served via the storage symlink.
+ * relative paths (e.g. "rooms/abc.webp"). Each image is run through the
+ * ImageEnhancer (resize, sharpen, colour-correct, optimized WebP) on the way in.
  */
 trait HandlesMediaUploads
 {
     /**
-     * Store a single uploaded file from $field into $dir on the public disk.
+     * Store a single uploaded, enhanced image from $field into $dir.
      * Returns the stored relative path, or null when no file was uploaded.
      */
     protected function storeUpload(Request $request, string $field, string $dir): ?string
@@ -20,11 +22,11 @@ trait HandlesMediaUploads
             return null;
         }
 
-        return $request->file($field)->store($dir, 'public');
+        return app(ImageEnhancer::class)->enhanceAndStore($request->file($field), $dir);
     }
 
     /**
-     * Store multiple uploaded gallery files into $dir on the public disk.
+     * Store multiple uploaded, enhanced gallery images into $dir.
      *
      * @return array<int, string> stored relative paths
      */
@@ -33,8 +35,9 @@ trait HandlesMediaUploads
         $paths = [];
 
         if ($request->hasFile($field)) {
+            $enhancer = app(ImageEnhancer::class);
             foreach ($request->file($field) as $file) {
-                $paths[] = $file->store($dir, 'public');
+                $paths[] = $enhancer->enhanceAndStore($file, $dir);
             }
         }
 

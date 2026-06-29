@@ -108,7 +108,7 @@
     @endif
     <input type="file" name="image_file" accept="image/*"
            class="block w-full text-sm text-gray-600 file:mr-3 file:rounded-lg file:border-0 file:bg-[#1D5C52] file:px-4 file:py-2 file:text-white hover:file:bg-[#16463f] @error('image_file') border-red-400 @enderror">
-    <p class="mt-1 text-xs text-gray-400">JPG, PNG or WebP, up to 4 MB.</p>
+    <p class="mt-1 text-xs text-gray-400">JPG, PNG or WebP, up to 4 MB. Photos are automatically sharpened, colour-corrected, resized &amp; optimized on upload.</p>
     @error('image_file') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
 </div>
 
