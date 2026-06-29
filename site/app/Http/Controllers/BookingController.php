@@ -31,6 +31,13 @@ class BookingController extends Controller
 
         $booking = config('hotel.booking');
 
+        // Dates the guest cannot pick (blocked, fully booked) for the next year.
+        $unavailableDates = $this->availability->unavailableDates(
+            $bookable,
+            Carbon::today(),
+            Carbon::today()->addYear(),
+        );
+
         return view('booking.create', [
             'bookable'          => $bookable,
             'type'              => $type,
@@ -39,6 +46,8 @@ class BookingController extends Controller
             'commitmentPercent' => $booking['commitment_percent'],
             'cancellationHours' => $booking['cancellation_hours'],
             'balanceNote'       => $booking['balance_note'],
+            'unavailableDates'  => $unavailableDates,
+            'minDate'           => Carbon::tomorrow()->toDateString(),
         ]);
     }
 
