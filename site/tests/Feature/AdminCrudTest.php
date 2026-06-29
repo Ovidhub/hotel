@@ -100,6 +100,28 @@ test('admin can upload gallery photos which appear in the room gallery', functio
     expect($room->galleryUrls())->toHaveCount(3);
 });
 
+test('a room can be created without size or rating', function () {
+    $admin = User::where('is_admin', true)->first();
+
+    $this->actingAs($admin)->post(route('admin.rooms.store'), [
+        'name'        => 'No Frills Room',
+        'category'    => 'Standard',
+        'price'       => 25000,
+        'guests'      => 2,
+        'beds'        => 1,
+        'excerpt'     => 'Simple and clean.',
+        'description' => 'A simple room created without size or rating.',
+        'image_file'  => UploadedFile::fake()->image('nf.jpg'),
+        'is_active'   => 1,
+        // no 'size', no 'rating'
+    ])->assertRedirect(route('admin.rooms.index'));
+
+    $room = Room::where('name', 'No Frills Room')->first();
+    expect($room)->not->toBeNull();
+    expect($room->size)->toBeNull();
+    expect($room->rating)->toBeNull();
+});
+
 test('updating a room without a new file keeps the existing image', function () {
     $admin = User::where('is_admin', true)->first();
     $room = Room::first();
