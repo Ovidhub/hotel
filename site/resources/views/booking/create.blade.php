@@ -25,6 +25,12 @@
     <section class="py-20 px-4 bg-white">
         <div class="mx-auto max-w-7xl">
 
+            @if (session('error'))
+                <div class="mb-8 rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <div class="grid gap-12 lg:grid-cols-5">
 
                 {{-- ── LEFT: Property summary card ───────────────────────────────── --}}

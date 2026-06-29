@@ -6,13 +6,17 @@ use App\Http\Requests\StoreBookingRequest;
 use App\Models\Apartment;
 use App\Models\Booking;
 use App\Models\Room;
+use App\Services\AvailabilityService;
 use App\Services\BookingCalculator;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-    public function __construct(protected BookingCalculator $calculator) {}
+    public function __construct(
+        protected BookingCalculator $calculator,
+        protected AvailabilityService $availability,
+    ) {}
 
     /**
      * Show the booking form for a room or apartment.
@@ -57,6 +61,13 @@ class BookingController extends Controller
         $checkIn  = Carbon::parse($request->input('check_in'));
         $checkOut = Carbon::parse($request->input('check_out'));
         $percent  = config('hotel.booking.commitment_percent', 40);
+
+        // Reject dates that are blocked or already fully booked.
+        if (! $this->availability->isRangeAvailable($bookable, $checkIn, $checkOut)) {
+            return back()
+                ->withInput()
+                ->with('error', 'Sorry, ' . $bookable->name . ' is not available for the selected dates. Please choose different dates.');
+        }
 
         $quote = $this->calculator->quote($bookable->price, $checkIn, $checkOut, $percent);
 

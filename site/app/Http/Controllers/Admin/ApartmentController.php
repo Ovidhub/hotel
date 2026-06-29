@@ -108,6 +108,7 @@ class ApartmentController extends Controller
             'description' => $validated['description'],
             'amenities'   => $this->parseList($validated['amenities'] ?? ''),
             'is_active'   => (bool) ($validated['is_active'] ?? false),
+            'units'       => (int) ($validated['units'] ?? 1),
             'sort'        => (int) ($validated['sort'] ?? 0),
         ];
     }

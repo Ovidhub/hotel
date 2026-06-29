@@ -40,6 +40,7 @@ class RoomRequest extends FormRequest
             'policies'    => ['nullable', 'string'],
             'best_for'    => ['nullable', 'string'],
             'is_active'   => ['boolean'],
+            'units'       => ['nullable', 'integer', 'min:1'],
             'sort'        => ['nullable', 'integer', 'min:0'],
         ];
     }

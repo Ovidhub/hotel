@@ -115,6 +115,7 @@ class RoomController extends Controller
             'policies'    => $this->parseList($validated['policies'] ?? ''),
             'best_for'    => $this->parseList($validated['best_for'] ?? ''),
             'is_active'   => (bool) ($validated['is_active'] ?? false),
+            'units'       => (int) ($validated['units'] ?? 1),
             'sort'        => (int) ($validated['sort'] ?? 0),
         ];
     }

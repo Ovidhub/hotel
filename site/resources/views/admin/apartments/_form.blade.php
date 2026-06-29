@@ -74,6 +74,14 @@
                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
     </div>
 
+    {{-- Units (inventory) --}}
+    <div>
+        <label class="block text-xs font-semibold text-gray-600 mb-1">Units available</label>
+        <input type="number" name="units" value="{{ old('units', $apartment->units ?? 1) }}" min="1"
+               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+        <p class="mt-1 text-xs text-gray-400">How many identical units of this apartment exist. A date is full when bookings reach this number.</p>
+    </div>
+
 </div>
 
 {{-- Main image (upload) --}}

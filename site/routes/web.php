@@ -87,6 +87,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('payment-methods', \App\Http\Controllers\Admin\PaymentMethodController::class)
          ->parameters(['payment-methods' => 'paymentMethod']);
 
+    // Availability (calendar / blocked dates per room & apartment)
+    Route::get('availability', [\App\Http\Controllers\Admin\AvailabilityController::class, 'index'])->name('availability.index');
+    Route::get('availability/{type}/{id}', [\App\Http\Controllers\Admin\AvailabilityController::class, 'show'])->name('availability.show');
+    Route::post('availability/{type}/{id}/blocks', [\App\Http\Controllers\Admin\AvailabilityController::class, 'storeBlock'])->name('availability.blocks.store');
+    Route::delete('availability/blocks/{block}', [\App\Http\Controllers\Admin\AvailabilityController::class, 'destroyBlock'])->name('availability.blocks.destroy');
+
     // Bookings (no create/store — bookings come from guests)
     Route::get('bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index'])->name('bookings.index');
     Route::get('bookings/{booking:ref}', [\App\Http\Controllers\Admin\BookingController::class, 'show'])->name('bookings.show');

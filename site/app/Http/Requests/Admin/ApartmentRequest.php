@@ -33,6 +33,7 @@ class ApartmentRequest extends FormRequest
             'description' => ['required', 'string'],
             'amenities'   => ['nullable', 'string'],
             'is_active'   => ['boolean'],
+            'units'       => ['nullable', 'integer', 'min:1'],
             'sort'        => ['nullable', 'integer', 'min:0'],
         ];
     }
