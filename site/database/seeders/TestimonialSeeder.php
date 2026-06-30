@@ -52,6 +52,20 @@ class TestimonialSeeder extends Seeder
                 'text'   => 'I stay here on every business trip to Asaba. The conference facilities are world-class, the WiFi is fast, and the service is consistently excellent. My go-to hotel.',
                 'avatar' => 'https://images.pexels.com/photos/6474532/pexels-photo-6474532.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
             ],
+            [
+                'name'   => 'Ngozi Okeke',
+                'role'   => 'Apartment Guest',
+                'rating' => 5,
+                'text'   => 'I booked the serviced apartment for a three-week work stay in Asaba and it felt like home — full kitchen, daily housekeeping, and hotel support whenever I needed it. Perfect for long stays.',
+                'avatar' => 'https://images.pexels.com/photos/7820318/pexels-photo-7820318.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+            ],
+            [
+                'name'   => 'The Eze Family',
+                'role'   => 'Family Apartment Guest',
+                'rating' => 5,
+                'text'   => 'The two-bedroom family apartment gave us space, privacy, and a kitchen, while still enjoying the pool and restaurant. Ideal for relocating to Asaba with kids.',
+                'avatar' => 'https://images.pexels.com/photos/7820311/pexels-photo-7820311.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop',
+            ],
         ];
 
         foreach ($testimonials as $testimonial) {

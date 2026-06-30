@@ -26,8 +26,8 @@
                         align="left"
                     />
                     <div class="mt-8 space-y-4 text-gray-600 leading-relaxed">
-                        <p>Located off Summit Road, Asaba, Hotel Benizia has grown to become one of Delta State's premier hospitality destinations. Every aspect of the hotel — from our comfortable rooms to our 24-hour restaurant and event facilities — is designed to make guests feel at home.</p>
-                        <p>We serve business travelers, families, couples, and VIP guests seeking quality accommodation and genuine Nigerian hospitality. Whether you are visiting Asaba for work, leisure, or a special occasion, Hotel Benizia is your home away from home.</p>
+                        <p>Located in Central Area, Asaba, Hotel Benizia has grown to become one of Delta State's premier hospitality destinations. Every aspect of the hotel — from our comfortable rooms and serviced apartments to our 24-hour restaurant and event facilities — is designed to make guests feel at home.</p>
+                        <p>We serve business travelers, families, couples, long-stay apartment guests, and VIP visitors seeking quality accommodation and genuine Nigerian hospitality. Whether you need a room for the night or a serviced apartment for an extended stay in Asaba, Hotel Benizia is your home away from home.</p>
                     </div>
                 </div>
                 <div class="rounded-3xl overflow-hidden">

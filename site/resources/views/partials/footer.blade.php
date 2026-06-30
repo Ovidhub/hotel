@@ -25,8 +25,8 @@
                 </div>
             </div>
             <p class="mt-5 max-w-xs text-sm leading-7 text-white/70">
-                Premium 100-room hotel in the heart of Asaba, Delta State.
-                Luxury rooms, dining, bar, pool, events, 24/7 security, and warm Nigerian hospitality.
+                Luxury hotel and <a href="{{ route('apartments.index') }}" class="text-benizia-gold underline-offset-2 hover:underline">serviced apartments in Asaba</a>, Delta State.
+                Premium rooms, short-let apartments, dining, bar, pool, events, 24/7 security, and warm Nigerian hospitality.
             </p>
             <p class="mt-4 text-xs text-white/50 italic">{{ $tagline }}</p>
 

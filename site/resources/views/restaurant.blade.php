@@ -20,7 +20,7 @@
             <x-section-intro
                 eyebrow="Dining"
                 title="24-Hour Restaurant &amp; Bar"
-                text="Whether it's an early breakfast, a business lunch, or a late-night drink — Hotel Benizia's kitchen and bar never close. Serving guests and walk-in visitors every hour of the day."
+                text="Whether it's an early breakfast, a business lunch, or a late-night drink — Hotel Benizia's kitchen and bar never close. Hotel guests, apartment guests, and walk-in visitors are all welcome, every hour of the day."
             />
 
             <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
