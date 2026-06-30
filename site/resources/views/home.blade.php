@@ -250,6 +250,38 @@
     </section>
 
     {{-- ════════════════════════════════════════════════════════════════
+         4b. HB APARTMENTS SHOWCASE
+         Serviced apartments from DB (parity with rooms)
+    ════════════════════════════════════════════════════════════════ --}}
+    @if($apartments->isNotEmpty())
+    <section class="py-20 px-4 bg-benizia-cream" aria-label="Serviced apartments">
+        <div class="mx-auto max-w-7xl">
+            <x-section-intro
+                eyebrow="HB Apartments"
+                title="Serviced Apartments in Asaba"
+                text="Prefer the space and privacy of a home? HB Apartments by Hotel Benizia offers serviced short-let apartments in Asaba — ideal for families, business travelers, and extended stays, with hotel-grade support."
+            />
+            <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach($apartments as $apartment)
+                    <x-apartment-card :apartment="$apartment" />
+                @endforeach
+            </div>
+            <div class="mt-12 text-center">
+                <a
+                    href="{{ route('apartments.index') }}"
+                    class="inline-flex items-center gap-2 rounded-full border-2 border-benizia-green px-8 py-3 font-bold text-benizia-green transition hover:bg-benizia-green hover:text-white"
+                >
+                    View All Apartments
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    @endif
+
+    {{-- ════════════════════════════════════════════════════════════════
          5. DINING & BAR FEATURE
          Split section: image + copy about restaurant & bar
     ════════════════════════════════════════════════════════════════ --}}

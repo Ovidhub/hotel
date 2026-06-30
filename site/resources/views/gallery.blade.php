@@ -1,10 +1,10 @@
 <x-layouts.app
-    title="Photo Gallery"
-    description="Browse the Hotel Benizia photo gallery. See our rooms, suites, restaurant, swimming pool, event halls, and grounds in Asaba, Delta State.">
+    title="Photo Gallery — Hotel & Apartments"
+    description="Browse the Hotel Benizia photo gallery — rooms, suites, serviced apartments, restaurant, swimming pool, event halls, and grounds in Asaba, Delta State.">
 
     <x-page-hero
         title="Photo Gallery"
-        subtitle="A visual tour of Hotel Benizia — rooms, pool, restaurant, event spaces, and the grounds in Asaba, Delta State."
+        subtitle="A visual tour of Hotel Benizia — rooms, suites, serviced apartments, pool, restaurant, and event spaces in Asaba, Delta State."
         image="https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg"
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Gallery']]"
     />
@@ -17,7 +17,7 @@
     <section class="py-20 px-4">
         <div class="mx-auto max-w-7xl">
             <x-section-intro
-                eyebrow="Gallery"
+                eyebrow="The Hotel"
                 title="Inside Hotel Benizia"
                 text="Photos of our rooms, suites, pool, restaurant, event facilities, and more."
             />
@@ -52,6 +52,48 @@
             </div>
         </div>
     </section>
+
+    {{-- ── HB Apartments gallery ──────────────────────────────────────── --}}
+    @php
+        $apartmentImages = collect($apartments ?? [])
+            ->flatMap(fn ($apt) => collect($apt->galleryUrls())->map(fn ($src) => ['src' => $src, 'alt' => $apt->name]))
+            ->unique('src')
+            ->values();
+    @endphp
+    @if($apartmentImages->isNotEmpty())
+    <section class="py-20 px-4 bg-benizia-cream" aria-label="HB Apartments gallery">
+        <div class="mx-auto max-w-7xl">
+            <x-section-intro
+                eyebrow="HB Apartments"
+                title="Our Serviced Apartments"
+                text="Inside HB Apartments by Hotel Benizia — serviced short-let apartments in Asaba for families, business travelers, and extended stays."
+            />
+
+            <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                @foreach($apartmentImages as $img)
+                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-square">
+                        <img
+                            src="{{ $img['src'] }}"
+                            alt="{{ $img['alt'] }} — serviced apartment in Asaba, Hotel Benizia"
+                            class="h-full w-full object-cover transition duration-500 hover:scale-105"
+                            loading="lazy"
+                        >
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="{{ route('apartments.index') }}"
+                   class="inline-flex items-center gap-2 rounded-full border-2 border-benizia-green px-8 py-3 font-bold text-benizia-green transition hover:bg-benizia-green hover:text-white">
+                    View All Apartments
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    @endif
 
     <x-cta title="Experience Hotel Benizia in Person" text="Book a stay and see it all for yourself. Rooms from ₦30,000/night in Asaba, Delta State." />
 
