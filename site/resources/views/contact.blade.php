@@ -84,19 +84,37 @@
                         </div>
                     </div>
 
-                    {{-- Google Maps iframe --}}
-                    <div class="mt-8 overflow-hidden rounded-3xl h-56">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.9540297278433!2d6.728879!3d6.196800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d32b3a0827ab%3A0xa6c3e8c6bcd5e6e8!2sHotel%20Benizia!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng"
-                            width="100%"
-                            height="100%"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title="Hotel Benizia location on Google Maps — Summit Road, Asaba, Delta State"
-                            aria-label="Map showing Hotel Benizia location in Asaba, Delta State"
-                        ></iframe>
+                    {{-- Google Maps iframe + Get directions --}}
+                    <div class="mt-8">
+                        <div class="overflow-hidden rounded-3xl h-56">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.9540297278433!2d6.728879!3d6.196800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d32b3a0827ab%3A0xa6c3e8c6bcd5e6e8!2sHotel%20Benizia!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng"
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Hotel Benizia location on Google Maps — Central Area, Asaba, Delta State"
+                                aria-label="Map showing Hotel Benizia location in Asaba, Delta State"
+                            ></iframe>
+                        </div>
+
+                        {{-- Get directions --}}
+                        <a
+                            href="https://www.google.com/maps/dir/?api=1&destination={{ urlencode(config('hotel.address') . ', Nigeria') }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-benizia-green px-6 py-3 text-sm font-bold text-white transition hover:bg-benizia-charcoal sm:w-auto"
+                            aria-label="Get driving directions to Hotel Benizia in Asaba on Google Maps"
+                        >
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+                                <circle cx="12" cy="11" r="3"/>
+                            </svg>
+                            Get Directions
+                        </a>
+                        <p class="mt-2 text-xs text-gray-400">{{ config('hotel.address') }}</p>
                     </div>
                 </div>
 
