@@ -7,6 +7,9 @@ return [
   'email' => 'booking@hotelbenizia.ng',
   'address' => '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State',
   'canonical' => 'https://hotelbenizia.ng',
+  // Approximate coordinates for Central Area, Asaba, Delta State (used in local-SEO schema).
+  'geo' => ['lat' => 6.1980, 'lng' => 6.7290],
+  'maps_url' => 'https://www.google.com/maps?q=Hotel+Benizia+Asaba',
   'socials' => [
     'facebook' => '#','twitter' => '#','instagram' => '#','youtube' => '#','pinterest' => '#',
   ],

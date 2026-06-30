@@ -112,7 +112,9 @@ test('hotel schema emits json-ld script tag', function () {
 test('hotel schema contains type Hotel', function () {
     $html = Blade::render('<x-schema.hotel />');
 
-    expect($html)->toContain('"@type":"Hotel"');
+    expect($html)->toContain('"@type":["Hotel","LodgingBusiness"]');
+    expect($html)->toContain('"addressLocality":"Asaba"');
+    expect($html)->toContain('"@type":"GeoCoordinates"');
 });
 
 test('hotel schema contains address locality Asaba', function () {

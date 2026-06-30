@@ -62,7 +62,7 @@ test('public layout shell renders json-ld hotel schema', function () {
     $response = $this->get('/__shelltest');
 
     $response->assertStatus(200);
-    $response->assertSee('"@type":"Hotel"', false);
+    $response->assertSee('"@type":["Hotel","LodgingBusiness"]', false);
 });
 
 test('public layout shell renders amenity ticker items', function () {

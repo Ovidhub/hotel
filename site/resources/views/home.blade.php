@@ -1,6 +1,6 @@
 <x-layouts.app
-    title="Luxury Hotel in Asaba, Delta State"
-    description="Experience luxury rooms, fine dining, swimming pool, spa, and event halls at Hotel Benizia — Asaba's premier hotel in Delta State, Nigeria."
+    title="Luxury Hotel & Serviced Apartments in Asaba, Delta State"
+    description="Hotel Benizia is a luxury hotel and serviced apartments in Asaba, Delta State — premium rooms, short-let apartments, fine dining, pool, spa, and event halls. Book direct."
     image="https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg">
 
     {{-- ════════════════════════════════════════════════════════════════
@@ -567,6 +567,44 @@
                         aria-label="Map showing Hotel Benizia location in Asaba"
                     ></iframe>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ════════════════════════════════════════════════════════════════
+         SEO CONTENT — Hotels & Apartments in Asaba
+    ════════════════════════════════════════════════════════════════ --}}
+    <section class="py-20 px-4 bg-benizia-cream" aria-label="Hotels and apartments in Asaba">
+        <div class="mx-auto max-w-4xl">
+            <x-section-intro
+                eyebrow="Asaba, Delta State"
+                title="Hotels &amp; Apartments in Asaba"
+                text="Your home for comfort, business, and leisure in the Delta State capital."
+            />
+
+            <div class="mt-8 space-y-5 text-gray-600 leading-relaxed">
+                <p>
+                    Looking for the <strong>best hotels in Asaba</strong>? Hotel Benizia is a luxury hotel and
+                    serviced-apartment destination in Central Area, Asaba, Delta State — minutes from the city's
+                    business district, government offices, and Asaba International Airport. Whether you need a
+                    one-night stay or an extended visit, we combine five-star comfort with genuine Nigerian
+                    hospitality.
+                </p>
+                <p>
+                    Our <a href="{{ route('rooms.index') }}" class="font-semibold text-benizia-green underline decoration-benizia-gold/50 underline-offset-2 hover:text-benizia-gold">luxury hotel rooms in Asaba</a>
+                    range from the Deluxe Classic to the exclusive Penthouse Suite, each with complimentary
+                    breakfast, swimming-pool access, and high-speed Wi-Fi. For longer stays, our
+                    <a href="{{ route('apartments.index') }}" class="font-semibold text-benizia-green underline decoration-benizia-gold/50 underline-offset-2 hover:text-benizia-gold">serviced apartments in Asaba</a>
+                    give families and business travelers the independence of a private home with the support of a hotel.
+                </p>
+                <p>
+                    Beyond accommodation, guests enjoy a 24-hour
+                    <a href="{{ route('restaurant') }}" class="font-semibold text-benizia-green underline decoration-benizia-gold/50 underline-offset-2 hover:text-benizia-gold">restaurant and bar</a>,
+                    a swimming pool, spa, fitness centre, and versatile
+                    <a href="{{ route('events') }}" class="font-semibold text-benizia-green underline decoration-benizia-gold/50 underline-offset-2 hover:text-benizia-gold">event halls</a>
+                    for weddings, conferences, and meetings — making Hotel Benizia the complete choice for
+                    <strong>hotels and apartments in Asaba, Delta State</strong>.
+                </p>
             </div>
         </div>
     </section>

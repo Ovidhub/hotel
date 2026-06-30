@@ -74,7 +74,7 @@ test('home page contains at least one seeded testimonial guest name', function (
 test('home page contains JSON-LD Hotel schema from layout', function () {
     $response = $this->get(route('home'));
     $response->assertOk();
-    $response->assertSee('"@type":"Hotel"', false);
+    $response->assertSee('"@type":["Hotel","LodgingBusiness"]', false);
 });
 
 test('home page contains a blog post title', function () {

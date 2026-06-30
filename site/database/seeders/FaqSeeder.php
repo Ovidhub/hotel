@@ -45,6 +45,21 @@ class FaqSeeder extends Seeder
                 'answer'   => 'Yes. Hotel Benizia welcomes families. The swimming pool, restaurant, and event facilities are family-friendly. The Two Bedroom Family Apartment is also available for families needing extra space.',
                 'sort'     => 7,
             ],
+            [
+                'question' => 'Which is the best hotel in Asaba, Delta State?',
+                'answer'   => 'Hotel Benizia is one of the best luxury hotels in Asaba, Delta State, located in Central Area close to the business district and airport. It offers premium rooms, serviced apartments, a 24-hour restaurant and bar, swimming pool, spa, and event halls.',
+                'sort'     => 8,
+            ],
+            [
+                'question' => 'Do you offer serviced apartments in Asaba?',
+                'answer'   => 'Yes. HB Apartments by Hotel Benizia offers serviced short-let apartments in Asaba — including studio, one-bedroom, and two-bedroom options — ideal for extended stays, families, and business travelers, with hotel-grade housekeeping and support.',
+                'sort'     => 9,
+            ],
+            [
+                'question' => 'Where is Hotel Benizia located in Asaba?',
+                'answer'   => 'Hotel Benizia is at 1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State, Nigeria — a central location with easy access to Asaba International Airport, government offices, and the city centre.',
+                'sort'     => 10,
+            ],
         ];
 
         foreach ($faqs as $faq) {
