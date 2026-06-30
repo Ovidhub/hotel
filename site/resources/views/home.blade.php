@@ -227,7 +227,7 @@
         <div class="mx-auto max-w-7xl">
             <x-section-intro
                 eyebrow="Accommodation"
-                title="Our Rooms &amp; Suites"
+                title="Our Rooms & Suites"
                 text="From the warm Deluxe Classic to the exclusive Penthouse Suite — every room at Hotel Benizia is built for comfort, privacy, and a memorable Asaba experience."
             />
             <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -610,7 +610,7 @@
         <div class="mx-auto max-w-4xl">
             <x-section-intro
                 eyebrow="Asaba, Delta State"
-                title="Hotels &amp; Apartments in Asaba"
+                title="Hotels & Apartments in Asaba"
                 text="Your home for comfort, business, and leisure in the Delta State capital."
             />
 

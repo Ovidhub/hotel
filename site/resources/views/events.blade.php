@@ -3,7 +3,7 @@
     description="Hotel Benizia's event halls and boardroom in Asaba, Delta State host weddings, conferences, corporate meetings, product launches, and private functions.">
 
     <x-page-hero
-        title="Events &amp; Conferences"
+        title="Events & Conferences"
         subtitle="Versatile event spaces in Asaba for weddings, conferences, boardroom meetings, and private functions — backed by Hotel Benizia's hospitality team."
         image="https://hotelbenizia.ng/wp-content/uploads/2025/06/benizia-hall-780x520.jpg"
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Events']]"

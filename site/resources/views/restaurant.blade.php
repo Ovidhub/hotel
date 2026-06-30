@@ -3,7 +3,7 @@
     description="Hotel Benizia's 24-hour restaurant and bar in Asaba serves Nigerian and continental cuisine. VIP bar, pool bar, and live band Wed, Fri &amp; Sat nights.">
 
     <x-page-hero
-        title="Restaurant &amp; Bar in Asaba"
+        title="Restaurant & Bar in Asaba"
         subtitle="A 24-hour dining experience in the heart of Delta State — Nigerian and continental cuisine, crafted cocktails, VIP bar, pool bar, and live band nights."
         image="https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg"
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Restaurant & Bar']]"
@@ -19,7 +19,7 @@
         <div class="mx-auto max-w-7xl">
             <x-section-intro
                 eyebrow="Dining"
-                title="24-Hour Restaurant &amp; Bar"
+                title="24-Hour Restaurant & Bar"
                 text="Whether it's an early breakfast, a business lunch, or a late-night drink — Hotel Benizia's kitchen and bar never close. Hotel guests, apartment guests, and walk-in visitors are all welcome, every hour of the day."
             />
 
