@@ -45,13 +45,8 @@
             ['@type' => 'LocationFeatureSpecification', 'name' => 'Event Halls'],
             ['@type' => 'LocationFeatureSpecification', 'name' => 'Serviced Apartments'],
         ],
-        'aggregateRating' => [
-            '@type'       => 'AggregateRating',
-            'ratingValue' => 4.9,
-            'reviewCount' => 120,
-            'bestRating'  => 5,
-            'worstRating' => 1,
-        ],
+        // NOTE: aggregateRating intentionally omitted until real guest reviews
+        // are collected — Google penalises self-serving/placeholder review data.
     ];
 
     if (! empty($sameAs)) {

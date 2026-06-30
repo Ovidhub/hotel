@@ -141,11 +141,11 @@ test('hotel schema contains price range', function () {
     expect($html)->toContain('NGN 30,000');
 });
 
-test('hotel schema contains aggregate rating', function () {
+test('hotel schema omits aggregate rating until real reviews exist', function () {
     $html = Blade::render('<x-schema.hotel />');
 
-    expect($html)->toContain('AggregateRating');
-    expect($html)->toContain('4.9');
+    // Placeholder review data must not be published (Google penalises fake ratings).
+    expect($html)->not->toContain('AggregateRating');
 });
 
 test('hotel schema contains amenity features', function () {

@@ -39,17 +39,13 @@
     {{-- Card body --}}
     <div class="p-6">
 
-        {{-- Price + rating row --}}
+        {{-- Price --}}
         <div class="flex items-start justify-between gap-4">
             <div>
                 <p class="text-xs font-semibold uppercase tracking-[0.22em] text-benizia-gold">from</p>
                 <p class="font-serif mt-0.5 text-2xl text-benizia-charcoal">
                     {{ $price ?? 'Contact us' }} <span class="text-base font-normal text-gray-400">/ night</span>
                 </p>
-            </div>
-            <div class="flex items-center gap-1.5">
-                <x-rating-stars :rating="$rating" />
-                <span class="text-xs font-semibold text-benizia-green">{{ number_format((float)$rating, 1) }}</span>
             </div>
         </div>
 

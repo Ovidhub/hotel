@@ -158,8 +158,8 @@
                     >
                     {{-- Gold accent badge --}}
                     <div class="absolute -bottom-5 -right-5 hidden rounded-2xl bg-benizia-green px-6 py-5 text-white shadow-xl lg:block">
-                        <p class="font-serif text-3xl font-semibold text-benizia-gold">4.9</p>
-                        <p class="mt-0.5 text-xs font-medium text-white/80">Average Rating</p>
+                        <p class="font-serif text-3xl font-semibold text-benizia-gold">₦30,000</p>
+                        <p class="mt-0.5 text-xs font-medium text-white/80">Rooms from / night</p>
                     </div>
                 </div>
 
@@ -190,8 +190,8 @@
                             <p class="mt-1 text-xs font-medium uppercase tracking-wide text-gray-400">Service</p>
                         </div>
                         <div>
-                            <p class="font-serif text-3xl font-semibold text-benizia-green">4.9★</p>
-                            <p class="mt-1 text-xs font-medium uppercase tracking-wide text-gray-400">Guest Rating</p>
+                            <p class="font-serif text-3xl font-semibold text-benizia-green">Free</p>
+                            <p class="mt-1 text-xs font-medium uppercase tracking-wide text-gray-400">Breakfast &amp; Pool</p>
                         </div>
                     </div>
 

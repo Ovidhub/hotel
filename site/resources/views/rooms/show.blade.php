@@ -19,13 +19,13 @@
         ['name' => $room->name, 'url' => route('rooms.show', $room)],
     ]" />
 
+    {{-- aggregateRating omitted until real guest reviews are collected. --}}
     <x-schema.product
         :name="$room->name"
         :description="$room->excerpt ?? $room->description"
         :image="$room->imageUrl()"
         :price="$room->price"
         :url="route('rooms.show', $room)"
-        :rating="$room->rating ? ['ratingValue' => $room->rating, 'reviewCount' => $room->reviews ?? 10] : null"
     />
 
     <section class="py-20 px-4 bg-white">
@@ -84,21 +84,12 @@
                 </div>
             @endif
 
-            {{-- Price & rating --}}
+            {{-- Price --}}
             <div class="flex flex-wrap items-center gap-6 mb-8">
                 <div>
                     <p class="text-xs font-semibold uppercase tracking-widest text-benizia-gold">From</p>
                     <p class="font-serif text-3xl text-benizia-charcoal">{{ $room->price_formatted }} <span class="text-base font-normal text-gray-400">/ night</span></p>
                 </div>
-                @if($room->rating)
-                    <div class="flex items-center gap-2">
-                        <x-rating-stars :rating="$room->rating" />
-                        <span class="font-semibold text-benizia-green">{{ number_format((float)$room->rating, 1) }}</span>
-                        @if($room->reviews)
-                            <span class="text-sm text-gray-400">({{ $room->reviews }} reviews)</span>
-                        @endif
-                    </div>
-                @endif
             </div>
 
             {{-- Room specs --}}
