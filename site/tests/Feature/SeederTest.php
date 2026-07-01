@@ -15,7 +15,7 @@ it('seeds inventory and admin', function () {
     $this->seed();
 
     expect(Room::count())->toBe(5);
-    expect(Apartment::count())->toBe(3);
+    expect(Apartment::count())->toBe(4);
     expect(User::where('is_admin', true)->count())->toBe(1);
     expect(PaymentMethod::count())->toBeGreaterThanOrEqual(3);
     expect(BlogPost::count())->toBeGreaterThanOrEqual(3);

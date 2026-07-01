@@ -81,18 +81,17 @@ test('room show title follows convention no Hotel Benizia in title segment', fun
 
 // ── apartments/index ──────────────────────────────────────────────────────────
 
-test('apartments index lists 3 apartment names and status badges', function () {
+test('apartments index lists apartment names and status badges', function () {
     $response = $this->get(route('apartments.index'));
     $response->assertOk();
 
-    $response->assertSee('One Bedroom Service Apartment');
-    $response->assertSee('Two Bedroom Family Apartment');
-    $response->assertSee('Executive Studio Apartment');
+    $response->assertSee('Classic Room');
+    $response->assertSee('Deluxe Classic Apartment');
+    $response->assertSee('Supreme 2-Bedroom Apartment');
+    $response->assertSee('Supreme 4-Bedroom Apartment');
 
-    // Status words
+    // Status word
     $response->assertSee('Available');
-    $response->assertSee('Occupied');
-    $response->assertSee('Maintenance');
 
     // Single h1
     expect(substr_count($response->getContent(), '<h1'))->toBe(1);
@@ -101,11 +100,11 @@ test('apartments index lists 3 apartment names and status badges', function () {
 // ── apartments/show ───────────────────────────────────────────────────────────
 
 test('apartment show displays description and Product schema', function () {
-    $apartment = Apartment::where('slug', 'one-bedroom-service-apartment')->first();
+    $apartment = Apartment::where('slug', 'supreme-2-bedroom-apartment')->first();
     $response = $this->get(route('apartments.show', $apartment));
     $response->assertOk();
 
-    $response->assertSee('private serviced apartment');
+    $response->assertSee('serviced apartment');
     $response->assertSee('"@type":"Product"', false);
 
     // Single h1

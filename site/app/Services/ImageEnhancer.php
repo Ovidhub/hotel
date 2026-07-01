@@ -33,36 +33,66 @@ class ImageEnhancer
             return $file->store($dir, 'public');
         }
 
-        $image = $this->fixOrientation($image, $file);
+        $orientation = $this->orientationOf($file->getRealPath());
+        $image = $this->rotate($image, $orientation);
         $image = $this->downsize($image);
         $this->enhance($image);
 
         $path = trim($dir, '/') . '/' . Str::random(40) . '.webp';
 
-        ob_start();
-        imagewebp($image, null, self::QUALITY);
-        $contents = (string) ob_get_clean();
-        imagedestroy($image);
-
-        Storage::disk('public')->put($path, $contents);
+        Storage::disk('public')->put($path, $this->toWebp($image));
 
         return $path;
     }
 
-    /** Rotate JPEGs per their EXIF orientation flag (common for phone photos). */
-    protected function fixOrientation(\GdImage $image, UploadedFile $file): \GdImage
+    /**
+     * Enhance an image on disk and return optimized WebP bytes (for importing
+     * local photo files). Returns null if the file can't be processed.
+     */
+    public function enhancedWebpFromPath(string $absolutePath): ?string
     {
-        if (! function_exists('exif_read_data') || $file->getClientOriginalExtension() === '') {
-            return $image;
+        $image = @imagecreatefromstring((string) @file_get_contents($absolutePath));
+
+        if ($image === false || ! function_exists('imagewebp')) {
+            return null;
+        }
+
+        $image = $this->rotate($image, $this->orientationOf($absolutePath));
+        $image = $this->downsize($image);
+        $this->enhance($image);
+
+        return $this->toWebp($image);
+    }
+
+    protected function toWebp(\GdImage $image): string
+    {
+        ob_start();
+        imagewebp($image, null, self::QUALITY);
+        $bytes = (string) ob_get_clean();
+        imagedestroy($image);
+
+        return $bytes;
+    }
+
+    /** Read a JPEG's EXIF orientation flag (common for phone photos). */
+    protected function orientationOf(string $path): ?int
+    {
+        if (! function_exists('exif_read_data')) {
+            return null;
         }
 
         try {
-            $exif = @exif_read_data($file->getRealPath());
+            $exif = @exif_read_data($path);
         } catch (\Throwable) {
-            return $image;
+            return null;
         }
 
-        $orientation = $exif['Orientation'] ?? null;
+        return $exif['Orientation'] ?? null;
+    }
+
+    /** Rotate the image upright per an EXIF orientation flag. */
+    protected function rotate(\GdImage $image, ?int $orientation): \GdImage
+    {
         $angle = match ($orientation) {
             3 => 180,
             6 => -90,

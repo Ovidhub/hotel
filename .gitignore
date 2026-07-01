@@ -6,3 +6,10 @@ node_modules/
 /public/build/
 .DS_Store
 Thumbs.db
+
+# Raw apartment photo originals (enhanced copies live in site/public/img/apartments)
+HB Apartment/
+"HB Apartment"/
+
+# Raw apartment photo originals (enhanced copies live in site/public/img/apartments)
+HB Apartment/
