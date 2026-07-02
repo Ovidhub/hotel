@@ -36,11 +36,11 @@
             @if(count($galleryImages) > 1)
                 <div class="mb-12" x-data="{ index: 0, images: {{ \Illuminate\Support\Js::from($galleryImages) }} }">
                     {{-- Main image with prev/next controls --}}
-                    <div class="relative overflow-hidden rounded-3xl h-96 mb-3 group">
+                    <div class="relative overflow-hidden rounded-3xl h-[28rem] mb-3 group bg-benizia-charcoal/5">
                         <img
                             :src="images[index]"
                             alt="{{ $room->name }} at Hotel Benizia — Asaba"
-                            class="h-full w-full object-cover transition duration-500"
+                            class="h-full w-full object-contain transition duration-500"
                         >
                         <button type="button" aria-label="Previous image"
                             x-on:click="index = (index - 1 + images.length) % images.length"
@@ -74,11 +74,11 @@
                     </div>
                 </div>
             @else
-                <div class="mb-12 overflow-hidden rounded-3xl h-96">
+                <div class="mb-12 overflow-hidden rounded-3xl h-[28rem] bg-benizia-charcoal/5">
                     <img
                         src="{{ $galleryImages[0] ?? $room->imageUrl() }}"
                         alt="{{ $room->name }} at Hotel Benizia — Asaba"
-                        class="h-full w-full object-cover"
+                        class="h-full w-full object-contain"
                         loading="lazy"
                     >
                 </div>

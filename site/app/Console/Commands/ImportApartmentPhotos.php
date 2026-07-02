@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\File;
  */
 class ImportApartmentPhotos extends Command
 {
-    protected $signature = 'apartments:import-photos {--max=12 : Max photos per apartment}';
+    protected $signature = 'apartments:import-photos {--max=24 : Max photos per apartment}';
 
     protected $description = 'Enhance and import the local HB Apartment photo folders into public/img/apartments';
 
@@ -48,10 +48,21 @@ class ImportApartmentPhotos extends Command
                 continue;
             }
 
-            // Collect + natural-sort the source images.
-            $files = collect(File::files($src))
-                ->filter(fn ($f) => in_array(strtolower($f->getExtension()), ['jpg', 'jpeg', 'png', 'webp']))
-                ->sortBy(fn ($f) => $f->getFilename(), SORT_NATURAL | SORT_FLAG_CASE)
+            // Collect images; "main" goes first, then the numbered shots in order.
+            $images = collect(File::files($src))
+                ->filter(fn ($f) => in_array(strtolower($f->getExtension()), ['jpg', 'jpeg', 'png', 'webp']));
+
+            $main = $images->first(fn ($f) => str_starts_with(
+                strtolower(pathinfo($f->getFilename(), PATHINFO_FILENAME)), 'main'
+            ));
+
+            $numbered = $images
+                ->reject(fn ($f) => $main && $f->getPathname() === $main->getPathname())
+                ->sortBy(fn ($f) => (int) pathinfo($f->getFilename(), PATHINFO_FILENAME), SORT_NUMERIC)
+                ->values();
+
+            $files = collect($main ? [$main] : [])
+                ->concat($numbered)
                 ->take($max)
                 ->values();
 

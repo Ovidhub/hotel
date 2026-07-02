@@ -34,11 +34,11 @@
             @php $galleryImages = $apartment->galleryUrls(); @endphp
             @if(count($galleryImages) > 1)
                 <div class="mb-12" x-data="{ index: 0, images: {{ \Illuminate\Support\Js::from($galleryImages) }} }">
-                    <div class="relative overflow-hidden rounded-3xl h-80 mb-3 group">
+                    <div class="relative overflow-hidden rounded-3xl h-[28rem] mb-3 group bg-benizia-charcoal/5">
                         <img
                             :src="images[index]"
                             alt="{{ $apartment->name }} — HB Apartments, Asaba"
-                            class="h-full w-full object-cover transition duration-500"
+                            class="h-full w-full object-contain transition duration-500"
                         >
                         <button type="button" aria-label="Previous image"
                             x-on:click="index = (index - 1 + images.length) % images.length"
@@ -71,11 +71,11 @@
                     </div>
                 </div>
             @else
-                <div class="mb-12 overflow-hidden rounded-3xl h-80">
+                <div class="mb-12 overflow-hidden rounded-3xl h-[28rem] bg-benizia-charcoal/5">
                     <img
                         src="{{ $galleryImages[0] ?? $apartment->imageUrl() }}"
                         alt="{{ $apartment->name }} — HB Apartments, Asaba"
-                        class="h-full w-full object-cover"
+                        class="h-full w-full object-contain"
                         loading="lazy"
                     >
                 </div>
