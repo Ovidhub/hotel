@@ -82,12 +82,16 @@
 
             {{-- Logo / Wordmark --}}
             <a href="{{ \Illuminate\Support\Facades\Route::has('home') ? route('home') : '/' }}"
-               class="flex items-center group"
+               class="flex items-center gap-3 group"
                aria-label="Hotel Benizia — Home">
                 <img src="{{ asset('img/logoHB.png') }}"
                      alt="Hotel Benizia — Luxury Hotel & Serviced Apartments in Asaba"
                      class="h-16 w-auto transition group-hover:opacity-90"
                      width="128" height="64">
+                <span class="hidden sm:block">
+                    <span class="block font-serif text-2xl leading-none text-benizia-green">Hotel Benizia</span>
+                    <span class="block text-[10px] uppercase tracking-[0.35em] text-benizia-gold">Luxury Hotel · Asaba</span>
+                </span>
             </a>
 
             {{-- Desktop Navigation --}}
