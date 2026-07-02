@@ -7,8 +7,8 @@
         <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
             <div class="flex items-center justify-between">
                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Revenue</p>
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#1D5C52]/10">
-                    <svg class="h-4 w-4 text-[#1D5C52]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#7C0E52]/10">
+                    <svg class="h-4 w-4 text-[#7C0E52]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </span>
@@ -25,8 +25,8 @@
         <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-gray-200">
             <div class="flex items-center justify-between">
                 <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Occupancy</p>
-                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8922A]/10">
-                    <svg class="h-4 w-4 text-[#C8922A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C79A46]/10">
+                    <svg class="h-4 w-4 text-[#C79A46]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                     </svg>
                 </span>
@@ -199,7 +199,7 @@
                         label: 'Revenue (₦)',
                         data: revenue,
                         backgroundColor: 'rgba(29,92,82,0.75)',
-                        borderColor: '#1D5C52',
+                        borderColor: '#7C0E52',
                         borderWidth: 1,
                         borderRadius: 4,
                         yAxisID: 'y',
@@ -208,10 +208,10 @@
                         label: 'Bookings',
                         data: counts,
                         type: 'line',
-                        borderColor: '#C8922A',
+                        borderColor: '#C79A46',
                         backgroundColor: 'rgba(200,146,42,0.15)',
                         borderWidth: 2,
-                        pointBackgroundColor: '#C8922A',
+                        pointBackgroundColor: '#C79A46',
                         pointRadius: 4,
                         tension: 0.3,
                         fill: true,

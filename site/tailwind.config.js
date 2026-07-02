@@ -14,10 +14,15 @@ export default {
         extend: {
             colors: {
                 benizia: {
-                    green: '#1D5C52',
-                    gold: '#C9A96E',
+                    // Brand palette derived from the Hotel Benizia logo (wine + gold).
+                    // `green` is kept as the primary key for backwards compatibility
+                    // with existing utility classes, but now holds the logo wine.
+                    green: '#7C0E52',
+                    maroon: '#7C0E52',
+                    wine: '#560A3A',
+                    gold: '#C79A46',
                     cream: '#FAF7F1',
-                    charcoal: '#1F2421',
+                    charcoal: '#241A20',
                 },
             },
             fontFamily: {

@@ -18,7 +18,9 @@
         {{-- Column 1: Brand --}}
         <div>
             <div class="flex items-center gap-3">
-                <span class="grid h-12 w-12 place-items-center rounded-full bg-benizia-gold text-sm font-bold text-benizia-green">HB</span>
+                <span class="grid place-items-center rounded-xl bg-white p-1.5 shadow-sm">
+                    <img src="{{ asset('img/logoHB.png') }}" alt="Hotel Benizia logo" class="h-12 w-auto" width="96" height="48">
+                </span>
                 <div>
                     <span class="block font-serif text-2xl leading-tight">Hotel Benizia</span>
                     <span class="block text-[10px] uppercase tracking-[0.35em] text-benizia-gold">Luxury Hotel · Asaba</span>

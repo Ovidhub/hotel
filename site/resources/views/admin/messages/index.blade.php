@@ -38,7 +38,7 @@
                     <td class="px-5 py-3.5 text-right">
                         <div class="flex items-center justify-end gap-2">
                             <a href="{{ route('admin.messages.show', $message) }}"
-                               class="inline-flex items-center rounded-lg bg-[#1D5C52]/10 px-3 py-1.5 text-xs font-medium text-[#1D5C52] hover:bg-[#1D5C52]/20 transition-colors">
+                               class="inline-flex items-center rounded-lg bg-[#7C0E52]/10 px-3 py-1.5 text-xs font-medium text-[#7C0E52] hover:bg-[#7C0E52]/20 transition-colors">
                                 View
                             </a>
                             <form method="POST" action="{{ route('admin.messages.destroy', $message) }}"

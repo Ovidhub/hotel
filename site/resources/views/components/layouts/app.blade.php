@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1D5C52">
+    <meta name="theme-color" content="#7C0E52">
 
     {{-- Google Fonts: preconnect then load Playfair Display + Inter --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap">
 
     {{-- Favicon --}}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="{{ asset('img/logoHB.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/logoHB.png') }}">
 
     {{-- Author meta --}}
     <meta name="author" content="Hotel Benizia">

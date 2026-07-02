@@ -1,7 +1,7 @@
 <x-layouts.admin title="Edit Room">
 
     <div class="mb-5 flex items-center gap-2 text-sm text-gray-500">
-        <a href="{{ route('admin.rooms.index') }}" class="hover:text-[#1D5C52] transition-colors">Rooms</a>
+        <a href="{{ route('admin.rooms.index') }}" class="hover:text-[#7C0E52] transition-colors">Rooms</a>
         <span>/</span>
         <span class="text-gray-800 font-medium">{{ $room->name }}</span>
     </div>
@@ -17,7 +17,7 @@
 
             <div class="mt-6 flex items-center gap-3">
                 <button type="submit"
-                        class="inline-flex items-center rounded-lg bg-[#1D5C52] px-5 py-2 text-sm font-medium text-white hover:bg-[#164840] transition-colors">
+                        class="inline-flex items-center rounded-lg bg-[#7C0E52] px-5 py-2 text-sm font-medium text-white hover:bg-[#560A3A] transition-colors">
                     Save Changes
                 </button>
                 <a href="{{ route('admin.rooms.index') }}"

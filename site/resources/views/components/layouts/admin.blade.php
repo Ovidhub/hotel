@@ -28,14 +28,14 @@
 
     {{-- ── Sidebar ── --}}
     <aside id="admin-sidebar"
-           class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col bg-[#1D5C52] text-white shadow-xl
+           class="fixed inset-y-0 left-0 z-50 w-64 flex flex-col bg-[#7C0E52] text-white shadow-xl
                   transform transition-transform duration-300 ease-in-out
                   lg:static lg:translate-x-0"
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
 
         {{-- Logo / Brand --}}
         <div class="flex h-16 items-center gap-3 border-b border-white/20 px-6">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C8922A]">
+            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#C79A46]">
                 <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10 2a8 8 0 100 16A8 8 0 0010 2zM8 12V8l4 2-4 2z"/>
                 </svg>
@@ -299,7 +299,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit"
-                            class="inline-flex items-center gap-1.5 rounded-lg bg-[#1D5C52] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#164840] transition-colors">
+                            class="inline-flex items-center gap-1.5 rounded-lg bg-[#7C0E52] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#560A3A] transition-colors">
                         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                         </svg>

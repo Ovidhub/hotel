@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1D5C52">
+    <meta name="theme-color" content="#7C0E52">
     <meta name="robots" content="noindex, nofollow">
     <meta name="author" content="Hotel Benizia">
     <title>Server Error — Hotel Benizia</title>

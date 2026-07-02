@@ -8,13 +8,13 @@
     <div class="mb-4 flex flex-wrap gap-2">
         <a href="{{ route('admin.bookings.index') }}"
            class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium transition-colors
-                  {{ !$currentStatus ? 'bg-[#1D5C52] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
+                  {{ !$currentStatus ? 'bg-[#7C0E52] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
             All
         </a>
         @foreach($statuses as $s)
         <a href="{{ route('admin.bookings.index', ['status' => $s]) }}"
            class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium transition-colors
-                  {{ $currentStatus === $s ? 'bg-[#1D5C52] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
+                  {{ $currentStatus === $s ? 'bg-[#7C0E52] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200' }}">
             {{ $s }}
         </a>
         @endforeach
@@ -70,7 +70,7 @@
                     </td>
                     <td class="px-5 py-3.5 text-right">
                         <a href="{{ route('admin.bookings.show', $booking) }}"
-                           class="inline-flex items-center rounded-lg bg-[#1D5C52]/10 px-3 py-1.5 text-xs font-medium text-[#1D5C52] hover:bg-[#1D5C52]/20 transition-colors">
+                           class="inline-flex items-center rounded-lg bg-[#7C0E52]/10 px-3 py-1.5 text-xs font-medium text-[#7C0E52] hover:bg-[#7C0E52]/20 transition-colors">
                             View
                         </a>
                     </td>

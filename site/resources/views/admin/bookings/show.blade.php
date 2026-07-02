@@ -2,7 +2,7 @@
 
     <div class="mb-5 flex items-center gap-3">
         <a href="{{ route('admin.bookings.index') }}"
-           class="text-sm text-[#1D5C52] hover:underline">&larr; All Bookings</a>
+           class="text-sm text-[#7C0E52] hover:underline">&larr; All Bookings</a>
         <span class="text-gray-300">/</span>
         <span class="font-mono text-sm font-medium text-gray-700">{{ $booking->ref }}</span>
     </div>
@@ -91,7 +91,7 @@
                 <div class="mt-4 pt-4 border-t border-gray-100">
                     <dt class="text-xs text-gray-500 uppercase tracking-wider mb-2">Payment Proof</dt>
                     <a href="{{ $proofUrl }}" target="_blank"
-                       class="inline-flex items-center gap-2 rounded-lg bg-[#1D5C52]/10 px-4 py-2 text-sm font-medium text-[#1D5C52] hover:bg-[#1D5C52]/20 transition-colors">
+                       class="inline-flex items-center gap-2 rounded-lg bg-[#7C0E52]/10 px-4 py-2 text-sm font-medium text-[#7C0E52] hover:bg-[#7C0E52]/20 transition-colors">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"/>
                         </svg>
@@ -130,7 +130,7 @@
                     <div class="mb-3">
                         <label class="block text-xs font-semibold text-gray-600 mb-1">New Status</label>
                         <select name="status"
-                                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('status') border-red-400 @enderror">
+                                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#7C0E52] focus:outline-none focus:ring-1 focus:ring-[#7C0E52] @error('status') border-red-400 @enderror">
                             @foreach(['Pending Payment','Confirmed','Checked In','Cancelled'] as $s)
                             <option value="{{ $s }}" {{ $booking->status === $s ? 'selected' : '' }}>{{ $s }}</option>
                             @endforeach
@@ -140,7 +140,7 @@
                         @enderror
                     </div>
                     <button type="submit"
-                            class="w-full rounded-lg bg-[#1D5C52] px-4 py-2 text-sm font-medium text-white hover:bg-[#164840] transition-colors">
+                            class="w-full rounded-lg bg-[#7C0E52] px-4 py-2 text-sm font-medium text-white hover:bg-[#560A3A] transition-colors">
                         Save Status
                     </button>
                 </form>

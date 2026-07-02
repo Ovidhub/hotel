@@ -16,7 +16,7 @@
                             <p class="text-xs text-gray-400">{{ $room->units }} unit{{ $room->units === 1 ? '' : 's' }}</p>
                         </div>
                         <a href="{{ route('admin.availability.show', ['type' => 'room', 'id' => $room->id]) }}"
-                           class="rounded-lg bg-[#1D5C52] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#16463f]">
+                           class="rounded-lg bg-[#7C0E52] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#560A3A]">
                             Manage dates
                         </a>
                     </li>
@@ -37,7 +37,7 @@
                             <p class="text-xs text-gray-400">{{ $apartment->units }} unit{{ $apartment->units === 1 ? '' : 's' }}</p>
                         </div>
                         <a href="{{ route('admin.availability.show', ['type' => 'apartment', 'id' => $apartment->id]) }}"
-                           class="rounded-lg bg-[#1D5C52] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#16463f]">
+                           class="rounded-lg bg-[#7C0E52] px-3 py-1.5 text-xs font-semibold text-white hover:bg-[#560A3A]">
                             Manage dates
                         </a>
                     </li>

@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between mb-5">
         <h2 class="text-lg font-semibold text-gray-800">Testimonials</h2>
         <a href="{{ route('admin.testimonials.create') }}"
-           class="inline-flex items-center gap-1.5 rounded-lg bg-[#1D5C52] px-4 py-2 text-sm font-medium text-white hover:bg-[#164840] transition-colors">
+           class="inline-flex items-center gap-1.5 rounded-lg bg-[#7C0E52] px-4 py-2 text-sm font-medium text-white hover:bg-[#560A3A] transition-colors">
             + New Testimonial
         </a>
     </div>
@@ -31,7 +31,7 @@
                     <td class="px-5 py-3.5 text-right">
                         <div class="flex items-center justify-end gap-2">
                             <a href="{{ route('admin.testimonials.edit', $t) }}"
-                               class="inline-flex items-center rounded-lg bg-[#C8922A]/10 px-3 py-1.5 text-xs font-medium text-[#C8922A] hover:bg-[#C8922A]/20 transition-colors">
+                               class="inline-flex items-center rounded-lg bg-[#C79A46]/10 px-3 py-1.5 text-xs font-medium text-[#C79A46] hover:bg-[#C79A46]/20 transition-colors">
                                 Edit
                             </a>
                             <form method="POST" action="{{ route('admin.testimonials.destroy', $t) }}"
@@ -49,7 +49,7 @@
                 @empty
                 <tr>
                     <td colspan="5" class="px-5 py-12 text-center text-sm text-gray-400">
-                        No testimonials yet. <a href="{{ route('admin.testimonials.create') }}" class="text-[#1D5C52] underline">Add one.</a>
+                        No testimonials yet. <a href="{{ route('admin.testimonials.create') }}" class="text-[#7C0E52] underline">Add one.</a>
                     </td>
                 </tr>
                 @endforelse

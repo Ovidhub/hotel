@@ -1,7 +1,7 @@
 <x-layouts.admin title="Message from {{ $message->name }}">
 
     <div class="mb-5 flex items-center gap-3">
-        <a href="{{ route('admin.messages.index') }}" class="text-sm text-[#1D5C52] hover:underline">&larr; All Messages</a>
+        <a href="{{ route('admin.messages.index') }}" class="text-sm text-[#7C0E52] hover:underline">&larr; All Messages</a>
     </div>
 
     <div class="max-w-2xl">
@@ -31,7 +31,7 @@
                 <div>
                     <dt class="text-xs text-gray-500 uppercase tracking-wider">Email</dt>
                     <dd class="mt-1 text-gray-700">
-                        <a href="mailto:{{ $message->email }}" class="text-[#1D5C52] hover:underline">{{ $message->email }}</a>
+                        <a href="mailto:{{ $message->email }}" class="text-[#7C0E52] hover:underline">{{ $message->email }}</a>
                     </dd>
                 </div>
                 @if($message->phone)

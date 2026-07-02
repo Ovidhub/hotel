@@ -1,7 +1,7 @@
 <x-layouts.admin :title="'Availability — ' . $bookable->name">
     <div class="mb-6 flex items-center justify-between">
         <div>
-            <a href="{{ route('admin.availability.index') }}" class="text-xs font-semibold text-[#1D5C52] hover:underline">&larr; All availability</a>
+            <a href="{{ route('admin.availability.index') }}" class="text-xs font-semibold text-[#7C0E52] hover:underline">&larr; All availability</a>
             <h2 class="mt-1 text-base font-semibold text-gray-800">{{ $bookable->name }}</h2>
             <p class="text-sm text-gray-500">{{ $bookable->units }} unit{{ $bookable->units === 1 ? '' : 's' }} — a date is full when bookings reach this number, or when you block it below.</p>
         </div>
@@ -17,22 +17,22 @@
                     <div>
                         <label class="block text-xs font-semibold text-gray-600 mb-1">From</label>
                         <input type="date" name="start_date" value="{{ old('start_date') }}" required
-                               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('start_date') border-red-400 @enderror">
+                               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#7C0E52] focus:outline-none focus:ring-1 focus:ring-[#7C0E52] @error('start_date') border-red-400 @enderror">
                         @error('start_date') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-gray-600 mb-1">To</label>
                         <input type="date" name="end_date" value="{{ old('end_date') }}" required
-                               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('end_date') border-red-400 @enderror">
+                               class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#7C0E52] focus:outline-none focus:ring-1 focus:ring-[#7C0E52] @error('end_date') border-red-400 @enderror">
                         @error('end_date') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
                     </div>
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-gray-600 mb-1">Reason <span class="text-gray-400">(optional)</span></label>
                     <input type="text" name="reason" value="{{ old('reason') }}" placeholder="e.g. Maintenance, Booked on Booking.com"
-                           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+                           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#7C0E52] focus:outline-none focus:ring-1 focus:ring-[#7C0E52]">
                 </div>
-                <button type="submit" class="rounded-lg bg-[#1D5C52] px-4 py-2 text-sm font-semibold text-white hover:bg-[#16463f]">
+                <button type="submit" class="rounded-lg bg-[#7C0E52] px-4 py-2 text-sm font-semibold text-white hover:bg-[#560A3A]">
                     Block these dates
                 </button>
             </form>
@@ -91,7 +91,7 @@
                            class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 text-xs text-gray-700">
                     <button type="button"
                             x-on:click="navigator.clipboard.writeText($refs.exp.value); copied = true; setTimeout(() => copied = false, 1500)"
-                            class="shrink-0 rounded-lg bg-[#1D5C52] px-3 py-2 text-xs font-semibold text-white hover:bg-[#16463f]">
+                            class="shrink-0 rounded-lg bg-[#7C0E52] px-3 py-2 text-xs font-semibold text-white hover:bg-[#560A3A]">
                         <span x-show="!copied">Copy</span><span x-show="copied" x-cloak>Copied!</span>
                     </button>
                 </div>
@@ -104,11 +104,11 @@
                 <form method="POST" action="{{ route('admin.availability.feeds.store', ['type' => $type, 'id' => $bookable->id]) }}" class="space-y-3">
                     @csrf
                     <input type="text" name="label" value="{{ old('label') }}" placeholder="Label (e.g. Booking.com)"
-                           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52]">
+                           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#7C0E52] focus:outline-none focus:ring-1 focus:ring-[#7C0E52]">
                     <input type="url" name="url" value="{{ old('url') }}" placeholder="https://ical.booking.com/v1/export?..." required
-                           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#1D5C52] focus:outline-none focus:ring-1 focus:ring-[#1D5C52] @error('url') border-red-400 @enderror">
+                           class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#7C0E52] focus:outline-none focus:ring-1 focus:ring-[#7C0E52] @error('url') border-red-400 @enderror">
                     @error('url') <p class="text-xs text-red-500">{{ $message }}</p> @enderror
-                    <button type="submit" class="rounded-lg bg-[#1D5C52] px-4 py-2 text-sm font-semibold text-white hover:bg-[#16463f]">Add &amp; sync feed</button>
+                    <button type="submit" class="rounded-lg bg-[#7C0E52] px-4 py-2 text-sm font-semibold text-white hover:bg-[#560A3A]">Add &amp; sync feed</button>
                 </form>
 
                 <ul class="mt-4 divide-y divide-gray-100">
@@ -119,7 +119,7 @@
                                 <div class="flex items-center gap-3">
                                     <form method="POST" action="{{ route('admin.availability.feeds.sync', $feed) }}">
                                         @csrf
-                                        <button type="submit" class="text-xs font-semibold text-[#1D5C52] hover:underline">Sync now</button>
+                                        <button type="submit" class="text-xs font-semibold text-[#7C0E52] hover:underline">Sync now</button>
                                     </form>
                                     <form method="POST" action="{{ route('admin.availability.feeds.destroy', $feed) }}" onsubmit='return confirm("Remove this feed and its imported blocks?")'>
                                         @csrf @method('DELETE')
