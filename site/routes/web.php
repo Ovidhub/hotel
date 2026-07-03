@@ -106,6 +106,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index'])->name('bookings.index');
     Route::get('bookings/{booking:ref}', [\App\Http\Controllers\Admin\BookingController::class, 'show'])->name('bookings.show');
     Route::put('bookings/{booking:ref}', [\App\Http\Controllers\Admin\BookingController::class, 'update'])->name('bookings.update');
+    Route::post('bookings/{booking:ref}/approve', [\App\Http\Controllers\Admin\BookingController::class, 'approve'])->name('bookings.approve');
+    Route::post('bookings/{booking:ref}/reject', [\App\Http\Controllers\Admin\BookingController::class, 'reject'])->name('bookings.reject');
 
     // Blog
     Route::resource('blog', \App\Http\Controllers\Admin\BlogController::class);

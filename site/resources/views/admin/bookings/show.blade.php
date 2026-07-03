@@ -105,6 +105,46 @@
 
         {{-- Status update panel --}}
         <div class="space-y-5">
+
+            {{-- Payment verification / approval --}}
+            <div class="rounded-xl bg-white shadow-sm ring-1 ring-gray-200 p-5">
+                <h3 class="text-sm font-semibold text-gray-700 mb-3">Payment Verification</h3>
+
+                @if($booking->approved_at)
+                    <div class="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+                        ✅ Approved on {{ $booking->approved_at->format('d M Y, H:i') }}. The guest was emailed a confirmation.
+                    </div>
+                @else
+                    <p class="mb-3 text-xs text-gray-500">
+                        Review the payment proof
+                        @if($proofUrl)
+                            (<a href="{{ $proofUrl }}" target="_blank" class="text-[#7C0E52] underline">view proof</a>),
+                        @else
+                            <span class="text-amber-600">(no proof uploaded yet)</span>,
+                        @endif
+                        then approve to confirm the booking and email the guest.
+                    </p>
+
+                    <form method="POST" action="{{ route('admin.bookings.approve', $booking) }}"
+                          onsubmit="return confirm('Verify payment and approve this booking? The guest will be emailed.')">
+                        @csrf
+                        <button type="submit"
+                                class="w-full rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors">
+                            Verify Payment &amp; Approve Booking
+                        </button>
+                    </form>
+
+                    <form method="POST" action="{{ route('admin.bookings.reject', $booking) }}"
+                          onsubmit="return confirm('Reject and cancel this booking?')" class="mt-2">
+                        @csrf
+                        <button type="submit"
+                                class="w-full rounded-lg border border-red-200 px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
+                            Reject / Cancel
+                        </button>
+                    </form>
+                @endif
+            </div>
+
             <div class="rounded-xl bg-white shadow-sm ring-1 ring-gray-200 p-5">
                 <h3 class="text-sm font-semibold text-gray-700 mb-4">Update Status</h3>
 

@@ -17,7 +17,7 @@ class PaymentMethodSeeder extends Seeder
                 'account_name'          => 'Hotel Benizia Limited',
                 'account_number'        => '0000000000',
                 'bank_name'             => 'Zenith Bank',
-                'instructions'          => 'Transfer the commitment fee and upload or present proof of payment at reception.',
+                'instructions'          => 'Transfer the commitment fee to the account above, then upload your proof of payment below. Your booking is confirmed once our team verifies the transfer — you will receive an approval email.',
                 'active'                => true,
                 'accepts_commitment_fee' => true,
                 'sort'                  => 1,

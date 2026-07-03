@@ -28,11 +28,13 @@ class Booking extends Model
         'payment_method_id',
         'proof_path',
         'notes',
+        'approved_at',
     ];
 
     protected $casts = [
         'check_in'       => 'date',
         'check_out'      => 'date',
+        'approved_at'    => 'datetime',
     ];
 
     public function bookable(): MorphTo

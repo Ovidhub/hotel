@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\BookingApproved;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class BookingController extends Controller
@@ -55,5 +58,45 @@ class BookingController extends Controller
 
         return redirect()->route('admin.bookings.show', $booking)
                          ->with('status', 'Booking status updated successfully.');
+    }
+
+    /**
+     * Verify the payment, approve/confirm the booking, and email the guest.
+     */
+    public function approve(Booking $booking)
+    {
+        $booking->update([
+            'status'      => 'Confirmed',
+            'approved_at' => now(),
+        ]);
+
+        $emailed = true;
+        try {
+            Mail::to($booking->guest_email)->send(new BookingApproved($booking));
+        } catch (\Throwable $e) {
+            $emailed = false;
+            Log::error('Booking approval email failed for ' . $booking->ref . ': ' . $e->getMessage());
+        }
+
+        return redirect()->route('admin.bookings.show', $booking)->with(
+            'status',
+            $emailed
+                ? 'Payment verified — booking approved and the guest has been emailed.'
+                : 'Booking approved, but the confirmation email could not be sent (check mail settings).'
+        );
+    }
+
+    /**
+     * Reject the payment / cancel the booking (frees the dates).
+     */
+    public function reject(Booking $booking)
+    {
+        $booking->update([
+            'status'      => 'Cancelled',
+            'approved_at' => null,
+        ]);
+
+        return redirect()->route('admin.bookings.show', $booking)
+                         ->with('status', 'Booking rejected and cancelled — the dates are open again.');
     }
 }
