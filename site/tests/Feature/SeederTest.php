@@ -14,7 +14,7 @@ uses(RefreshDatabase::class);
 it('seeds inventory and admin', function () {
     $this->seed();
 
-    expect(Room::count())->toBe(5);
+    expect(Room::count())->toBe(4);
     expect(Apartment::count())->toBe(4);
     expect(User::where('is_admin', true)->count())->toBe(1);
     expect(PaymentMethod::count())->toBeGreaterThanOrEqual(3);
@@ -39,7 +39,7 @@ it('seeds rooms with required json fields', function () {
     $room = Room::where('slug', 'deluxe-classic')->first();
 
     expect($room)->not->toBeNull();
-    expect($room->price)->toBe(30000);
+    expect($room->price)->toBe(35000);
     expect($room->amenities)->toBeArray();
     expect($room->includes)->toBeArray();
     expect($room->policies)->toBeArray();

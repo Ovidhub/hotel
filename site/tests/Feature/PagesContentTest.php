@@ -14,16 +14,15 @@ beforeEach(function () {
 
 // ── rooms/index ───────────────────────────────────────────────────────────────
 
-test('rooms index lists all 5 room names and a price', function () {
+test('rooms index lists all room names and a price', function () {
     $response = $this->get(route('rooms.index'));
     $response->assertOk();
 
-    // All 5 room names appear
+    // All room names appear
     $response->assertSee('Deluxe Classic');
-    $response->assertSee('Deluxe Premium');
     $response->assertSee('Alcove Room');
     $response->assertSee('Diplomatic Suite');
-    $response->assertSee('Penthouse Suite');
+    $response->assertSee('Presidential Suite');
 
     // A price in NGN symbol
     $response->assertSee('₦');

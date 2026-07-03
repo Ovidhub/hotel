@@ -4,156 +4,118 @@ namespace Database\Seeders;
 
 use App\Models\Room;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class RoomSeeder extends Seeder
 {
     public function run(): void
     {
+        $includes = ['Complimentary Breakfast', 'Swimming Pool Access', 'Gym Access', 'Free WiFi', 'Airport Pickup (on request)'];
+        $policies = ['Check-in: 2:00 PM', 'Check-out: 12:00 PM', 'No smoking', 'Free cancellation 24h before check-in'];
+
         $rooms = [
             [
                 'slug'        => 'deluxe-classic',
                 'name'        => 'Deluxe Classic',
                 'category'    => 'Comfort Room',
-                'price'       => 30000,
-                'price_label' => 'NGN 30,000',
-                'image'       => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Deluxe-classic-550x824.jpg',
-                'gallery'     => [
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/Deluxe-classic-550x824.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/05/balcony-homepage-pics-600x798.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg',
-                ],
+                'price'       => 35000,
                 'size'        => '300 sq ft',
+                'sqm'         => 28,
                 'guests'      => 2,
                 'beds'        => 1,
                 'baths'       => 1,
-                'sqm'         => 28,
-                'rating'      => 4.90,
-                'reviews'     => 124,
-                'excerpt'     => 'A warm, well-furnished room for simple comfort, breakfast, pool access, and a calm Asaba stay.',
-                'description' => 'The Deluxe Classic room is designed for guests who want a refined but practical stay in Asaba. It includes comfortable bedding, breakfast, pool access, gym access, reliable power, and attentive room service.',
-                'amenities'   => ['Breakfast included', 'Air conditioning', 'Smart TV', 'High speed wifi', 'Pool access', 'Gym access', 'Room service'],
-                'includes'    => ['Complimentary Breakfast', 'Swimming Pool Access', 'Gym Access', 'Free WiFi', 'Airport Pickup (on request)'],
-                'policies'    => ['Check-in: 2:00 PM', 'Check-out: 12:00 PM', 'No smoking', 'Pets not allowed', 'Free cancellation 48h before'],
+                'excerpt'     => 'A warm, well-furnished room for simple comfort — breakfast, pool access, and a calm Asaba stay.',
+                'description' => 'The Deluxe Classic is designed for guests who want a refined but practical stay in Asaba. It offers comfortable bedding, complimentary breakfast, pool and gym access, reliable 24-hour power, and attentive room service.',
+                'amenities'   => ['Breakfast included', 'Air conditioning', 'Smart TV', 'High speed WiFi', 'Pool access', 'Gym access', 'Room service'],
                 'best_for'    => ['Solo stays', 'Short business trips', 'Weekend visits'],
-                'is_active'   => true,
                 'sort'        => 1,
-            ],
-            [
-                'slug'        => 'deluxe-premium',
-                'name'        => 'Deluxe Premium',
-                'category'    => 'Premium Room',
-                'price'       => 40000,
-                'price_label' => 'NGN 40,000',
-                'image'       => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/Hotel-benizia-room1-550x826.jpg',
-                'gallery'     => [
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/05/Hotel-benizia-room1-550x826.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizi-entrance-370x554.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg',
-                ],
-                'size'        => '360 sq ft',
-                'guests'      => 2,
-                'beds'        => 1,
-                'baths'       => 2,
-                'sqm'         => 35,
-                'rating'      => 5.00,
-                'reviews'     => 98,
-                'excerpt'     => 'A more spacious premium room with better lounge comfort, breakfast, pool access, and gym access.',
-                'description' => 'The Deluxe Premium room gives guests more space, enhanced furnishings, and a quiet environment for work or rest. It is ideal for travelers who want a little more comfort without moving into a suite category.',
-                'amenities'   => ['Breakfast included', 'Premium bedding', 'Work desk', 'High speed wifi', 'Pool access', 'Gym access', 'Laundry service'],
-                'includes'    => ['Complimentary Breakfast', 'Swimming Pool Access', 'Gym Access', 'Free WiFi', 'City View', 'Airport Pickup (on request)'],
-                'policies'    => ['Check-in: 2:00 PM', 'Check-out: 12:00 PM', 'No smoking', 'Pets not allowed', 'Free cancellation 48h before'],
-                'best_for'    => ['Business travelers', 'Couples', 'Extended stays'],
-                'is_active'   => true,
-                'sort'        => 2,
             ],
             [
                 'slug'        => 'alcove-room',
                 'name'        => 'Alcove Room',
                 'category'    => 'Signature Room',
-                'price'       => 45000,
-                'price_label' => 'NGN 45,000',
-                'image'       => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Alcove-room-550x825.jpg',
-                'gallery'     => [
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/Alcove-room-550x825.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/05/balcony-homepage-pics-600x798.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/swimming-pool-550x413.jpg',
-                ],
+                'price'       => 50000,
                 'size'        => '400 sq ft',
+                'sqm'         => 37,
                 'guests'      => 2,
-                'beds'        => 2,
-                'baths'       => 2,
-                'sqm'         => 42,
-                'rating'      => 4.90,
-                'reviews'     => 76,
-                'excerpt'     => 'A stylish room with a calm alcove-style setting for guests who want a more private feel.',
-                'description' => 'The Alcove Room offers a distinctive layout for travelers who prefer a more intimate and private space. It includes all core Hotel Benizia guest benefits with a refined room atmosphere.',
-                'amenities'   => ['Breakfast included', 'Private sitting area', 'Air conditioning', 'Smart TV', 'High speed wifi', 'Pool access', 'Gym access'],
-                'includes'    => ['Complimentary Breakfast', 'Swimming Pool Access', 'Gym Access', 'Free WiFi', 'Private Balcony', 'Airport Pickup (on request)'],
-                'policies'    => ['Check-in: 2:00 PM', 'Check-out: 12:00 PM', 'No smoking', 'Pets not allowed', 'Free cancellation 48h before'],
+                'beds'        => 1,
+                'baths'       => 1,
+                'excerpt'     => 'A stylish room with a private alcove sitting area for guests who want a little more space and calm.',
+                'description' => 'The Alcove Room offers a distinctive layout with a cosy alcove sitting area, ideal for couples and travelers who value a more private, relaxed atmosphere — with all core Hotel Benizia guest benefits included.',
+                'amenities'   => ['Breakfast included', 'Private sitting area', 'Air conditioning', 'Smart TV', 'High speed WiFi', 'Pool access', 'Gym access'],
                 'best_for'    => ['Couples', 'Relaxation stays', 'Quiet work sessions'],
-                'is_active'   => true,
-                'sort'        => 3,
+                'sort'        => 2,
             ],
             [
                 'slug'        => 'diplomatic-suite',
                 'name'        => 'Diplomatic Suite',
                 'category'    => 'Executive Suite',
-                'price'       => 80000,
-                'price_label' => 'NGN 80,000',
-                'image'       => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/hotel-benizia-room2-550x827.jpg',
-                'gallery'     => [
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/05/hotel-benizia-room2-550x827.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/benizia-hall-780x520.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg',
-                ],
+                'price'       => 85000,
                 'size'        => '520 sq ft',
-                'guests'      => 2,
-                'beds'        => 2,
-                'baths'       => 2,
-                'sqm'         => 60,
-                'rating'      => 5.00,
-                'reviews'     => 52,
-                'excerpt'     => 'A spacious executive suite with a lounge feel, work comfort, and upgraded hospitality benefits.',
-                'description' => 'The Diplomatic Suite is ideal for executives, VIP guests, and travelers who need space to relax or work. It combines suite-level comfort with Hotel Benizia dining, bar, pool, and guest service access.',
-                'amenities'   => ['Breakfast included', 'Suite lounge', 'Executive desk', 'High speed wifi', 'Pool access', 'Gym access', 'Priority service'],
-                'includes'    => ['Complimentary Breakfast', 'Swimming Pool Access', 'Gym & Spa Access', 'Free WiFi', 'Butler Service', 'Airport Transfer', 'Welcome Drinks'],
-                'policies'    => ['Check-in: 2:00 PM', 'Check-out: 12:00 PM', 'No smoking', 'Pets not allowed', 'Free cancellation 48h before'],
+                'sqm'         => 48,
+                'guests'      => 3,
+                'beds'        => 1,
+                'baths'       => 1,
+                'excerpt'     => 'A spacious executive suite with a lounge area, work comfort, and upgraded hospitality benefits.',
+                'description' => 'The Diplomatic Suite is ideal for executives and VIP guests who need room to relax or work. It combines suite-level comfort and a separate lounge feel with full access to Hotel Benizia dining, bar, pool, and priority guest service.',
+                'amenities'   => ['Breakfast included', 'Suite lounge', 'Executive work desk', 'Air conditioning', 'Smart TV', 'High speed WiFi', 'Pool access', 'Gym access', 'Priority service'],
                 'best_for'    => ['Executives', 'VIP stays', 'Business meetings'],
-                'is_active'   => true,
-                'sort'        => 4,
+                'sort'        => 3,
             ],
             [
-                'slug'        => 'penthouse-suite',
-                'name'        => 'Penthouse Suite',
-                'category'    => 'Signature Suite',
-                'price'       => 180000,
-                'price_label' => 'NGN 180,000',
-                'image'       => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/Hotel-benizia-room3-550x825.jpg',
-                'gallery'     => [
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/05/Hotel-benizia-room3-550x825.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg',
-                    'https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg',
-                ],
-                'size'        => '750 sq ft',
-                'guests'      => 2,
-                'beds'        => 3,
-                'baths'       => 3,
-                'sqm'         => 90,
-                'rating'      => 5.00,
-                'reviews'     => 38,
-                'excerpt'     => 'The top room category for guests who want the most exclusive Hotel Benizia experience.',
-                'description' => 'The Penthouse Suite is Hotel Benizia at its most exclusive. It is built for premium comfort, privacy, and memorable stays, with enhanced guest attention and access to the hotel facilities.',
-                'amenities'   => ['Breakfast included', 'Premium suite layout', 'Private comfort', 'High speed wifi', 'Pool access', 'Gym access', 'VIP support'],
-                'includes'    => ['Full Breakfast Daily', 'Swimming Pool Access', 'Spa & Gym Access', 'Free WiFi', 'Private Butler', 'Chef on Request', 'Airport Transfer (Luxury Vehicle)', 'Welcome Champagne & Fruit Basket', 'Daily Housekeeping x2'],
-                'policies'    => ['Check-in: 2:00 PM', 'Check-out: 12:00 PM', 'No smoking', 'Pets considered on request', 'Free cancellation 72h before'],
-                'best_for'    => ['Luxury stays', 'Special occasions', 'VIP guests'],
-                'is_active'   => true,
-                'sort'        => 5,
+                'slug'        => 'presidential-suite',
+                'name'        => 'Presidential Suite',
+                'category'    => 'Presidential',
+                'price'       => 185000,
+                'size'        => '900 sq ft',
+                'sqm'         => 84,
+                'guests'      => 4,
+                'beds'        => 2,
+                'baths'       => 2,
+                'excerpt'     => 'The most exclusive stay at Hotel Benizia — a grand suite with generous living space and premium service.',
+                'description' => 'The Presidential Suite is Hotel Benizia at its finest: expansive living and sleeping areas, premium finishes, and the highest level of personal service. Built for dignitaries, executives, and special occasions in Asaba, with full access to every hotel facility.',
+                'amenities'   => ['Breakfast included', 'Separate living room', 'Dining area', 'Butler service (on request)', 'Air conditioning', '65" Smart TV', 'Wet bar', 'High speed WiFi', 'Pool access', 'Gym & Spa access'],
+                'best_for'    => ['Dignitaries & VIPs', 'Executive stays', 'Special occasions'],
+                'sort'        => 4,
             ],
         ];
 
-        foreach ($rooms as $room) {
-            Room::create($room);
+        foreach ($rooms as $data) {
+            $gallery = $this->galleryFor($data['slug']);
+
+            Room::create(array_merge($data, [
+                'price_label' => 'NGN ' . number_format($data['price']),
+                'image'       => $gallery[0] ?? 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Deluxe-classic-550x824.jpg',
+                'gallery'     => $gallery,
+                'rating'      => null,
+                'reviews'     => 0,
+                'includes'    => $includes,
+                'policies'    => $policies,
+                'is_active'   => true,
+                'units'       => 1,
+            ]));
         }
+    }
+
+    /**
+     * Build a gallery of root-relative URLs from the imported WebP photos in
+     * public/img/rooms/<slug> (created by `rooms:import-photos`).
+     *
+     * @return array<int, string>
+     */
+    protected function galleryFor(string $slug): array
+    {
+        $dir = public_path('img/rooms/' . $slug);
+
+        if (! File::isDirectory($dir)) {
+            return [];
+        }
+
+        return collect(File::files($dir))
+            ->filter(fn ($f) => strtolower($f->getExtension()) === 'webp')
+            ->sortBy(fn ($f) => (int) pathinfo($f->getFilename(), PATHINFO_FILENAME))
+            ->map(fn ($f) => '/img/rooms/' . $slug . '/' . $f->getFilename())
+            ->values()
+            ->all();
     }
 }
