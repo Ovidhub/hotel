@@ -14,3 +14,5 @@ HB Apartment/
 # Raw apartment photo originals (enhanced copies live in site/public/img/apartments)
 HB Apartment/
 Hotel rooms/
+site-deploy.zip
+_deploy_stage/
