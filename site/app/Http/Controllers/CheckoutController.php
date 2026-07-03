@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookingReceived;
 use App\Models\Booking;
 use App\Models\PaymentMethod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -64,6 +67,15 @@ class CheckoutController extends Controller
         }
 
         $booking->update($data);
+
+        // Acknowledge receipt to the guest (pending verification). Never block on mail failure.
+        try {
+            Mail::to($booking->guest_email)->send(
+                new BookingReceived($booking->fresh(), isset($data['proof_path']))
+            );
+        } catch (\Throwable $e) {
+            Log::error('Booking-received email failed for ' . $booking->ref . ': ' . $e->getMessage());
+        }
 
         return redirect()->route('booking.success', ['booking' => $booking->ref]);
     }
