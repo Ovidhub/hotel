@@ -30,6 +30,9 @@ class ImportPropertyPhotos extends Command
         'apart 1.jpeg'        => 'apartment-terrace',
         'apart 2.jpeg'        => 'apartment-courtyard',
         'apart location.jpeg' => 'apartment-aerial',
+        'hotel pool.jpeg'     => 'hotel-pool',
+        'apart pool.jpeg'     => 'apartment-pool',
+        'apart pool 1.jpeg'   => 'apartment-pool-2',
     ];
 
     public function handle(ImageEnhancer $enhancer): int

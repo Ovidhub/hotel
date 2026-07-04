@@ -64,6 +64,15 @@
         </div>
     </section>
 
+    {{-- Video highlight — HB Apartments tour --}}
+    <x-video-tour
+        eyebrow="Take a Tour"
+        title="Inside HB Apartments"
+        text="A short walk-through of HB Apartments — the building, the pool, and the serviced spaces built for longer, independent stays."
+        src="https://hotelbenizia.ng/videos/apartment.mp4"
+        poster="https://hotelbenizia.ng/img/property/apartment-exterior.webp"
+    />
+
     <x-cta title="Looking for a Serviced Apartment in Asaba?" text="HB Apartments offers hotel-backed apartment stays for extended visits, families, and business travelers." />
 
 </x-layouts.app>

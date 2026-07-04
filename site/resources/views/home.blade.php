@@ -393,8 +393,8 @@
     ════════════════════════════════════════════════════════════════ --}}
     <section class="relative overflow-hidden" aria-label="Swimming pool and experience">
         <img
-            src="https://hotelbenizia.ng/img/property/hotel-compound.webp"
-            alt="Hotel Benizia landscaped grounds and leisure area — Asaba"
+            src="https://hotelbenizia.ng/img/property/hotel-pool.webp"
+            alt="Hotel Benizia outdoor swimming pool with HB monogram — Asaba"
             class="h-[480px] w-full object-cover"
             loading="lazy"
         >
@@ -418,6 +418,18 @@
             </div>
         </div>
     </section>
+
+    {{-- ════════════════════════════════════════════════════════════════
+         7b. VIDEO HIGHLIGHT — Hotel tour
+    ════════════════════════════════════════════════════════════════ --}}
+    <x-video-tour
+        eyebrow="Take a Tour"
+        title="Experience Hotel Benizia"
+        text="A short walk-through of the hotel — the building, the grounds, and the spaces that make every stay memorable."
+        src="https://hotelbenizia.ng/videos/hotel.mp4"
+        poster="https://hotelbenizia.ng/img/property/hotel-exterior.webp"
+        bg="bg-benizia-cream"
+    />
 
     {{-- ════════════════════════════════════════════════════════════════
          8. TESTIMONIALS

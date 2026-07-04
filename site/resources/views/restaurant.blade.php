@@ -84,9 +84,9 @@
             />
             <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
                 @foreach([
-                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-entrance.webp', 'alt' => 'Hotel Benizia Entrance — Asaba, Delta State'],
+                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-pool.webp', 'alt' => 'Hotel Benizia Poolside — Asaba, Delta State'],
                     ['src' => 'https://hotelbenizia.ng/img/property/hotel-compound.webp', 'alt' => 'Hotel Benizia Grounds — Asaba'],
-                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-exterior.webp', 'alt' => 'Hotel Benizia Building — Asaba'],
+                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-entrance.webp', 'alt' => 'Hotel Benizia Entrance — Asaba'],
                 ] as $img)
                     <div class="overflow-hidden rounded-2xl aspect-video">
                         <img
