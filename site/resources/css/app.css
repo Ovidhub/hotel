@@ -5,6 +5,26 @@
 /* Hide Alpine x-cloak elements until Alpine initializes. */
 [x-cloak] { display: none !important; }
 
+/* ── Smooth scrolling & scroll performance ──────────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Skip rendering off-screen sections while scrolling (big perf win with images).
+   The hero (first section) always renders; the rest paint only as they approach. */
+main > section:not(:first-child) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 640px;
+}
+
+/* Composite images/cards on their own layer so scrolling stays smooth. */
+img { backface-visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
 /* ── Amenity Ticker Marquee ─────────────────────────────────────────────────── */
 @keyframes marquee {
     0%   { transform: translateX(0); }

@@ -36,6 +36,7 @@
             src="{{ $image }}"
             alt="{{ $name }} — HB Apartments"
             loading="lazy"
+            decoding="async"
         >
         {{-- Status badge --}}
         <span class="absolute left-4 top-4 rounded-full px-3 py-1.5 text-xs font-semibold shadow {{ $statusConfig['class'] }}">

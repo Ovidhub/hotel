@@ -29,6 +29,7 @@
             src="{{ $image }}"
             alt="{{ $name }} at Hotel Benizia"
             loading="lazy"
+            decoding="async"
         >
         {{-- Category badge --}}
         <span class="absolute left-4 top-4 rounded-full bg-benizia-green px-3 py-1.5 text-xs font-semibold text-white shadow">

@@ -13,7 +13,16 @@
         : 'mx-auto max-w-2xl text-center';
 @endphp
 
-<div class="{{ $wrapClass }}">
+<div
+    class="{{ $wrapClass }}"
+    x-data="{}"
+    x-init="
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => { if (e.isIntersecting) { $el.classList.add('reveal-enter'); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe($el);
+    "
+>
     {{-- Gold eyebrow label --}}
     @if($eyebrow)
         <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold">

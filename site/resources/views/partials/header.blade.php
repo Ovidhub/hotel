@@ -75,7 +75,7 @@
 
     {{-- ── Main nav bar ── --}}
     <div
-        class="border-b border-white/70 bg-white/95 backdrop-blur-xl transition-shadow duration-300"
+        class="border-b border-gray-100 bg-white transition-shadow duration-300"
         :class="scrolled ? 'shadow-md' : ''"
     >
         <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
