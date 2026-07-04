@@ -33,6 +33,18 @@ class ImportPropertyPhotos extends Command
         'hotel pool.jpeg'     => 'hotel-pool',
         'apart pool.jpeg'     => 'apartment-pool',
         'apart pool 1.jpeg'   => 'apartment-pool-2',
+        // Interiors added 2026-07-04 (bar, restaurant, dining, food, chef).
+        'hotell/bar 2.jpeg'     => 'hotel-bar',
+        'hotell/bar1.jpeg'      => 'hotel-bar-2',
+        'hotell/restuarant.jpeg'  => 'hotel-restaurant',
+        'hotell/restuarant1.jpeg' => 'hotel-restaurant-2',
+        'hotell/poolbar.jpeg'   => 'hotel-poolbar',
+        'apart/main.jpeg'       => 'chef',
+        'apart/food1.jpeg'      => 'dish-1',
+        'apart/food2.jpeg'      => 'dish-2',
+        'apart/food3.jpeg'      => 'dish-3',
+        'apart/1.jpeg'          => 'apartment-dining',
+        'apart/pool.jpeg'       => 'apartment-poolside',
     ];
 
     public function handle(ImageEnhancer $enhancer): int

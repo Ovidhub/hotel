@@ -344,8 +344,8 @@
                 {{-- Image side --}}
                 <div class="relative">
                     <img
-                        src="https://hotelbenizia.ng/img/property/hotel-compound.webp"
-                        alt="Hotel Benizia grounds and lounge surroundings — Asaba"
+                        src="https://hotelbenizia.ng/img/property/hotel-bar.webp"
+                        alt="Hotel Benizia VIP bar and lounge — Asaba"
                         class="w-full rounded-2xl object-cover shadow-2xl"
                         style="aspect-ratio:4/3"
                         loading="lazy"

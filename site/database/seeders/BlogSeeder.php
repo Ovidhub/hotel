@@ -62,7 +62,7 @@ class BlogSeeder extends Seeder
                 'body'           => "Food is an essential part of any hotel experience, and at Hotel Benizia, the kitchen never closes. The 24-hour restaurant and bar serves a carefully curated menu of Nigerian and continental dishes, prepared by experienced chefs committed to quality and taste.\n\nStart your morning with the Chef Breakfast Platter — fresh eggs, toast, sausage, fruit, and your choice of tea or coffee. For lunch or dinner, the Delta Pepper Soup made with fresh local broth is a guest favourite, as is the Jollof Rice Royale served with chicken or beef. The Grilled Fish and Chips is a poolside staple for relaxed afternoon meals.\n\nThe bar is open around the clock, offering cocktails, mocktails, and a curated drink selection. Whether you are winding down after a long business day or celebrating a special occasion, Hotel Benizia's dining experience is designed to satisfy every palate in Asaba.",
                 'category'       => 'Dining',
                 'category_color' => 'bg-[#C9A96E]',
-                'image'          => 'https://images.pexels.com/photos/27612507/pexels-photo-27612507.jpeg?auto=compress&cs=tinysrgb&w=700',
+                'image'          => 'https://hotelbenizia.ng/img/property/dish-2.webp',
                 'author'         => 'Amaka Eze',
                 'published_at'   => Carbon::createFromFormat('M d, Y', 'Dec 28, 2024'),
             ],
