@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $rooms        = Room::where('is_active', true)->orderBy('sort')->get();
         $apartments   = Apartment::where('is_active', true)->orderBy('sort')->take(3)->get();
-        $testimonials = Testimonial::orderBy('sort')->get();
+        $testimonials = Testimonial::orderBy('id')->get();
         $posts        = BlogPost::where('published_at', '<=', now())
                                ->orderByDesc('published_at')
                                ->take(3)
