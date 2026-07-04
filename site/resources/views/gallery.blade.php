@@ -5,7 +5,7 @@
     <x-page-hero
         title="Photo Gallery"
         subtitle="A visual tour of Hotel Benizia — rooms, suites, serviced apartments, pool, restaurant, and event spaces in Asaba, Delta State."
-        image="https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg"
+        image="https://hotelbenizia.ng/img/property/hotel-compound.webp"
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Gallery']]"
     />
 
@@ -25,18 +25,18 @@
             <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                 @php
                     $images = [
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Deluxe-classic-550x824.jpg', 'alt' => 'Deluxe Classic Room'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/Hotel-benizia-room1-550x826.jpg', 'alt' => 'Deluxe Premium Room'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Alcove-room-550x825.jpg', 'alt' => 'Alcove Room'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/hotel-benizia-room2-550x827.jpg', 'alt' => 'Diplomatic Suite'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/Hotel-benizia-room3-550x825.jpg', 'alt' => 'Penthouse Suite'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg', 'alt' => 'Swimming Pool & Bar'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/swimming-pool-550x413.jpg', 'alt' => 'Swimming Pool'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg', 'alt' => 'Hotel Bar'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/benizia-hall-780x520.jpg', 'alt' => 'Event Hall'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg', 'alt' => 'Hotel Benizia Exterior'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizi-entrance-370x554.jpg', 'alt' => 'Hotel Entrance'],
-                        ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/05/balcony-homepage-pics-600x798.jpg', 'alt' => 'Balcony'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/hotel-exterior.webp', 'alt' => 'Hotel Benizia Exterior'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/hotel-entrance.webp', 'alt' => 'Hotel Benizia Entrance'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/hotel-compound.webp', 'alt' => 'Hotel Benizia Grounds'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/hotel-aerial.webp', 'alt' => 'Hotel Benizia Aerial View'],
+                        ['src' => 'https://hotelbenizia.ng/img/rooms/deluxe-classic/1.webp', 'alt' => 'Deluxe Classic Room'],
+                        ['src' => 'https://hotelbenizia.ng/img/rooms/deluxe-classic/3.webp', 'alt' => 'Deluxe Classic Room Interior'],
+                        ['src' => 'https://hotelbenizia.ng/img/rooms/alcove-room/1.webp', 'alt' => 'Alcove Room'],
+                        ['src' => 'https://hotelbenizia.ng/img/rooms/diplomatic-suite/1.webp', 'alt' => 'Diplomatic Suite'],
+                        ['src' => 'https://hotelbenizia.ng/img/rooms/presidential-suite/1.webp', 'alt' => 'Presidential Suite'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/apartment-exterior.webp', 'alt' => 'HB Apartments Building'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/apartment-terrace.webp', 'alt' => 'HB Apartments Terrace'],
+                        ['src' => 'https://hotelbenizia.ng/img/property/apartment-courtyard.webp', 'alt' => 'HB Apartments Courtyard'],
                     ];
                 @endphp
                 @foreach($images as $img)

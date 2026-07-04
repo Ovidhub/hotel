@@ -75,7 +75,7 @@ class ApartmentSeeder extends Seeder
 
             Apartment::create(array_merge($data, [
                 'price_label' => 'NGN ' . number_format($data['price']),
-                'image'       => $gallery[0] ?? 'https://hotelbenizia.ng/wp-content/uploads/2025/05/balcony-homepage-pics-600x798.jpg',
+                'image'       => $gallery[0] ?? 'https://hotelbenizia.ng/img/property/apartment-terrace.webp',
                 'gallery'     => $gallery,
                 'is_active'   => true,
             ]));

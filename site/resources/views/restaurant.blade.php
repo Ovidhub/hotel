@@ -5,7 +5,7 @@
     <x-page-hero
         title="Restaurant & Bar in Asaba"
         subtitle="A 24-hour dining experience in the heart of Delta State — Nigerian and continental cuisine, crafted cocktails, VIP bar, pool bar, and live band nights."
-        image="https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg"
+        image="https://hotelbenizia.ng/img/property/hotel-compound.webp"
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'Restaurant & Bar']]"
     />
 
@@ -84,9 +84,9 @@
             />
             <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
                 @foreach([
-                    ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg', 'alt' => 'Hotel Benizia Bar — Asaba, Delta State'],
-                    ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg', 'alt' => 'Hotel Benizia Swimming Pool & Bar — Asaba'],
-                    ['src' => 'https://hotelbenizia.ng/wp-content/uploads/2025/06/swimming-pool-550x413.jpg', 'alt' => 'Hotel Benizia Pool Area — Asaba'],
+                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-entrance.webp', 'alt' => 'Hotel Benizia Entrance — Asaba, Delta State'],
+                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-compound.webp', 'alt' => 'Hotel Benizia Grounds — Asaba'],
+                    ['src' => 'https://hotelbenizia.ng/img/property/hotel-exterior.webp', 'alt' => 'Hotel Benizia Building — Asaba'],
                 ] as $img)
                     <div class="overflow-hidden rounded-2xl aspect-video">
                         <img

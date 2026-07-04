@@ -14,7 +14,7 @@
 
     $pageTitle   = $title ? "{$title} — {$hotelName}" : "{$hotelName} — {$tagline}";
     $pageDesc    = $description ?? "Luxury hotel in Asaba, Delta State with premium rooms, restaurant, bar, swimming pool, event halls, and 24-hour hospitality services.";
-    $pageImage   = $image   ?? 'https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg';
+    $pageImage   = $image   ?? 'https://hotelbenizia.ng/img/property/hotel-exterior.webp';
     $pageUrl     = $canonical ?? (function_exists('url') ? url()->current() : $siteCanon);
 
     // For OG/Twitter title we use the bare title (or hotel name) without the suffix

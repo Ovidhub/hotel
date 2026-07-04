@@ -13,9 +13,9 @@
         'email'    => config('hotel.email', 'booking@hotelbenizia.ng'),
         'description' => 'Hotel Benizia is a luxury hotel and serviced apartments in Asaba, Delta State, offering premium rooms, short-let apartments, a 24-hour restaurant and bar, swimming pool, spa, and event halls.',
         'image' => [
-            'https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg',
-            'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg',
-            'https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizi-entrance-370x554.jpg',
+            'https://hotelbenizia.ng/img/property/hotel-exterior.webp',
+            'https://hotelbenizia.ng/img/property/hotel-compound.webp',
+            'https://hotelbenizia.ng/img/property/hotel-entrance.webp',
         ],
         'address' => [
             '@type'          => 'PostalAddress',

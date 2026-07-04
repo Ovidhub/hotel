@@ -7,7 +7,7 @@
 ])
 
 @php
-    $defaultImage = 'https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg';
+    $defaultImage = 'https://hotelbenizia.ng/img/property/hotel-exterior.webp';
     $bgImage = $image ?? $defaultImage;
 @endphp
 

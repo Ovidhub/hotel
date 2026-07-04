@@ -85,7 +85,7 @@ class RoomSeeder extends Seeder
 
             Room::create(array_merge($data, [
                 'price_label' => 'NGN ' . number_format($data['price']),
-                'image'       => $gallery[0] ?? 'https://hotelbenizia.ng/wp-content/uploads/2025/06/Deluxe-classic-550x824.jpg',
+                'image'       => $gallery[0] ?? 'https://hotelbenizia.ng/img/rooms/deluxe-classic/1.webp',
                 'gallery'     => $gallery,
                 'rating'      => null,
                 'reviews'     => 0,

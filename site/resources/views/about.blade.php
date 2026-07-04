@@ -5,7 +5,7 @@
     <x-page-hero
         title="About Hotel Benizia"
         subtitle="A premier hotel in Asaba, Delta State — built on hospitality, comfort, and an unwavering commitment to exceptional guest experiences."
-        image="https://hotelbenizia.ng/wp-content/uploads/2025/06/our-vision-550x412.jpg"
+        image="https://hotelbenizia.ng/img/property/hotel-compound.webp"
         :breadcrumbs="[['label' => 'Home', 'url' => route('home')], ['label' => 'About Us']]"
     />
 
@@ -32,7 +32,7 @@
                 </div>
                 <div class="rounded-3xl overflow-hidden">
                     <img
-                        src="https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg"
+                        src="https://hotelbenizia.ng/img/property/hotel-exterior.webp"
                         alt="Hotel Benizia exterior — Asaba, Delta State"
                         class="w-full h-96 object-cover"
                         loading="lazy"
@@ -49,7 +49,7 @@
                 <div class="rounded-3xl bg-white p-10 shadow-sm ring-1 ring-gray-100">
                     <div class="mb-6 overflow-hidden rounded-2xl h-48">
                         <img
-                            src="https://hotelbenizia.ng/wp-content/uploads/2025/06/our-vision-550x412.jpg"
+                            src="https://hotelbenizia.ng/img/property/hotel-compound.webp"
                             alt="Hotel Benizia Vision — looking towards excellence in Asaba"
                             class="h-full w-full object-cover"
                             loading="lazy"
@@ -61,7 +61,7 @@
                 <div class="rounded-3xl bg-benizia-green p-10 shadow-sm">
                     <div class="mb-6 overflow-hidden rounded-2xl h-48">
                         <img
-                            src="https://hotelbenizia.ng/wp-content/uploads/2025/06/stay-upfront-550x413.jpg"
+                            src="https://hotelbenizia.ng/img/property/hotel-entrance.webp"
                             alt="Hotel Benizia Mission — delivering excellence every day in Asaba"
                             class="h-full w-full object-cover"
                             loading="lazy"

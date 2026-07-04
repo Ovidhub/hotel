@@ -1,7 +1,7 @@
 <x-layouts.app
     title="Luxury Hotel & Serviced Apartments in Asaba, Delta State"
     description="Hotel Benizia is a luxury hotel and serviced apartments in Asaba, Delta State — premium rooms, short-let apartments, fine dining, pool, spa, and event halls. Book direct."
-    image="https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg">
+    image="https://hotelbenizia.ng/img/property/hotel-exterior.webp">
 
     {{-- ════════════════════════════════════════════════════════════════
          1. HERO SECTION
@@ -13,7 +13,7 @@
     >
         {{-- Hero background image --}}
         <img
-            src="https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg"
+            src="https://hotelbenizia.ng/img/property/hotel-exterior.webp"
             alt="Hotel Benizia luxury hotel interior — Asaba, Delta State"
             class="absolute inset-0 h-full w-full object-cover"
             fetchpriority="high"
@@ -150,7 +150,7 @@
                 {{-- Image side --}}
                 <div class="relative">
                     <img
-                        src="https://hotelbenizia.ng/wp-content/uploads/2025/06/stay-upfront-550x413.jpg"
+                        src="https://hotelbenizia.ng/img/property/hotel-entrance.webp"
                         alt="Hotel Benizia welcoming entrance and host — Asaba, Delta State"
                         class="w-full rounded-2xl object-cover shadow-xl"
                         style="aspect-ratio:4/3"
@@ -344,8 +344,8 @@
                 {{-- Image side --}}
                 <div class="relative">
                     <img
-                        src="https://hotelbenizia.ng/wp-content/uploads/2025/06/Bar.jpg"
-                        alt="Hotel Benizia VIP bar and lounge area"
+                        src="https://hotelbenizia.ng/img/property/hotel-compound.webp"
+                        alt="Hotel Benizia grounds and lounge surroundings — Asaba"
                         class="w-full rounded-2xl object-cover shadow-2xl"
                         style="aspect-ratio:4/3"
                         loading="lazy"
@@ -393,8 +393,8 @@
     ════════════════════════════════════════════════════════════════ --}}
     <section class="relative overflow-hidden" aria-label="Swimming pool and experience">
         <img
-            src="https://hotelbenizia.ng/wp-content/uploads/2025/06/hotel-benizia-swimming-pool-and-bar-1200x959.jpg"
-            alt="Hotel Benizia outdoor swimming pool and bar area at dusk"
+            src="https://hotelbenizia.ng/img/property/hotel-compound.webp"
+            alt="Hotel Benizia landscaped grounds and leisure area — Asaba"
             class="h-[480px] w-full object-cover"
             loading="lazy"
         >

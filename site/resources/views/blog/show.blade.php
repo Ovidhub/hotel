@@ -21,7 +21,7 @@
     <x-schema.article
         :title="$post->title"
         :description="$post->excerpt ?? $post->title"
-        :image="$post->image ?? 'https://hotelbenizia.ng/wp-content/uploads/2025/05/front-page-banner.jpg'"
+        :image="$post->image ?? 'https://hotelbenizia.ng/img/property/hotel-exterior.webp'"
         :author="$post->author ?? 'Hotel Benizia'"
         :authorType="$post->author && $post->author !== 'Hotel Benizia' ? 'Person' : 'Organization'"
         :datePublished="$post->published_at->toIso8601String()"
