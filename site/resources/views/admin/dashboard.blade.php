@@ -74,12 +74,24 @@
 
         {{-- Chart (last 7 days) --}}
         <div class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-gray-200 lg:col-span-2">
-            <h2 class="mb-4 text-sm font-semibold text-gray-700">Revenue — Last 7 Days</h2>
+            <div class="mb-4 flex items-center justify-between gap-3">
+                <div>
+                    <h2 class="text-sm font-semibold text-gray-700">Revenue — Last 7 Days</h2>
+                    <p class="mt-0.5 text-xs text-gray-400">Daily commitment fees &amp; booking count</p>
+                </div>
+                <span class="shrink-0 rounded-full bg-[#7C0E52]/10 px-3 py-1 text-xs font-semibold text-[#7C0E52]">
+                    ₦{{ number_format(array_sum($chartRevenue)) }}
+                </span>
+            </div>
 
             @if(array_sum($chartRevenue) > 0 || array_sum($chartCounts) > 0)
-                <canvas id="revenueChart" class="w-full" style="height:220px;"></canvas>
+                {{-- Fixed-height wrapper: keeps Chart.js (maintainAspectRatio:false)
+                     from growing the canvas on every resize. --}}
+                <div class="relative h-64 w-full sm:h-72">
+                    <canvas id="revenueChart"></canvas>
+                </div>
             @else
-                <div class="flex h-48 items-center justify-center rounded-lg bg-gray-50 text-sm text-gray-400">
+                <div class="flex h-64 items-center justify-center rounded-lg bg-gray-50 text-sm text-gray-400">
                     No booking data for the last 7 days.
                 </div>
             @endif
