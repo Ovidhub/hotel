@@ -123,6 +123,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('messages/{message}', [\App\Http\Controllers\Admin\MessageController::class, 'show'])->name('messages.show');
     Route::delete('messages/{message}', [\App\Http\Controllers\Admin\MessageController::class, 'destroy'])->name('messages.destroy');
 
+    // Site settings (WhatsApp float, etc.)
+    Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('settings');
+    Route::put('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
+
     // Account / change password
     Route::get('account', [\App\Http\Controllers\Admin\AccountController::class, 'edit'])->name('account');
     Route::put('account/password', [\App\Http\Controllers\Admin\AccountController::class, 'updatePassword'])->name('account.password');

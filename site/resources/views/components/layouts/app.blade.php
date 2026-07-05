@@ -59,5 +59,8 @@
     {{-- Footer --}}
     @include('partials.footer')
 
+    {{-- Floating WhatsApp chat button (number set in Admin → Settings) --}}
+    <x-whatsapp-float />
+
 </body>
 </html>
