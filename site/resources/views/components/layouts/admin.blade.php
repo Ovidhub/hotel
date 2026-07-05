@@ -257,6 +257,18 @@
                 </li>
                 @endif
 
+                <li>
+                    <a href="{{ route('admin.account') }}"
+                       class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium
+                              {{ request()->routeIs('admin.account') ? 'bg-white/20 text-white' : 'text-white/80 hover:bg-white/10 hover:text-white' }}
+                              transition-colors duration-150">
+                        <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                        Account
+                    </a>
+                </li>
+
             </ul>
         </nav>
 
@@ -292,9 +304,10 @@
 
             {{-- Right: admin name + logout --}}
             <div class="flex items-center gap-4">
-                <span class="hidden sm:block text-sm text-gray-600">
+                <a href="{{ route('admin.account') }}"
+                   class="hidden sm:block text-sm text-gray-600 hover:text-[#7C0E52] transition-colors">
                     {{ auth()->user()?->name ?? 'Admin' }}
-                </span>
+                </a>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
