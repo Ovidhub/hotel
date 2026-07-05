@@ -41,6 +41,21 @@ trait HasMediaUrls
     }
 
     /**
+     * The gallery images (excluding the main image) as ordered
+     * {value, url} pairs for the admin gallery manager.
+     *
+     * @return array<int, array{value: string, url: string}>
+     */
+    public function galleryItems(): array
+    {
+        return collect(is_array($this->gallery) ? $this->gallery : [])
+            ->map(fn ($path) => ['value' => $path, 'url' => $this->resolveMediaUrl($path)])
+            ->filter(fn ($item) => $item['url'])
+            ->values()
+            ->all();
+    }
+
+    /**
      * Turn a stored value into a browser-usable URL.
      * External URLs and root-relative paths pass through unchanged;
      * stored upload paths are served from the public storage symlink.

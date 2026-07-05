@@ -32,10 +32,7 @@ class RoomController extends Controller
         if ($path = $this->storeUpload($request, 'image_file', 'rooms')) {
             $data['image'] = $path;
         }
-        $data['gallery'] = array_values(array_merge(
-            $data['gallery'],
-            $this->storeGalleryUploads($request, 'rooms')
-        ));
+        $data['gallery'] = $this->resolveGallery($request, 'rooms', $data['gallery']);
 
         Room::create($data);
 
@@ -57,10 +54,7 @@ class RoomController extends Controller
         } else {
             unset($data['image']); // keep the existing image when none uploaded
         }
-        $data['gallery'] = array_values(array_merge(
-            $data['gallery'],
-            $this->storeGalleryUploads($request, 'rooms')
-        ));
+        $data['gallery'] = $this->resolveGallery($request, 'rooms', $data['gallery']);
 
         $room->update($data);
 

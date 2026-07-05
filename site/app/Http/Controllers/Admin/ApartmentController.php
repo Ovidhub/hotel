@@ -32,10 +32,7 @@ class ApartmentController extends Controller
         if ($path = $this->storeUpload($request, 'image_file', 'apartments')) {
             $data['image'] = $path;
         }
-        $data['gallery'] = array_values(array_merge(
-            $data['gallery'],
-            $this->storeGalleryUploads($request, 'apartments')
-        ));
+        $data['gallery'] = $this->resolveGallery($request, 'apartments', $data['gallery']);
 
         Apartment::create($data);
 
@@ -57,10 +54,7 @@ class ApartmentController extends Controller
         } else {
             unset($data['image']); // keep the existing image when none uploaded
         }
-        $data['gallery'] = array_values(array_merge(
-            $data['gallery'],
-            $this->storeGalleryUploads($request, 'apartments')
-        ));
+        $data['gallery'] = $this->resolveGallery($request, 'apartments', $data['gallery']);
 
         $apartment->update($data);
 

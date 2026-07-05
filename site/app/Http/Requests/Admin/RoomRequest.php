@@ -33,6 +33,7 @@ class RoomRequest extends FormRequest
             'image'           => ['nullable', 'string', 'max:1000'],
             'image_file'      => [Rule::requiredIf(fn () => $this->route('room') === null), 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             'gallery'         => ['nullable', 'string'],
+            'gallery_order'   => ['nullable', 'string'],
             'gallery_files'   => ['nullable', 'array'],
             'gallery_files.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             'amenities'   => ['nullable', 'string'],

@@ -25,6 +25,7 @@ class ApartmentRequest extends FormRequest
             'image'           => ['nullable', 'string', 'max:1000'],
             'image_file'      => [Rule::requiredIf(fn () => $this->route('apartment') === null), 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             'gallery'         => ['nullable', 'string'],
+            'gallery_order'   => ['nullable', 'string'],
             'gallery_files'   => ['nullable', 'array'],
             'gallery_files.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             'bedrooms'    => ['required', 'integer', 'min:0'],
