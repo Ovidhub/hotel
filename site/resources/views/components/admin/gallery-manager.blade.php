@@ -71,5 +71,5 @@
         </button>
         <span class="text-xs text-gray-400"><span x-text="items.length"></span> image(s)</span>
     </div>
-    <p class="mt-1 text-xs text-gray-400">The first image (#1) leads the gallery. Hover a photo to reorder or remove it. JPG, PNG or WebP up to 4 MB each — optimized on upload.</p>
+    <p class="mt-1 text-xs text-gray-400">The first image (#1) leads the gallery. Hover a photo to reorder or remove it. JPG, PNG or WebP up to 16 MB each — optimized on upload.</p>
 </div>

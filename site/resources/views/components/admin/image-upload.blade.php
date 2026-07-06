@@ -36,6 +36,6 @@
     <input type="file" name="image_file" accept="image/*"
            @change="preview = ($event.target.files[0] ? URL.createObjectURL($event.target.files[0]) : null)"
            class="block w-full text-sm text-gray-600 file:mr-3 file:rounded-lg file:border-0 file:bg-[#7C0E52] file:px-4 file:py-2 file:text-white hover:file:bg-[#560A3A] @error('image_file') border-red-400 @enderror">
-    <p class="mt-1 text-xs text-gray-400">JPG, PNG or WebP, up to 4 MB. Photos are automatically sharpened, colour-corrected, resized &amp; optimized on upload.</p>
+    <p class="mt-1 text-xs text-gray-400">JPG, PNG or WebP, up to 16 MB. Photos are automatically sharpened, colour-corrected, resized &amp; optimized on upload.</p>
     @error('image_file') <p class="mt-1 text-xs text-red-500">{{ $message }}</p> @enderror
 </div>
