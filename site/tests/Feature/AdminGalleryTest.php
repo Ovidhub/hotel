@@ -64,6 +64,31 @@ test('an empty gallery_order clears the gallery', function () {
     expect($room->fresh()->gallery)->toBe([]);
 });
 
+test('an absent gallery_order preserves the existing gallery (no data loss)', function () {
+    $admin = User::where('is_admin', true)->first();
+    $room  = Room::first();
+    $room->update(['gallery' => ['rooms/a.webp', 'rooms/b.webp']]);
+
+    // No gallery_order and no gallery field at all (e.g. the JS never ran).
+    $this->actingAs($admin)->put(route('admin.rooms.update', $room), roomPayload($room))
+         ->assertRedirect(route('admin.rooms.index'));
+
+    expect($room->fresh()->gallery)->toBe(['rooms/a.webp', 'rooms/b.webp']);
+});
+
+test('an empty-string gallery_order preserves the existing gallery (JS failed)', function () {
+    $admin = User::where('is_admin', true)->first();
+    $room  = Room::first();
+    $room->update(['gallery' => ['rooms/a.webp', 'rooms/b.webp']]);
+
+    // An empty string (not "[]") means the JS binding never populated it.
+    $this->actingAs($admin)->put(route('admin.rooms.update', $room), roomPayload($room, [
+        'gallery_order' => '',
+    ]))->assertRedirect(route('admin.rooms.index'));
+
+    expect($room->fresh()->gallery)->toBe(['rooms/a.webp', 'rooms/b.webp']);
+});
+
 test('gallery_order interleaves a new upload at a chosen position', function () {
     $admin = User::where('is_admin', true)->first();
     $room  = Room::first();

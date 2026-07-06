@@ -54,7 +54,12 @@ class ApartmentController extends Controller
         } else {
             unset($data['image']); // keep the existing image when none uploaded
         }
-        $data['gallery'] = $this->resolveGallery($request, 'apartments', $data['gallery']);
+        // Fall back to the apartment's current gallery (never wipe it) when neither the
+        // legacy gallery field nor a valid gallery_order arrives — e.g. if the JS failed.
+        $existingGallery = ! empty($data['gallery'])
+            ? $data['gallery']
+            : (is_array($apartment->gallery) ? $apartment->gallery : []);
+        $data['gallery'] = $this->resolveGallery($request, 'apartments', $existingGallery);
 
         $apartment->update($data);
 

@@ -54,7 +54,12 @@ class RoomController extends Controller
         } else {
             unset($data['image']); // keep the existing image when none uploaded
         }
-        $data['gallery'] = $this->resolveGallery($request, 'rooms', $data['gallery']);
+        // Fall back to the room's current gallery (never wipe it) when neither the
+        // legacy gallery field nor a valid gallery_order arrives — e.g. if the JS failed.
+        $existingGallery = ! empty($data['gallery'])
+            ? $data['gallery']
+            : (is_array($room->gallery) ? $room->gallery : []);
+        $data['gallery'] = $this->resolveGallery($request, 'rooms', $existingGallery);
 
         $room->update($data);
 
