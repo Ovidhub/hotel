@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BookingInquiryController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PaystackController;
@@ -61,6 +62,7 @@ Route::get('/paystack/callback', [PaystackController::class, 'callback'])->name(
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/booking-inquiry', [BookingInquiryController::class, 'store'])->name('booking-inquiry.store');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 // ── Breeze: dashboard redirect (admins → /admin, others → home) ──────────────
