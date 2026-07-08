@@ -66,7 +66,7 @@
                             </div>
                             <div>
                                 <h2 class="font-semibold text-benizia-charcoal mb-1">Email</h2>
-                                <a href="mailto:booking@hotelbenizia.ng" class="text-benizia-green font-semibold hover:underline text-sm">booking@hotelbenizia.ng</a>
+                                <a href="mailto:{{ config('hotel.email') }}" class="text-benizia-green font-semibold hover:underline text-sm">{{ config('hotel.email') }}</a>
                             </div>
                         </div>
 
@@ -80,6 +80,33 @@
                             <div>
                                 <h2 class="font-semibold text-benizia-charcoal mb-1">Hours</h2>
                                 <p class="text-gray-600 text-sm">Reception: 24 Hours · 7 Days<br>Restaurant &amp; Bar: 24 Hours</p>
+                            </div>
+                        </div>
+
+                        {{-- Check-in / Check-out --}}
+                        <div class="flex gap-4 rounded-2xl bg-benizia-cream p-6">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-benizia-green flex items-center justify-center">
+                                <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-benizia-charcoal mb-1">Check-in &amp; Check-out</h2>
+                                <p class="text-gray-600 text-sm">Check-in: from {{ config('hotel.check_in') }}<br>Check-out: by {{ config('hotel.check_out') }}</p>
+                            </div>
+                        </div>
+
+                        {{-- HB Apartments booking contact --}}
+                        <div class="flex gap-4 rounded-2xl bg-benizia-cream p-6">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-benizia-gold flex items-center justify-center">
+                                <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-benizia-charcoal mb-1">HB Apartments — Booking</h2>
+                                <a href="tel:{{ config('hotel.apartments.phone_href') }}" class="block text-benizia-green font-semibold hover:underline text-sm">{{ config('hotel.apartments.phone') }}</a>
+                                <a href="mailto:{{ config('hotel.apartments.email') }}" class="block text-benizia-green font-semibold hover:underline text-sm">{{ config('hotel.apartments.email') }}</a>
                             </div>
                         </div>
                     </div>

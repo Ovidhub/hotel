@@ -1,7 +1,12 @@
 @php
     $phone     = config('hotel.phone', '+234 813 406 2487');
     $phoneHref = config('hotel.phone_href', '+2348134062487');
-    $email     = config('hotel.email', 'booking@hotelbenizia.ng');
+    $email     = config('hotel.email', 'hotelbenizia66@gmail.com');
+    $aptPhone     = config('hotel.apartments.phone', '+234 803 612 5379');
+    $aptPhoneHref = config('hotel.apartments.phone_href', '+2348036125379');
+    $aptEmail     = config('hotel.apartments.email', 'hbapartment1@gmail.com');
+    $checkIn   = config('hotel.check_in', '2:00 PM');
+    $checkOut  = config('hotel.check_out', '12:00 noon');
     $address   = config('hotel.address', '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State');
     $socials   = config('hotel.socials', []);
     $nav       = config('hotel.nav', []);
@@ -23,7 +28,7 @@
                 </span>
                 <div>
                     <span class="block font-serif text-2xl leading-tight">Hotel Benizia</span>
-                    <span class="block text-[10px] uppercase tracking-[0.35em] text-benizia-gold">Luxury Hotel · Asaba</span>
+                    <span class="block text-[10px] uppercase tracking-[0.15em] text-benizia-gold">Luxury Hotel · Asaba</span>
                 </div>
             </div>
             <p class="mt-5 max-w-xs text-sm leading-7 text-white/70">
@@ -106,6 +111,23 @@
                     </svg>
                     <span>{{ $email }}</span>
                 </a>
+
+                {{-- HB Apartments — separate booking contact --}}
+                <div class="mt-2 border-t border-white/15 pt-4">
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.15em] text-benizia-gold">HB Apartments</p>
+                    <a href="tel:{{ $aptPhoneHref }}" class="mt-2 flex gap-3 transition hover:text-benizia-gold">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-benizia-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+                        </svg>
+                        <span>{{ $aptPhone }}</span>
+                    </a>
+                    <a href="mailto:{{ $aptEmail }}" class="mt-2 flex gap-3 transition hover:text-benizia-gold">
+                        <svg class="mt-0.5 h-4 w-4 shrink-0 text-benizia-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+                        </svg>
+                        <span>{{ $aptEmail }}</span>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -113,6 +135,7 @@
         <div>
             <h3 class="font-serif text-xl text-benizia-gold">Reservations</h3>
             <div class="mt-5 text-sm text-white/70 space-y-3">
+                <p>Check-in from <strong class="text-benizia-gold font-semibold">{{ $checkIn }}</strong> · Check-out by <strong class="text-benizia-gold font-semibold">{{ $checkOut }}</strong>.</p>
                 <p>Secure your stay with a <strong class="text-benizia-gold font-semibold">40% deposit</strong> at booking.</p>
                 <p>Free cancellation up to <strong class="text-benizia-gold font-semibold">24 hours</strong> before check-in.</p>
                 <p>Balance payable at check-in after confirmation.</p>

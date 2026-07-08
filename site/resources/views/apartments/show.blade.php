@@ -163,6 +163,13 @@
         </div>
     </section>
 
+    {{-- HB Apartments booking contact --}}
+    <section class="px-4 pb-20 pt-4 bg-white">
+        <div class="mx-auto max-w-4xl">
+            <x-apartment-contact />
+        </div>
+    </section>
+
     <x-cta title="Looking for a Serviced Apartment in Asaba?" text="HB Apartments offers hotel-backed apartment stays for extended visits, families, and business travelers in Asaba." />
 
 </x-layouts.app>

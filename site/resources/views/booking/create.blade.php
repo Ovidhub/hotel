@@ -341,7 +341,9 @@
 
     <x-cta
         title="Need Help Booking?"
-        text="Call our reservations team on {{ config('hotel.phone') }} — we're available 24 hours, 7 days a week."
+        text="{{ $type === 'apartment'
+            ? 'Call HB Apartments on ' . config('hotel.apartments.phone') . ' or email ' . config('hotel.apartments.email') . ' for apartment reservations.'
+            : 'Call our reservations team on ' . config('hotel.phone') . ' — we are available 24 hours, 7 days a week.' }}"
     />
 
 </x-layouts.app>

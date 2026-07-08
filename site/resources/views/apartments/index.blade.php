@@ -43,7 +43,7 @@
                     ['title' => 'Daily Housekeeping', 'desc' => 'Hotel-grade cleaning and fresh linens, so your apartment always feels spotless.'],
                     ['title' => 'Great Long-Stay Value', 'desc' => 'Ideal for relocations, projects, and extended visits to Asaba — more space for your money.'],
                     ['title' => 'Hotel Facilities Included', 'desc' => 'Enjoy the swimming pool, gym, restaurant, and bar just like our hotel guests.'],
-                    ['title' => '24/7 Power & Security', 'desc' => 'Reliable round-the-clock power supply, trained security, and CCTV for peace of mind.'],
+                    ['title' => '24/7 Power & Security', 'desc' => 'Reliable round-the-clock power supply and trained security for peace of mind.'],
                     ['title' => 'Central Asaba Location', 'desc' => 'Close to the business district, government offices, and Asaba International Airport.'],
                 ];
             @endphp
@@ -72,6 +72,13 @@
         src="https://hotelbenizia.ng/videos/apartment.mp4"
         poster="https://hotelbenizia.ng/img/property/apartment-exterior.webp"
     />
+
+    {{-- HB Apartments booking contact --}}
+    <section class="px-4 pb-20 pt-4 bg-white">
+        <div class="mx-auto max-w-4xl">
+            <x-apartment-contact />
+        </div>
+    </section>
 
     <x-cta title="Looking for a Serviced Apartment in Asaba?" text="HB Apartments offers hotel-backed apartment stays for extended visits, families, and business travelers." />
 

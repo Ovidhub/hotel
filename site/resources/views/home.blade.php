@@ -165,7 +165,7 @@
 
                 {{-- Text side --}}
                 <div>
-                    <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold">Welcome to Hotel Benizia</p>
+                    <p class="text-sm font-bold uppercase tracking-[0.15em] text-benizia-gold">Welcome to Hotel Benizia</p>
                     <h2 class="font-serif mt-3 text-3xl leading-tight text-benizia-charcoal md:text-5xl">
                         Asaba's Premier<br>Luxury Hotel
                     </h2>
@@ -297,7 +297,7 @@
 
                 {{-- Text side --}}
                 <div>
-                    <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold">Dining &amp; Bar</p>
+                    <p class="text-sm font-bold uppercase tracking-[0.15em] text-benizia-gold">Dining &amp; Bar</p>
                     <h2 class="font-serif mt-3 text-3xl leading-tight text-white md:text-5xl">
                         A Restaurant<br>That Never Closes
                     </h2>
@@ -312,29 +312,11 @@
                         <strong class="text-benizia-gold">Wednesday, Friday, and Saturday</strong> sets the perfect mood.
                     </p>
 
-                    {{-- Menu highlights --}}
-                    <ul class="mt-8 space-y-3">
-                        @php
-                            $menuHighlights = [
-                                ['Chef Breakfast Platter', 'NGN 8,500'],
-                                ['Delta Pepper Soup', 'NGN 10,000'],
-                                ['Jollof Rice Royale', 'NGN 9,500'],
-                                ['Signature Mocktail', 'NGN 5,500'],
-                            ];
-                        @endphp
-                        @foreach($menuHighlights as [$dish, $price])
-                            <li class="flex items-center justify-between border-b border-white/10 pb-3 text-sm">
-                                <span class="text-white/85">{{ $dish }}</span>
-                                <span class="font-semibold text-benizia-gold">{{ $price }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-
                     <a
                         href="{{ route('restaurant') }}"
                         class="mt-8 inline-flex items-center gap-2 rounded-full bg-benizia-gold px-7 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-benizia-green"
                     >
-                        View Full Menu
+                        Explore the Restaurant
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
                         </svg>
@@ -401,7 +383,7 @@
         <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" aria-hidden="true"></div>
         <div class="absolute inset-0 flex items-center px-8 sm:px-16">
             <div class="max-w-lg text-white">
-                <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold">Pool &amp; Leisure</p>
+                <p class="text-sm font-bold uppercase tracking-[0.15em] text-benizia-gold">Pool &amp; Leisure</p>
                 <h2 class="font-serif mt-3 text-3xl leading-tight text-white md:text-4xl">
                     Relax, Refresh,<br>Rejuvenate
                 </h2>

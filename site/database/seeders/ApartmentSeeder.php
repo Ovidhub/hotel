@@ -12,7 +12,7 @@ class ApartmentSeeder extends Seeder
     {
         $sharedAmenities = [
             'Fully-equipped kitchen', 'Air conditioning', 'Smart TV', 'High-speed WiFi',
-            'Daily housekeeping', '24/7 power supply', 'Security & CCTV', 'Parking',
+            'Daily housekeeping', '24/7 power supply', 'Security', 'Parking',
         ];
 
         $apartments = [

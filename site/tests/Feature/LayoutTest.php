@@ -27,7 +27,7 @@ test('public layout shell renders email address', function () {
     $response = $this->get('/__shelltest');
 
     $response->assertStatus(200);
-    $response->assertSee('booking@hotelbenizia.ng');
+    $response->assertSee('hotelbenizia66@gmail.com');
 });
 
 test('public layout shell renders nav label HB Apartments', function () {

@@ -40,40 +40,6 @@
         </div>
     </section>
 
-    {{-- Menu Section --}}
-    <section class="py-20 px-4 bg-benizia-charcoal text-white">
-        <div class="mx-auto max-w-5xl">
-            <x-section-intro
-                eyebrow="Our Menu"
-                title="What We Serve"
-                text="A curated selection of Nigerian and continental dishes, available 24 hours a day."
-            />
-
-            <div class="mt-12 space-y-12">
-                @foreach($menu as $section)
-                    <div>
-                        <h2 class="font-serif text-2xl text-benizia-gold mb-6 pb-3 border-b border-white/10">
-                            {{ $section['category'] }}
-                        </h2>
-                        <div class="grid gap-6 sm:grid-cols-2">
-                            @foreach($section['items'] as $item)
-                                <div class="flex justify-between gap-4 py-4 border-b border-white/5">
-                                    <div class="flex-1">
-                                        <h3 class="font-semibold text-white">{{ $item['name'] }}</h3>
-                                        <p class="text-sm text-white/60 mt-1 leading-relaxed">{{ $item['description'] }}</p>
-                                    </div>
-                                    <div class="text-right flex-shrink-0">
-                                        <span class="font-semibold text-benizia-gold text-sm">{{ $item['price'] }}</span>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
     {{-- Ambiance gallery --}}
     <section class="py-20 px-4 bg-white">
         <div class="mx-auto max-w-7xl">

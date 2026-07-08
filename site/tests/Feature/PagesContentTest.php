@@ -112,13 +112,15 @@ test('apartment show displays description and Product schema', function () {
 
 // ── restaurant ────────────────────────────────────────────────────────────────
 
-test('restaurant page shows menu items and NGN prices', function () {
+test('restaurant page renders dining features without the food menu', function () {
     $response = $this->get(route('restaurant'));
     $response->assertOk();
 
-    // Menu items (from controller data)
-    $response->assertSee('Chef Breakfast Platter');
-    $response->assertSee('NGN');
+    // Dining features remain
+    $response->assertSee('VIP Bar');
+
+    // The food menu listing was removed
+    $response->assertDontSee('What We Serve');
 
     // Single h1
     expect(substr_count($response->getContent(), '<h1'))->toBe(1);

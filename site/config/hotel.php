@@ -4,8 +4,17 @@ return [
   'tagline' => 'Luxury in the heart of Asaba',
   'phone' => '+234 813 406 2487',
   'phone_href' => '+2348134062487',
-  'email' => 'booking@hotelbenizia.ng',
+  'email' => 'hotelbenizia66@gmail.com',
   'address' => '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State',
+  // Check-in / check-out times (site-wide policy).
+  'check_in' => '2:00 PM',
+  'check_out' => '12:00 noon',
+  // HB Apartments has its own booking contact, separate from the hotel.
+  'apartments' => [
+    'phone' => '+234 803 612 5379',
+    'phone_href' => '+2348036125379',
+    'email' => 'hbapartment1@gmail.com',
+  ],
   'canonical' => 'https://hotelbenizia.ng',
   // Approximate coordinates for Central Area, Asaba, Delta State (used in local-SEO schema).
   'geo' => ['lat' => 6.1980, 'lng' => 6.7290],

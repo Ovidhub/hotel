@@ -25,7 +25,7 @@
 >
     {{-- Gold eyebrow label --}}
     @if($eyebrow)
-        <p class="text-sm font-bold uppercase tracking-[0.35em] text-benizia-gold">
+        <p class="text-sm font-bold uppercase tracking-[0.15em] text-benizia-gold">
             {{ $eyebrow }}
         </p>
     @endif

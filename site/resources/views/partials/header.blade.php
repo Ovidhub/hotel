@@ -1,7 +1,7 @@
 @php
     $phone     = config('hotel.phone', '+234 813 406 2487');
     $phoneHref = config('hotel.phone_href', '+2348134062487');
-    $email     = config('hotel.email', 'booking@hotelbenizia.ng');
+    $email     = config('hotel.email', 'hotelbenizia66@gmail.com');
     $address   = config('hotel.address', '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State');
     $socials   = config('hotel.socials', []);
     $nav       = config('hotel.nav', []);
@@ -90,7 +90,7 @@
                      width="128" height="64">
                 <span class="hidden sm:block">
                     <span class="block font-serif text-2xl leading-none text-benizia-green">Hotel Benizia</span>
-                    <span class="block text-[10px] uppercase tracking-[0.35em] text-benizia-gold">Luxury Hotel · Asaba</span>
+                    <span class="block text-[10px] uppercase tracking-[0.15em] text-benizia-gold">Luxury Hotel · Asaba</span>
                 </span>
             </a>
 
