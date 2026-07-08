@@ -16,7 +16,7 @@ return [
     'phone_href' => '+2348036125379',
     'email' => 'hbapartment1@gmail.com',
   ],
-  'canonical' => 'https://hotelbenizia.ng',
+  'canonical' => env('HOTEL_CANONICAL', 'https://hotelbenizia.ng'),
   // Approximate coordinates for Central Area, Asaba, Delta State (used in local-SEO schema).
   'geo' => ['lat' => 6.1980, 'lng' => 6.7290],
   'maps_url' => 'https://www.google.com/maps?q=Hotel+Benizia+Asaba',

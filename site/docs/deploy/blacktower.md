@@ -106,6 +106,7 @@ HOTEL_PHONE="+234 912 793 6399"
 HOTEL_PHONE_HREF=+2349127936399
 HOTEL_EMAIL=contact@blacktowerhotelsasaba.com
 HOTEL_ADDRESS="78 Anwai Road, Asaba, Delta State, Nigeria"
+HOTEL_CANONICAL=https://blacktowerhotelsasaba.com
 
 # ── Database (the dedicated DB created in §0.3 — NOT the Benizia one) ──
 DB_CONNECTION=mysql
