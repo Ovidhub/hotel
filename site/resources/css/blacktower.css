@@ -189,7 +189,7 @@ button {
   place-items: center;
   isolation: isolate;
   overflow: hidden;
-  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-16-at-4.06.51-PM.jpeg");
+  background-image: url("/img/themes/blacktower/hero-bg.webp");
   background-position: center center;
   background-size: cover;
 }
@@ -440,7 +440,7 @@ button {
   left: -120px;
   width: 190px;
   height: 644px;
-  background: url("https://blacktowerhotelsasaba.com/wp-content/themes/boliin/assets/images/about-shape.png") no-repeat left bottom;
+  background: url("/img/themes/blacktower/about-shape.png") no-repeat left bottom;
   pointer-events: none;
 }
 
@@ -544,7 +544,7 @@ button {
   position: relative;
   overflow: hidden;
   background-color: var(--bt-cream);
-  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2022/12/bg-shape-01.png"), url("https://blacktowerhotelsasaba.com/wp-content/uploads/2022/12/bg-shape-02.png");
+  background-image: url("/img/themes/blacktower/bg-shape-01.png"), url("/img/themes/blacktower/bg-shape-02.png");
   background-position: left top, right bottom;
   background-repeat: no-repeat;
 }
@@ -752,7 +752,7 @@ button {
   padding-left: max(24px, calc((100vw - 1200px) / 2));
   padding-right: max(24px, calc((100vw - 1200px) / 2));
   background-color: #fff;
-  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2023/02/bg-01.jpg");
+  background-image: url("/img/themes/blacktower/why-bg.webp");
   background-position: top center;
   background-repeat: no-repeat;
 }
@@ -802,7 +802,7 @@ button {
   min-height: 275px;
   padding: 48px 40px 36px;
   background-color: #fff;
-  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2023/10/bg-iconbox.png");
+  background-image: url("/img/themes/blacktower/bg-iconbox.png");
   background-position: bottom center;
   background-repeat: no-repeat;
   box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
@@ -846,7 +846,7 @@ button {
   flex-direction: column;
   justify-content: center;
   padding: 70px max(24px, calc((100vw - 1200px) / 2));
-  background-image: linear-gradient(rgba(41, 40, 54, 0.76), rgba(41, 40, 54, 0.76)), url("https://blacktowerhotelsasaba.com/wp-content/uploads/2025/11/bg-021.png");
+  background-image: linear-gradient(rgba(41, 40, 54, 0.76), rgba(41, 40, 54, 0.76)), url("/img/themes/blacktower/service-bg.webp");
   background-size: cover;
   background-position: center;
 }
@@ -974,7 +974,7 @@ button {
   place-items: center;
   text-align: center;
   color: #fff;
-  background-image: linear-gradient(rgba(41, 40, 54, 0.78), rgba(41, 40, 54, 0.78)), url("https://blacktowerhotelsasaba.com/wp-content/uploads/2023/02/bg-05.jpg");
+  background-image: linear-gradient(rgba(41, 40, 54, 0.78), rgba(41, 40, 54, 0.78)), url("/img/themes/blacktower/amenities-bg.webp");
   background-size: cover;
   background-position: center;
 }
