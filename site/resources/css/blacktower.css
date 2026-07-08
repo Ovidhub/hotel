@@ -1,0 +1,1485 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bt-red: #e85f4c;
+  --bt-red-strong: #eb0607;
+  --bt-dark: #292836;
+  --bt-text: #6b6a71;
+  --bt-cream: #faf5ef;
+  --bt-line: #ebe7de;
+  --bt-footer: #1e1d28;
+  --bt-white: #ffffff;
+  --bt-shadow: 0 20px 60px rgba(41, 40, 54, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bt-white);
+  color: var(--bt-text);
+  font-family: "Urbanist", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-shell {
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  background: #fff;
+  border-bottom: 1px solid rgba(235, 231, 222, 0.9);
+}
+
+.site-header__inner {
+  width: min(1600px, calc(100% - 48px));
+  min-height: 94px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.social-links {
+  display: flex;
+  gap: 8px;
+  margin-left: 4px;
+  padding-left: 30px;
+  border-left: 1px solid var(--bt-line);
+}
+
+.social-links a {
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bt-red-strong);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.main-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.main-nav a {
+  padding: 16px 18px;
+  color: var(--bt-dark);
+  font-size: 15px;
+  font-weight: 700;
+  transition: color 180ms ease;
+}
+
+.main-nav a:hover {
+  color: var(--bt-red);
+}
+
+.header-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-left: 24px;
+  border-left: 1px solid var(--bt-line);
+  line-height: 1.2;
+}
+
+.header-contact span {
+  color: var(--bt-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.header-contact strong {
+  color: var(--bt-dark);
+  font-size: 18px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.book-link {
+  background: var(--bt-dark);
+  color: #fff;
+  padding: 18px 28px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.book-link:hover {
+  background: var(--bt-red);
+  transform: translateY(-2px);
+}
+
+.mobile-menu {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  background: var(--bt-red);
+  padding: 12px;
+}
+
+.mobile-menu span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: #fff;
+}
+
+.hero-wrap {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+
+.hero {
+  position: relative;
+  width: min(1200px, 100%);
+  height: 726px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2025/11/WhatsApp-Image-2025-11-16-at-4.06.51-PM.jpeg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.24);
+  z-index: -1;
+}
+
+.hero__content {
+  width: min(1120px, calc(100% - 48px));
+  color: #fff;
+  text-align: center;
+  transform: translateY(-4px);
+}
+
+.hero__content p {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: clamp(54px, 7.2vw, 98px);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.hero__content h1 {
+  margin: 0;
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: clamp(58px, 8vw, 110px);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 16px 28px;
+  border: 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--light {
+  background: #fff;
+  color: var(--bt-dark);
+}
+
+.btn--light:hover {
+  background: var(--bt-red);
+  color: #fff;
+}
+
+.btn--dark {
+  background: var(--bt-dark);
+  color: #fff;
+}
+
+.btn--dark:hover {
+  background: var(--bt-red);
+}
+
+.search-panel {
+  position: relative;
+  z-index: 5;
+  width: min(1200px, calc(100% - 30px));
+  margin: -150px auto 0;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.search-panel__form {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr 1fr 1fr 1fr 0.86fr 100px;
+  align-items: stretch;
+  min-height: 104px;
+  background: #fff;
+}
+
+.search-panel__form label {
+  position: relative;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  padding: 15px 28px 15px 40px;
+  border-right: 1px solid #e2dfeb;
+}
+
+.search-panel__form label::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bt-red);
+  transform: translateY(-50%);
+  opacity: 0.78;
+}
+
+.search-panel__form span,
+.booking-grid span {
+  color: var(--bt-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none;
+}
+
+.search-panel__form input,
+.search-panel__form select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--bt-dark);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0;
+  appearance: none;
+}
+
+.search-panel__form input::placeholder {
+  color: var(--bt-dark);
+  opacity: 1;
+}
+
+.search-panel__form button {
+  min-width: 100px;
+  min-height: 104px;
+  border: 0;
+  background: var(--bt-red);
+  color: #fff;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.section-pad {
+  padding: 120px 0;
+}
+
+.section-pad--cream {
+  background: var(--bt-cream);
+}
+
+.section-title {
+  width: min(690px, 100%);
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.section-title--left {
+  margin-left: 0;
+  text-align: left;
+}
+
+.section-title img {
+  width: 88px;
+  height: 38px;
+  margin: 0 auto 10px;
+  padding: 0 25px 8px;
+  object-fit: contain;
+  border-bottom: 2px solid var(--bt-red);
+}
+
+.section-title--left img {
+  margin-left: 0;
+}
+
+.section-title span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--bt-red);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.section-title h2 {
+  margin: 0;
+  color: var(--bt-dark);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: clamp(40px, 4.6vw, 60px);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.section-title p {
+  margin: 0;
+  padding-top: 20px;
+  color: var(--bt-text);
+}
+
+.about,
+.why,
+.highlights,
+.amenities {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about.section-pad {
+  padding-top: 120px;
+}
+
+.about__media {
+  position: relative;
+  min-height: 650px;
+  padding-right: 60px;
+}
+
+.about__single {
+  position: relative;
+  max-width: 600px;
+}
+
+.about__single::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120px;
+  width: 190px;
+  height: 644px;
+  background: url("https://blacktowerhotelsasaba.com/wp-content/themes/boliin/assets/images/about-shape.png") no-repeat left bottom;
+  pointer-events: none;
+}
+
+.about__primary {
+  position: relative;
+  padding-right: 150px;
+}
+
+.about__image-inner {
+  position: relative;
+  display: inline-block;
+}
+
+.about__image-inner::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: -40px;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  pointer-events: none;
+}
+
+.about__image-inner img,
+.about__circle-inner img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.about__logo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 92px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--bt-red);
+  animation: aboutFloat 2.5s linear infinite;
+}
+
+.about__logo img {
+  width: 70px;
+}
+
+.about__secondary {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  z-index: 2;
+  max-width: 60%;
+}
+
+.about__secondary::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about__circle-inner {
+  position: relative;
+  width: 335px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 43px rgba(0, 0, 0, 0.1);
+}
+
+.about__copy h3 {
+  margin: -4px 0 35px;
+  color: var(--bt-red);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+@keyframes aboutFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.rooms {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bt-cream);
+  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2022/12/bg-shape-01.png"), url("https://blacktowerhotelsasaba.com/wp-content/uploads/2022/12/bg-shape-02.png");
+  background-position: left top, right bottom;
+  background-repeat: no-repeat;
+}
+
+.rooms .section-title {
+  margin-bottom: 46px;
+}
+
+.room-grid {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.room-card {
+  max-width: 550px;
+  margin: 0 auto;
+  background: transparent;
+  transition: transform 0.35s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+}
+
+.room-card__image {
+  position: relative;
+  min-height: 90px;
+  height: 355px;
+  overflow: hidden;
+  background: var(--bt-dark);
+}
+
+.room-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(41, 40, 54, 0.46), transparent 58%);
+  opacity: 0.92;
+  transition: opacity 0.35s ease;
+}
+
+.room-card:hover .room-card__image::after {
+  opacity: 0.55;
+}
+
+.room-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.room-card:hover .room-card__image img {
+  transform: scale(1.08);
+}
+
+.room-card__badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 10px;
+  background: var(--bt-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.room-card__body {
+  position: relative;
+  z-index: 3;
+  margin-top: -16px;
+  padding: 25px 30px 34px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(23, 39, 54, 0.1);
+}
+
+.room-card__rating {
+  height: 22px;
+  color: var(--bt-red);
+  font-size: 13px;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.room-card__body h3 {
+  margin: 5px 0 10px;
+  color: var(--bt-dark);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+.room-card__body p {
+  margin: 0;
+  color: var(--bt-text);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.room-card__meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 12px 16px;
+  background: var(--bt-cream);
+  color: var(--bt-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.room-card__meta span {
+  position: relative;
+  white-space: nowrap;
+}
+
+.room-card__meta span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  width: 1px;
+  height: 14px;
+  background: #dfd7ca;
+  transform: translateY(-50%);
+}
+
+.room-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--bt-line);
+}
+
+.room-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.room-card__price small,
+.room-card__price em {
+  color: var(--bt-text);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.room-card__price strong {
+  color: var(--bt-red);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.room-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 16px 22px;
+  background: var(--bt-dark);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.room-card__button:hover {
+  background: var(--bt-red);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.why {
+  display: grid;
+  grid-template-columns: 0.95fr 1.4fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.why.section-pad {
+  width: 100%;
+  margin: 0;
+  padding-left: max(24px, calc((100vw - 1200px) / 2));
+  padding-right: max(24px, calc((100vw - 1200px) / 2));
+  background-color: #fff;
+  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2023/02/bg-01.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.video-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+  padding: 15px 22px 15px 15px;
+  background: #fff;
+  box-shadow: var(--bt-shadow);
+}
+
+.video-pill span {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bt-red);
+  color: #fff;
+}
+
+.video-pill strong,
+.video-pill small {
+  display: block;
+}
+
+.video-pill strong {
+  color: var(--bt-dark);
+  font-size: 18px;
+}
+
+.video-pill small {
+  color: var(--bt-red);
+  font-weight: 700;
+}
+
+.why__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.why__cards article {
+  min-height: 275px;
+  padding: 48px 40px 36px;
+  background-color: #fff;
+  background-image: url("https://blacktowerhotelsasaba.com/wp-content/uploads/2023/10/bg-iconbox.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
+}
+
+.why__cards span {
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bt-red);
+  color: #fff;
+  font-weight: 900;
+}
+
+.why__cards h3 {
+  margin: 0 0 14px;
+  color: var(--bt-dark);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.why__cards p {
+  margin: 0;
+}
+
+.service-band {
+  min-height: 330px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  color: #fff;
+  background: var(--bt-dark);
+}
+
+.service-band > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 70px max(24px, calc((100vw - 1200px) / 2));
+  background-image: linear-gradient(rgba(41, 40, 54, 0.76), rgba(41, 40, 54, 0.76)), url("https://blacktowerhotelsasaba.com/wp-content/uploads/2025/11/bg-021.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.service-band > div:last-child {
+  padding: 70px max(24px, calc((100vw - 1200px) / 2)) 70px 70px;
+  background: var(--bt-red);
+}
+
+.service-band h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.service-band h4 {
+  margin: 0 0 25px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.service-band img {
+  width: 420px;
+  max-width: 100%;
+}
+
+.service-band ul {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-band li {
+  position: relative;
+  padding-left: 26px;
+  margin: 12px 0;
+  font-weight: 700;
+}
+
+.service-band li::before,
+.highlights li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: currentColor;
+  font-weight: 900;
+}
+
+.gallery-track {
+  width: min(1500px, calc(100% - 24px));
+  margin: 0 auto;
+  display: grid;
+  grid-auto-columns: minmax(210px, 1fr);
+  grid-auto-flow: column;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 0 12px 20px;
+  scrollbar-width: thin;
+}
+
+.gallery-track img {
+  width: 260px;
+  height: 315px;
+  object-fit: cover;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.highlights ul {
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  list-style: none;
+}
+
+.highlights li {
+  position: relative;
+  break-inside: avoid;
+  margin: 0 0 18px;
+  padding-left: 28px;
+  color: var(--bt-dark);
+  font-weight: 800;
+}
+
+.highlights li::before {
+  color: var(--bt-red);
+}
+
+.highlights__image {
+  position: relative;
+}
+
+.highlights__image p {
+  position: absolute;
+  left: -45px;
+  top: 40px;
+  z-index: 2;
+  width: 290px;
+  margin: 0;
+  padding: 30px;
+  background: #fff;
+  color: var(--bt-dark);
+  box-shadow: var(--bt-shadow);
+  font-weight: 700;
+}
+
+.highlights__image img {
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+}
+
+.counter-band {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  background-image: linear-gradient(rgba(41, 40, 54, 0.78), rgba(41, 40, 54, 0.78)), url("https://blacktowerhotelsasaba.com/wp-content/uploads/2023/02/bg-05.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.counter-band strong {
+  display: block;
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: clamp(70px, 8vw, 125px);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.counter-band strong span {
+  color: var(--bt-red);
+}
+
+.counter-band p {
+  margin: 14px 0 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.testimonial-grid {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-grid article {
+  min-height: 310px;
+  padding: 44px 38px 36px;
+  background: #fff;
+  border: 1px solid var(--bt-line);
+  box-shadow: 0 12px 45px rgba(41, 40, 54, 0.06);
+}
+
+.stars {
+  margin-bottom: 18px;
+  color: var(--bt-red);
+  letter-spacing: 0.12em;
+}
+
+.testimonial-grid p {
+  margin: 0 0 28px;
+}
+
+.testimonial-grid h4 {
+  margin: 0;
+  color: var(--bt-dark);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.amenities {
+  display: grid;
+  grid-template-columns: 0.9fr 0.9fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.amenities__image-card {
+  position: relative;
+}
+
+.amenities__image-card > img {
+  width: 100%;
+  min-height: 620px;
+  object-fit: cover;
+}
+
+.amenities__image-card > div {
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 34px;
+  padding: 28px;
+  background: #fff;
+  box-shadow: var(--bt-shadow);
+}
+
+.amenities__image-card h2 {
+  margin: 0 0 6px;
+  color: var(--bt-dark);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.amenities__image-card p,
+.amenities__copy p {
+  margin: 0;
+}
+
+.amenities__copy article {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--bt-line);
+}
+
+.amenities__copy h3 {
+  margin: 0 0 8px;
+  color: var(--bt-dark);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.booking-card {
+  padding: 42px 36px;
+  background: var(--bt-dark);
+  color: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--bt-shadow);
+}
+
+.booking-card__eyebrow {
+  margin-bottom: 4px;
+  color: var(--bt-red);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.booking-card h3 {
+  margin: 0 0 24px;
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.booking-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-grid span {
+  color: #fff;
+  font-size: 12px;
+}
+
+.booking-grid input,
+.booking-grid select,
+.booking-grid textarea,
+.newsletter input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  outline: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 13px 14px;
+}
+
+.booking-grid select option {
+  color: var(--bt-dark);
+}
+
+.booking-grid textarea {
+  resize: vertical;
+}
+
+.booking-grid__wide {
+  grid-column: 1 / -1;
+}
+
+.booking-card__button {
+  width: 100%;
+  margin-top: 20px;
+  background: var(--bt-red);
+}
+
+.booking-card__button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.booking-status {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  font-weight: 700;
+}
+
+.booking-status--success {
+  background: rgba(24, 156, 92, 0.16);
+  color: #b7f7d4;
+}
+
+.booking-status--error {
+  background: rgba(232, 95, 76, 0.16);
+  color: #ffd3cd;
+}
+
+.footer {
+  color: rgba(255, 255, 255, 0.72);
+  background: var(--bt-footer);
+}
+
+.footer__grid {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.7fr 1fr 1fr;
+  gap: 50px;
+  padding: 95px 0 70px;
+}
+
+.footer__logo {
+  width: 158px;
+  margin-bottom: 24px;
+}
+
+.footer h3 {
+  margin: 0 0 24px;
+  color: #fff;
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.footer p {
+  margin: 0 0 20px;
+}
+
+.footer a:not(.btn) {
+  display: block;
+  margin: 0 0 12px;
+  transition: color 180ms ease;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer strong {
+  color: #fff;
+}
+
+.newsletter {
+  display: flex;
+  gap: 0;
+  margin-bottom: 12px;
+}
+
+.newsletter input {
+  min-width: 0;
+}
+
+.newsletter button {
+  border: 0;
+  background: var(--bt-red);
+  color: #fff;
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.footer__bottom {
+  width: min(1200px, calc(100% - 48px));
+  min-height: 74px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__bottom nav {
+  display: flex;
+  gap: 22px;
+}
+
+@media (max-width: 1180px) {
+  .site-header__inner {
+    min-height: 82px;
+  }
+
+  .social-links,
+  .header-contact,
+  .book-link {
+    display: none;
+  }
+
+  .main-nav {
+    margin-left: auto;
+  }
+
+  .search-panel__form {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .search-panel__form button {
+    min-height: 104px;
+  }
+
+  .amenities {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .amenities__booking {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 980px) {
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    margin-left: auto;
+  }
+
+  .about,
+  .why,
+  .highlights,
+  .amenities,
+  .service-band,
+  .footer__grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why.section-pad {
+    gap: 46px;
+  }
+
+  .about__media {
+    min-height: 540px;
+  }
+
+  .room-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-band > div:last-child {
+    padding-left: max(24px, calc((100vw - 1200px) / 2));
+  }
+
+  .highlights__image p {
+    left: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header__inner,
+  .hero__content,
+  .search-panel,
+  .room-grid,
+  .testimonial-grid,
+  .footer__grid,
+  .footer__bottom,
+  .about,
+  .highlights,
+  .amenities {
+    width: min(100% - 28px, 1200px);
+  }
+
+  .hero {
+    width: 100%;
+    height: 560px;
+  }
+
+  .search-panel {
+    margin-top: -70px;
+  }
+
+  .search-panel__form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-panel__form label {
+    border-right: 0;
+    border-bottom: 1px solid var(--bt-line);
+  }
+
+  .section-pad {
+    padding: 82px 0;
+  }
+
+  .about {
+    gap: 34px;
+  }
+
+  .about__media {
+    min-height: auto;
+    padding-right: 0;
+  }
+
+  .about__single::before {
+    display: none;
+  }
+
+  .about__primary {
+    padding-right: 0;
+  }
+
+  .about__image-inner::before {
+    top: 18px;
+    left: -12px;
+  }
+
+  .about__secondary {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    max-width: 82%;
+    margin: -80px 0 0 auto;
+  }
+
+  .about__circle-inner {
+    width: min(335px, 100%);
+  }
+
+  .about__logo {
+    width: 92px;
+    height: 92px;
+  }
+
+  .about__logo img {
+    width: 70px;
+  }
+
+  .room-grid,
+  .why__cards,
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-card__image {
+    height: 330px;
+  }
+
+  .room-card__body {
+    padding: 24px 22px 30px;
+  }
+
+  .room-card__meta,
+  .room-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .room-card__meta span:not(:last-child)::after {
+    display: none;
+  }
+
+  .room-card__button {
+    width: 100%;
+  }
+
+  .service-band {
+    min-height: auto;
+  }
+
+  .service-band > div:first-child,
+  .service-band > div:last-child {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .highlights ul {
+    columns: 1;
+  }
+
+  .highlights__image p {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    margin-bottom: 20px;
+  }
+
+  .amenities__image-card > img {
+    min-height: 420px;
+  }
+
+  .footer__grid {
+    gap: 34px;
+    padding: 70px 0 50px;
+  }
+
+  .footer__bottom {
+    min-height: auto;
+    padding: 26px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer__bottom nav {
+    flex-wrap: wrap;
+  }
+}
