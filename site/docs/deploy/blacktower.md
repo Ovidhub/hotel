@@ -108,6 +108,18 @@ HOTEL_EMAIL=contact@blacktowerhotelsasaba.com
 HOTEL_ADDRESS="78 Anwai Road, Asaba, Delta State, Nigeria"
 HOTEL_CANONICAL=https://blacktowerhotelsasaba.com
 
+# ── SEO / structured-data identity (schema.org, sitemap, OG) ──
+HOTEL_DESCRIPTION="Black Tower Hotels Asaba offers premium comfort, elegant rooms, and exceptional hospitality in Asaba, Delta State."
+HOTEL_STREET="78 Anwai Road"
+HOTEL_CITY=Asaba
+HOTEL_REGION="Delta State"
+HOTEL_COUNTRY=NG
+# HOTEL_POSTAL=            # set if known
+# Coordinates for 78 Anwai Road, Asaba (update to the exact location):
+HOTEL_GEO_LAT=6.2059
+HOTEL_GEO_LNG=6.7261
+HOTEL_MAPS_URL="https://www.google.com/maps?q=Black+Tower+Hotels+Asaba"
+
 # ── Database (the dedicated DB created in §0.3 — NOT the Benizia one) ──
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -228,15 +240,13 @@ Check all of the following on `https://blacktowerhotelsasaba.com`:
       leaked to the old WordPress host instead of the localized
       `public/img/themes/blacktower/` copy).
 - [ ] `view-source:` the homepage and spot-check the canonical `<link>` /
-      Open Graph / sitemap URLs — **known limitation:** `config('hotel.canonical')`
-      in `config/hotel.php` is currently hardcoded to `https://hotelbenizia.ng`
-      and is not env-driven, so `sitemap.xml`, `robots.txt`, and SEO
-      canonical/OG tags on this deploy will emit Benizia's domain instead of
-      `blacktowerhotelsasaba.com` until that's fixed in code. This does not
-      break rendering but is a real SEO defect for the Black Tower site —
-      flag it for a follow-up code change (make `canonical` an
-      `env('HOTEL_CANONICAL', ...)` value) before relying on organic search
-      for Black Tower.
+      Open Graph / sitemap / JSON-LD schema URLs — they should all show
+      `blacktowerhotelsasaba.com` and Black Tower's address/description/geo.
+      These are env-driven (`HOTEL_CANONICAL`, `HOTEL_DESCRIPTION`,
+      `HOTEL_STREET`/`HOTEL_CITY`/`HOTEL_REGION`/`HOTEL_COUNTRY`,
+      `HOTEL_GEO_LAT`/`HOTEL_GEO_LNG`, `HOTEL_MAPS_URL`), so confirm those
+      are set in this deploy's `.env` (§4). The JSON-LD `image` list is
+      theme-aware and points at `/img/themes/blacktower/*` automatically.
 
 ---
 

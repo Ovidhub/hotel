@@ -4,27 +4,40 @@
         ->values()
         ->all();
 
+    $base  = rtrim(config('hotel.canonical', 'https://hotelbenizia.ng'), '/');
+    $theme = config('hotel.theme', 'default');
+
+    // Images: the default (Benizia) theme keeps its property shots; a named
+    // theme advertises its own local images. Built from the canonical host.
+    $images = $theme === 'default'
+        ? [
+            $base . '/img/property/hotel-exterior.webp',
+            $base . '/img/property/hotel-pool.webp',
+            $base . '/img/property/hotel-compound.webp',
+            $base . '/img/property/hotel-entrance.webp',
+        ]
+        : [
+            $base . '/img/themes/' . $theme . '/hero-bg.webp',
+            $base . '/img/themes/' . $theme . '/why-bg.webp',
+            $base . '/img/themes/' . $theme . '/amenities-bg.webp',
+        ];
+
     $data = [
         '@context' => 'https://schema.org',
         '@type'    => ['Hotel', 'LodgingBusiness'],
         'name'     => config('hotel.name', 'Hotel Benizia'),
-        'url'      => config('hotel.canonical', 'https://hotelbenizia.ng'),
+        'url'      => $base,
         'telephone' => config('hotel.phone_href', '+2348134062487'),
         'email'    => config('hotel.email', 'hotelbenizia66@gmail.com'),
-        'description' => 'Hotel Benizia is a luxury hotel and serviced apartments in Asaba, Delta State, offering premium rooms, short-let apartments, a 24-hour restaurant and bar, swimming pool, spa, and event halls.',
-        'image' => [
-            'https://hotelbenizia.ng/img/property/hotel-exterior.webp',
-            'https://hotelbenizia.ng/img/property/hotel-pool.webp',
-            'https://hotelbenizia.ng/img/property/hotel-compound.webp',
-            'https://hotelbenizia.ng/img/property/hotel-entrance.webp',
-        ],
+        'description' => config('hotel.description'),
+        'image' => $images,
         'address' => [
             '@type'          => 'PostalAddress',
-            'streetAddress'  => '1 Kingsley Emu Street',
-            'addressLocality' => 'Asaba',
-            'addressRegion'  => 'Delta State',
-            'addressCountry' => 'NG',
-            'postalCode'     => '320242',
+            'streetAddress'  => config('hotel.street_address', '1 Kingsley Emu Street'),
+            'addressLocality' => config('hotel.address_locality', 'Asaba'),
+            'addressRegion'  => config('hotel.address_region', 'Delta State'),
+            'addressCountry' => config('hotel.address_country', 'NG'),
+            'postalCode'     => config('hotel.postal_code', '320242'),
         ],
         'geo' => [
             '@type'     => 'GeoCoordinates',

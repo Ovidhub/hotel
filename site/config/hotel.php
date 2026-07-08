@@ -17,9 +17,17 @@ return [
     'email' => 'hbapartment1@gmail.com',
   ],
   'canonical' => env('HOTEL_CANONICAL', 'https://hotelbenizia.ng'),
-  // Approximate coordinates for Central Area, Asaba, Delta State (used in local-SEO schema).
-  'geo' => ['lat' => 6.1980, 'lng' => 6.7290],
-  'maps_url' => 'https://www.google.com/maps?q=Hotel+Benizia+Asaba',
+  // One-line description used in local-SEO / structured data.
+  'description' => env('HOTEL_DESCRIPTION', 'Hotel Benizia is a luxury hotel and serviced apartments in Asaba, Delta State, offering premium rooms, short-let apartments, a 24-hour restaurant and bar, swimming pool, spa, and event halls.'),
+  // Structured postal address parts (schema.org PostalAddress).
+  'street_address'   => env('HOTEL_STREET', '1 Kingsley Emu Street'),
+  'address_locality' => env('HOTEL_CITY', 'Asaba'),
+  'address_region'   => env('HOTEL_REGION', 'Delta State'),
+  'address_country'  => env('HOTEL_COUNTRY', 'NG'),
+  'postal_code'      => env('HOTEL_POSTAL', '320242'),
+  // Approximate coordinates (used in local-SEO schema). Env-driven per hotel.
+  'geo' => ['lat' => (float) env('HOTEL_GEO_LAT', 6.1980), 'lng' => (float) env('HOTEL_GEO_LNG', 6.7290)],
+  'maps_url' => env('HOTEL_MAPS_URL', 'https://www.google.com/maps?q=Hotel+Benizia+Asaba'),
   'socials' => [
     'facebook' => '#','twitter' => '#','instagram' => '#','youtube' => '#','pinterest' => '#',
   ],
