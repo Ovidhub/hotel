@@ -34,7 +34,7 @@
     </div>
     <div class="amenities__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Room details</span>
             <h2>{{ $room->name }}</h2>
         </div>
@@ -60,7 +60,7 @@
 @if(count($galleryUrls) > 1)
 <section class="gallery section-pad section-pad--cream">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <h2>Room Gallery</h2>
     </div>
     <div class="gallery-track">
@@ -77,7 +77,7 @@
 @if($similar->isNotEmpty())
 <section class="rooms section-pad">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <span>You may also like</span>
         <h2>Similar Rooms</h2>
     </div>

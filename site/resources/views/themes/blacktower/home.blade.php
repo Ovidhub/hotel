@@ -72,22 +72,22 @@
         <div class="about__single">
             <div class="about__primary">
                 <div class="about__image-inner">
-                    <img src="{{ asset('img/themes/blacktower/about-lounge.webp') }}" alt="{{ config('hotel.name') }} lounge">
+                    <img src="{{ asset('img/themes/blacktower/tour-2.webp') }}" alt="{{ config('hotel.name') }} lounge">
                 </div>
                 <div class="about__logo">
-                    <img src="{{ asset('img/themes/blacktower/emblem.webp') }}" alt="{{ config('hotel.name') }} emblem">
+                    <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="{{ config('hotel.name') }} emblem">
                 </div>
             </div>
             <div class="about__secondary">
                 <div class="about__circle-inner">
-                    <img src="{{ asset('img/themes/blacktower/about-room.webp') }}" alt="{{ config('hotel.name') }} guest room">
+                    <img src="{{ asset('img/themes/blacktower/tour-3.webp') }}" alt="{{ config('hotel.name') }} guest room">
                 </div>
             </div>
         </div>
     </div>
     <div class="about__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Welcome to {{ config('hotel.name') }}</span>
             <h2>Discover True Comfort &amp; Elegance</h2>
             <p>your perfect getaway for relaxation, business, and unforgettable moments. Enjoy premium comfort, world-class service, and a serene environment designed just for you.</p>
@@ -102,7 +102,7 @@
 ════════════════════════════════════════════════════════════════ --}}
 <section id="rooms" class="rooms section-pad section-pad--cream">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <span>Featured rooms</span>
         <h2>Discover Our Rooms</h2>
     </div>
@@ -151,7 +151,7 @@
 <section class="why section-pad">
     <div class="why__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Why Guests Choose Us</span>
             <h2>Why Choose Us</h2>
             <p>At Black Tower Hotel, we are more than just a place to stay, we are a destination where comfort, service, and unforgettable experiences come together. Whether you&rsquo;re visiting for business, relaxation, or a romantic getaway, we provide everything you need to feel welcomed, valued, and truly at home.</p>
@@ -195,7 +195,6 @@
     <div>
         <h2>Discover True Comfort &amp; Elegance</h2>
         <h4>Experience Comfort Exceptional Hospitality</h4>
-        <img src="{{ asset('img/themes/blacktower/line.png') }}" alt="">
     </div>
     <div>
         <h2>24/7 Room<br>Services</h2>
@@ -212,7 +211,7 @@
 ════════════════════════════════════════════════════════════════ --}}
 <section class="gallery section-pad">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <h2>Our Gallery</h2>
     </div>
     <div class="gallery-track">
@@ -228,7 +227,7 @@
 <section class="highlights section-pad section-pad--cream">
     <div class="highlights__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>our benefits</span>
             <h2>Hotel Highlights</h2>
             <p>At Black Tower Hotel, we combine comfort, convenience, and exceptional service to give you a memorable stay.</p>
@@ -259,7 +258,7 @@
 ════════════════════════════════════════════════════════════════ --}}
 <section class="testimonials section-pad">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <span>Customers reviews</span>
         <h2>What They&rsquo;re Saying?</h2>
     </div>
@@ -287,7 +286,7 @@
     </div>
     <div class="amenities__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Hotel Amenities</span>
             <h2>Inspired Incentives</h2>
         </div>

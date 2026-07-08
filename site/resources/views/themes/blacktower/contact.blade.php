@@ -32,7 +32,7 @@
     </div>
     <div class="amenities__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Get in touch</span>
             <h2>We&rsquo;d Love to Hear From You</h2>
         </div>
@@ -94,7 +94,7 @@
 ════════════════════════════════════════════════════════════════ --}}
 <section id="booking" class="rooms section-pad section-pad--cream">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <span>Reserve your stay</span>
         <h2>Ready For Your Stay?</h2>
     </div>

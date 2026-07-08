@@ -24,7 +24,7 @@
 ════════════════════════════════════════════════════════════════ --}}
 <section id="rooms" class="rooms section-pad">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <span>Rooms &amp; suites</span>
         <h2>Find Your Perfect Stay</h2>
     </div>

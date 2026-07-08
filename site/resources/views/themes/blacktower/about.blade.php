@@ -27,22 +27,22 @@
         <div class="about__single">
             <div class="about__primary">
                 <div class="about__image-inner">
-                    <img src="{{ asset('img/themes/blacktower/about-lounge.webp') }}" alt="{{ config('hotel.name') }} lounge">
+                    <img src="{{ asset('img/themes/blacktower/tour-2.webp') }}" alt="{{ config('hotel.name') }} lounge">
                 </div>
                 <div class="about__logo">
-                    <img src="{{ asset('img/themes/blacktower/emblem.webp') }}" alt="{{ config('hotel.name') }} emblem">
+                    <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="{{ config('hotel.name') }} emblem">
                 </div>
             </div>
             <div class="about__secondary">
                 <div class="about__circle-inner">
-                    <img src="{{ asset('img/themes/blacktower/about-room.webp') }}" alt="{{ config('hotel.name') }} guest room">
+                    <img src="{{ asset('img/themes/blacktower/tour-3.webp') }}" alt="{{ config('hotel.name') }} guest room">
                 </div>
             </div>
         </div>
     </div>
     <div class="about__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Welcome to {{ config('hotel.name') }}</span>
             <h2>Our Story</h2>
             <p>{{ config('hotel.name') }} is your destination for premium comfort, world-class service, and unforgettable moments. Since opening our doors, we have welcomed guests visiting for business, leisure, and everything in between, offering a serene environment designed just for you.</p>
@@ -58,7 +58,7 @@
 <section class="why section-pad section-pad--cream">
     <div class="why__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>Why Guests Choose Us</span>
             <h2>What Sets Us Apart</h2>
             <p>At {{ config('hotel.name') }}, we are more than just a place to stay, we are a destination where comfort, service, and unforgettable experiences come together. Whether you&rsquo;re visiting for business, relaxation, or a romantic getaway, we provide everything you need to feel welcomed, valued, and truly at home.</p>
@@ -101,7 +101,7 @@
 <section class="highlights section-pad">
     <div class="highlights__copy">
         <div class="section-title section-title--left">
-            <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+            <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
             <span>our benefits</span>
             <h2>Hotel Highlights</h2>
             <p>At {{ config('hotel.name') }}, we combine comfort, convenience, and exceptional service to give you a memorable stay.</p>
@@ -132,7 +132,7 @@
 ════════════════════════════════════════════════════════════════ --}}
 <section class="testimonials section-pad section-pad--cream">
     <div class="section-title">
-        <img src="{{ asset('img/themes/blacktower/icon-heading.png') }}" alt="">
+        <img src="{{ asset('img/themes/blacktower/logo.png') }}" alt="">
         <span>Customers reviews</span>
         <h2>What They&rsquo;re Saying?</h2>
     </div>
