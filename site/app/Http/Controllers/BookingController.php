@@ -38,7 +38,7 @@ class BookingController extends Controller
             Carbon::today()->addYear(),
         );
 
-        return view('booking.create', [
+        return view(theme_view('booking.create'), [
             'bookable'          => $bookable,
             'type'              => $type,
             'price'             => $bookable->price,
@@ -122,6 +122,6 @@ class BookingController extends Controller
 
         $balanceNote = config('hotel.booking.balance_note');
 
-        return view('checkout.success', compact('booking', 'balanceNote'));
+        return view(theme_view('checkout.success'), compact('booking', 'balanceNote'));
     }
 }

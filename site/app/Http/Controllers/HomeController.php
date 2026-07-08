@@ -62,6 +62,6 @@ class HomeController extends Controller
             ],
         ];
 
-        return view('home', compact('rooms', 'apartments', 'testimonials', 'posts', 'facilities'));
+        return view(theme_view('home'), compact('rooms', 'apartments', 'testimonials', 'posts', 'facilities'));
     }
 }

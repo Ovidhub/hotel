@@ -35,6 +35,6 @@ class RestaurantController extends Controller
             ],
         ];
 
-        return view('restaurant', compact('menu'));
+        return view(theme_view('restaurant'), compact('menu'));
     }
 }

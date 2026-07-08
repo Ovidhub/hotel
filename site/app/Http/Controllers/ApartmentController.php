@@ -10,11 +10,11 @@ class ApartmentController extends Controller
     {
         $apartments = Apartment::where('is_active', true)->orderBy('sort')->get();
 
-        return view('apartments.index', compact('apartments'));
+        return view(theme_view('apartments.index'), compact('apartments'));
     }
 
     public function show(Apartment $apartment)
     {
-        return view('apartments.show', compact('apartment'));
+        return view(theme_view('apartments.show'), compact('apartment'));
     }
 }

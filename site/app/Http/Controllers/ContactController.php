@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return view('contact');
+        return view(theme_view('contact'));
     }
 
     public function store(StoreMessageRequest $request)

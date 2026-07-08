@@ -6,6 +6,6 @@ class EventController extends Controller
 {
     public function index()
     {
-        return view('events');
+        return view(theme_view('events'));
     }
 }

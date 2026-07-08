@@ -10,7 +10,7 @@ class BlogController extends Controller
     {
         $posts = BlogPost::where('published_at', '<=', now())->orderByDesc('published_at')->get();
 
-        return view('blog.index', compact('posts'));
+        return view(theme_view('blog.index'), compact('posts'));
     }
 
     public function show(BlogPost $post)
@@ -21,6 +21,6 @@ class BlogController extends Controller
             ->take(3)
             ->get();
 
-        return view('blog.show', compact('post', 'related'));
+        return view(theme_view('blog.show'), compact('post', 'related'));
     }
 }

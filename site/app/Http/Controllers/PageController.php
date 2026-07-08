@@ -11,13 +11,13 @@ class PageController extends Controller
     {
         $testimonials = Testimonial::orderBy('id')->take(6)->get();
 
-        return view('about', compact('testimonials'));
+        return view(theme_view('about'), compact('testimonials'));
     }
 
     public function faq()
     {
         $faqs = Faq::orderBy('sort')->get();
 
-        return view('faq', compact('faqs'));
+        return view(theme_view('faq'), compact('faqs'));
     }
 }

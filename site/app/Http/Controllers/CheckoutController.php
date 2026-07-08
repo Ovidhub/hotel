@@ -25,7 +25,7 @@ class CheckoutController extends Controller
         $booking->load('bookable');
         $balanceNote = config('hotel.booking.balance_note');
 
-        return view('checkout.index', compact('booking', 'paymentMethods', 'balanceNote'));
+        return view(theme_view('checkout.index'), compact('booking', 'paymentMethods', 'balanceNote'));
     }
 
     /**

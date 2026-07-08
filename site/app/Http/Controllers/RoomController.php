@@ -10,7 +10,7 @@ class RoomController extends Controller
     {
         $rooms = Room::where('is_active', true)->orderBy('sort')->get();
 
-        return view('rooms.index', compact('rooms'));
+        return view(theme_view('rooms.index'), compact('rooms'));
     }
 
     public function show(Room $room)
@@ -21,6 +21,6 @@ class RoomController extends Controller
             ->take(3)
             ->get();
 
-        return view('rooms.show', compact('room', 'similar'));
+        return view(theme_view('rooms.show'), compact('room', 'similar'));
     }
 }

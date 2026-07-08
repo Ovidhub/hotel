@@ -10,6 +10,6 @@ class GalleryController extends Controller
     {
         $apartments = Apartment::where('is_active', true)->orderBy('sort')->get();
 
-        return view('gallery', compact('apartments'));
+        return view(theme_view('gallery'), compact('apartments'));
     }
 }
