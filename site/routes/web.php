@@ -125,6 +125,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('messages/{message}', [\App\Http\Controllers\Admin\MessageController::class, 'show'])->name('messages.show');
     Route::delete('messages/{message}', [\App\Http\Controllers\Admin\MessageController::class, 'destroy'])->name('messages.destroy');
 
+    // Booking inquiries (index, show, destroy — no create/edit)
+    Route::get('booking-inquiries', [\App\Http\Controllers\Admin\BookingInquiryController::class, 'index'])->name('booking-inquiries.index');
+    Route::get('booking-inquiries/{bookingInquiry}', [\App\Http\Controllers\Admin\BookingInquiryController::class, 'show'])->name('booking-inquiries.show');
+    Route::delete('booking-inquiries/{bookingInquiry}', [\App\Http\Controllers\Admin\BookingInquiryController::class, 'destroy'])->name('booking-inquiries.destroy');
+
     // Site settings (WhatsApp float, etc.)
     Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('settings');
     Route::put('settings', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
