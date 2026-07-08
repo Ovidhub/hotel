@@ -239,6 +239,10 @@ Check all of the following on `https://blacktowerhotelsasaba.com`:
       404s pointing at `wp-content`** (that would mean an image reference
       leaked to the old WordPress host instead of the localized
       `public/img/themes/blacktower/` copy).
+- [ ] Confirm the routes Black Tower doesn't offer return **404** (not Benizia
+      content): visit `/restaurant`, `/apartments`, `/gallery`, `/events`,
+      `/blog`, `/faq` — each should 404. This is enforced automatically by the
+      `RestrictThemeRoutes` middleware whenever `THEME` is a non-default theme.
 - [ ] `view-source:` the homepage and spot-check the canonical `<link>` /
       Open Graph / sitemap / JSON-LD schema URLs — they should all show
       `blacktowerhotelsasaba.com` and Black Tower's address/description/geo.

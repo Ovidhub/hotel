@@ -14,6 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => \App\Http\Middleware\EnsureAdmin::class,
         ]);
+
+        // 404 the routes a non-default theme doesn't implement (no-op for Benizia).
+        $middleware->web(append: [
+            \App\Http\Middleware\RestrictThemeRoutes::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
