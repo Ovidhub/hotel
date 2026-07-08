@@ -6,7 +6,7 @@
     $btBookingUrl = route('rooms.index');
 @endphp
 
-<header class="site-header">
+<header class="site-header" x-data="{ navOpen: false }">
     <div class="site-header__inner">
         <a class="logo" href="#home" aria-label="{{ $btName }} home">
             {{ $btName }}
@@ -23,11 +23,11 @@
         </div>
         @endif
 
-        <nav class="main-nav" aria-label="Primary navigation">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="{{ route('rooms.index') }}">Rooms</a>
-            <a href="#contact">Contact</a>
+        <nav class="main-nav" :class="{ 'is-open': navOpen }" aria-label="Primary navigation">
+            <a href="#home" @click="navOpen = false">Home</a>
+            <a href="#about" @click="navOpen = false">About</a>
+            <a href="{{ route('rooms.index') }}" @click="navOpen = false">Rooms</a>
+            <a href="#contact" @click="navOpen = false">Contact</a>
         </nav>
 
         <a class="header-contact" href="tel:{{ $btPhoneHref }}">
@@ -39,7 +39,13 @@
             Book Your Stay
         </a>
 
-        <button type="button" class="mobile-menu" aria-label="Open menu">
+        <button
+            type="button"
+            class="mobile-menu"
+            @click="navOpen = !navOpen"
+            :aria-expanded="navOpen.toString()"
+            aria-label="Toggle menu"
+        >
             <span></span>
             <span></span>
             <span></span>
