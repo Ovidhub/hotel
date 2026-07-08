@@ -1,11 +1,12 @@
 <?php
 return [
-  'name' => 'Hotel Benizia',
-  'tagline' => 'Luxury in the heart of Asaba',
-  'phone' => '+234 813 406 2487',
-  'phone_href' => '+2348134062487',
-  'email' => 'hotelbenizia66@gmail.com',
-  'address' => '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State',
+  'name' => env('HOTEL_NAME', 'Hotel Benizia'),
+  'tagline' => env('HOTEL_TAGLINE', 'Luxury in the heart of Asaba'),
+  'phone' => env('HOTEL_PHONE', '+234 813 406 2487'),
+  'phone_href' => env('HOTEL_PHONE_HREF', '+2348134062487'),
+  'email' => env('HOTEL_EMAIL', 'hotelbenizia66@gmail.com'),
+  'address' => env('HOTEL_ADDRESS', '1 Kingsley Emu Street, Central Area, Asaba 320242, Delta State'),
+  'theme' => env('THEME', 'default'),
   // Check-in / check-out times (site-wide policy).
   'check_in' => '2:00 PM',
   'check_out' => '12:00 noon',
